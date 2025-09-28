@@ -203,10 +203,24 @@ prevC2 = None
 
 start_decision = W-1
 end_decision = T-2             # we need tau+1 for targets
-LIMIT_WINDOWS = 60             # DEMO: last 60 decision months; set to None for full run
+
+# ============================================================================
+# BACKTESTING PERIOD CONFIGURATION
+# ============================================================================
+# Set LIMIT_WINDOWS to control the backtesting period:
+#   - None: Use full available data (260+ months from 2002-12 to 2024-09)
+#   - 60: Use last 60 months only (2019-08 to 2024-09) - faster for testing
+#   - Any integer: Use last N months
+# ============================================================================
+LIMIT_WINDOWS = None  # Use full period for maximum backtesting range
+# LIMIT_WINDOWS = 60  # Uncomment this line to use only last 60 months (faster)
+
 decision_indices = list(range(start_decision, end_decision+1))
 if LIMIT_WINDOWS is not None:
     decision_indices = decision_indices[-LIMIT_WINDOWS:]
+    print(f"Using last {LIMIT_WINDOWS} months for backtesting")
+else:
+    print(f"Using full period: {len(decision_indices)} months for backtesting")
 
 for t_end in decision_indices:
     t_start = t_end - (W-1)

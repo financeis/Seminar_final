@@ -85,27 +85,66 @@ def align_to_macro_calendar(
         R_aligned = R_aligned.dropna(axis=0, how="any")
     return R_aligned
 
-# ====================== DEMO (synthetic data ONLY to show behavior) ======================
-# Replace this block with loading your real daily prices:
-# prices = pd.read_csv("/path/to/your/etf_daily_prices.csv")  # expects date,ticker,adj_close columns
+# ====================== REAL DATA using yfinance ======================
+# Import yfinance for fetching real ETF data
+try:
+    import yfinance as yf
+except ImportError:
+    print("Installing yfinance...")
+    import subprocess
+    subprocess.check_call(["pip", "install", "yfinance"])
+    import yfinance as yf
 
-def _make_synth_prices():
-    # Roughly match real inception timing (Sector SPDRs ~1998-12-16; SPY ~1993-01-29)
-    rng = np.random.default_rng(7)
-    dates = pd.bdate_range("1993-01-01", "2024-10-31", freq="C")
-    inception = {
-        "SPY":"1993-01-29",
-        "XLB":"1998-12-16","XLE":"1998-12-16","XLF":"1998-12-16","XLI":"1998-12-16",
-        "XLK":"1998-12-16","XLP":"1998-12-16","XLU":"1998-12-16","XLV":"1998-12-16","XLY":"1998-12-16"
-    }
+def _fetch_real_prices():
+    """
+    Fetch real daily adjusted close prices for the 10 ETFs using yfinance.
+    Returns DataFrame with columns: date, ticker, adj_close
+    """
+    # Define start date (earliest ETF inception is SPY in 1993, but sectors started in 1998)
+    start_date = "1993-01-01"
+    end_date = "2024-10-31"
+
     rows = []
     for tkr in TICKERS:
-        start = pd.Timestamp(inception[tkr])
-        d = dates[dates >= start]
-        r = rng.normal(0, 0.01, size=len(d))
-        px = 100.0 * np.exp(np.cumsum(r))
-        rows.append(pd.DataFrame({"date": d, "ticker": tkr, "adj_close": px}))
-    return pd.concat(rows, ignore_index=True)
+        try:
+            # Download data for each ticker
+            print(f"Downloading {tkr}...")
+            ticker = yf.Ticker(tkr)
+            data = ticker.history(start=start_date, end=end_date, auto_adjust=True)
+
+            if not data.empty:
+                # Reset index to get date as column
+                data = data.reset_index()
+                # Create dataframe in expected format
+                # Use 'Close' column since auto_adjust=True gives adjusted prices
+                ticker_df = pd.DataFrame({
+                    "date": data["Date"],
+                    "ticker": tkr,
+                    "adj_close": data["Close"]
+                })
+                rows.append(ticker_df)
+                print(f"  Downloaded {len(ticker_df)} days of data for {tkr}")
+            else:
+                print(f"Warning: No data retrieved for {tkr}")
+
+        except Exception as e:
+            print(f"Error downloading {tkr}: {e}")
+            # Skip this ticker if download fails
+            continue
+
+    if rows:
+        print(f"\nTotal ETF data rows: {sum(len(r) for r in rows)}")
+        return pd.concat(rows, ignore_index=True)
+    else:
+        raise RuntimeError("Failed to download any ETF data")
+
+# For backward compatibility, keep the old function name but use real data
+def _make_synth_prices():
+    """
+    This function now fetches real prices instead of synthetic data.
+    Keeping the name for compatibility with existing code.
+    """
+    return _fetch_real_prices()
 
 # Demo run
 macro_calendar = load_macro_calendar_from_section3()
@@ -127,3 +166,8 @@ print("\nHead (aligned):")
 print(R_aligned.head(5).to_string(index=True))
 print("\nTail (aligned):")
 print(R_aligned.tail(5).to_string(index=True))
+
+
+print("ETF BoM raw:", R_bom.index.min(), "→", R_bom.index.max(), R_bom.shape)
+print("ETF BoM aligned (10 tickers only):", R_aligned.index.min(), "→", R_aligned.index.max(), R_aligned.shape)
+

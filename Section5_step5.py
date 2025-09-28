@@ -2,14 +2,6 @@
 # Inputs: section5_step4_longonly_weights.csv + etf_bom_returns_aligned_demo.csv
 # Outputs: section5_step5_longonly_backtest_returns.csv + ..._metrics.csv
 # Faithful to Eq. (18) sizing and Sec. 5.4 metrics.
-#
-# ============================================================================
-# BACKTESTING PERIOD CONFIGURATION:
-# The backtesting period is determined by Section5_step2.py LIMIT_WINDOWS setting:
-#   - LIMIT_WINDOWS = None: Full period (260+ months, 2002-2024)
-#   - LIMIT_WINDOWS = 60: Last 60 months only (2019-2024)
-# To change the period, modify LIMIT_WINDOWS in Section5_step2.py and rerun steps 2-4
-# ============================================================================
 
 import pandas as pd, numpy as np, math
 from pathlib import Path
