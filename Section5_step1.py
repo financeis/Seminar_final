@@ -216,15 +216,17 @@ for end_idx in range(W-1, T-1):
     probs = probs/probs.sum() if probs.sum()>0 else np.eye(r+1)[hard[-1]]
     hard_label_t = int(np.argmax(probs))
 
-    # Transition matrix E_t (Eq. (5)) with self-loop fallback
+    # Transition matrix E_t (Eq. (5)) with self-loop fallback # 수정했음. (대각행렬 정규화)
     K = r+1
     E = np.zeros((K,K), float)
     for a in range(W-1):
         E[hard[a], hard[a+1]] += 1.0
     for i in range(K):
         s = E[i].sum()
-        E[i,i] = 1.0 if s==0 else E[i,i]/s
-        if s>0: E[i,:] /= s
+        if s == 0:
+            E[i,i] = 1.0  # Self-loop if no transitions
+        else:
+            E[i,:] /= s   # Normalize row to get probabilities
 
     p_t = probs
     p_tp1 = p_t @ E  # Eq. (7)
