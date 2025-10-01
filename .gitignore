@@ -1,0 +1,29 @@
+# CSV files (except raw data)
+*.csv
+!FRED-MD_2024m12.csv
+
+# PNG files
+*.png
+
+# PyCharm
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
