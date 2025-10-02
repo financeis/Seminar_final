@@ -121,6 +121,8 @@ python etc_visualize_transition_matrix.py
 
 5. **실시간 구현 제약**: 이 구현은 과거 데이터를 활용한 백테스팅에 중점을 두고 있어, 실시간 거래 시스템으로의 전환을 위해서는 추가적인 개발이 필요합니다.
 
+6. **Ridge 모형의 조건부확률(EQ.12)이 Regime_t인지, Regime_t+1인지 불분명해서 Regime_t로 설정함**: 학습 데이터의 손실 때문에 논문에서는 Regime_t라고 두고 모형을 작성한 것처럼 보이기는 한다. 관련 지식이 부족해서 모르겠다..
+
 ## 참고문헌
 
 "Tactical Asset Allocation with Macroeconomic Regime Detection" (Oliveira et al., 2025)에 설명된 방법론 기반
