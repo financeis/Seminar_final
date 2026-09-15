@@ -84,3 +84,23 @@ def test_fixed_snapshot_release_is_not_user_selectable(tmp_path):
     p.write_text('[data]\nfixed_vintage="2022-02"\n')
     with pytest.raises(ResearchError, match='invalid_config'):
         load_config(p)
+
+
+def test_suite_randomness_and_block_settings(tmp_path):
+    p = tmp_path/'suite.toml'
+    p.write_text('[suite]\nbootstrap_seed=17\nauxiliary_seed=31\nbootstrap_sensitivity_blocks=[6,24]\n')
+    settings = load_config(p).suite
+    assert (settings.bootstrap_seed, settings.auxiliary_seed) == (17, 31)
+    assert settings.bootstrap_sensitivity_blocks == (6, 24)
+    assert len(settings.sensitivity_variants) == 16
+
+
+@pytest.mark.parametrize('setting', ['bootstrap_seed=-1', 'auxiliary_seed=-1',
+    'bootstrap_seed=true', 'bootstrap_sensitivity_blocks=[6,6]',
+    'bootstrap_sensitivity_blocks=[0,24]', 'bootstrap_sensitivity_blocks=[]',
+    'sensitivity_variants=["future"]', 'sensitivity_variants=["lag_1","lag_1"]', 'sensitivity_variants=[]'])
+def test_suite_randomness_and_block_settings_reject_invalid(tmp_path, setting):
+    p = tmp_path/'suite.toml'
+    p.write_text('[suite]\n'+setting+'\n')
+    with pytest.raises(ResearchError, match='invalid_config'):
+        load_config(p)
