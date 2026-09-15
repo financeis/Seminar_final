@@ -184,6 +184,41 @@ def test_incomplete_provider_fails_before_acquisition(tmp_path, monkeypatch, pin
     assert (directory/'SPY.csv').read_text() == 'incomplete original'
 
 
+@pytest.mark.parametrize('damaged_bytes', [b'd', b'evil'])
+def test_unselected_damaged_snapshot_fails_before_acquisition(tmp_path, monkeypatch, damaged_bytes):
+    from regime_alloc.data import acquisition
+    from regime_alloc.data.io import stage_provider,publish_provider
+    stage,destination = stage_provider(tmp_path,'yahoo')
+    manifest = complete_manifest(stage)
+    manifest['files'][0]['path'] = 'raw/yahoo/x.csv'
+    publish_provider(stage,destination,manifest)
+    damaged = tmp_path/manifest['files'][0]['path']
+    damaged.write_bytes(damaged_bytes)
+    calls=[]
+    def unexpected(*args,**kwargs):
+        calls.append(True)
+        raise AssertionError('a damaged unselected snapshot must prevent acquisition')
+    monkeypatch.setattr(acquisition,'acquire_yahoo',unexpected)
+    config = DataConfig(root=tmp_path,yahoo_source=tmp_path/'absent',yahoo_dataset_id='0'*64)
+    with pytest.raises(ResearchError,match='hash_mismatch'):
+        acquisition.acquire(config)
+    assert not calls
+    assert damaged.read_bytes() == damaged_bytes
+
+
+def test_provider_integrity_accepts_unchanged_legacy_metadata(tmp_path):
+    import hashlib
+    from regime_alloc.data.io import require_complete_provider
+    directory = tmp_path/'raw/yahoo'/('1'*64)
+    directory.mkdir(parents=True)
+    (directory/'SPY.csv').write_bytes(b'legacy source')
+    manifest = {'files':[{'path':f'raw/yahoo/{directory.name}/SPY.csv','bytes':13,'sha256':hashlib.sha256(b'legacy source').hexdigest()}]}
+    (directory/'dataset_manifest.json').write_text(json.dumps(manifest))
+    # Older metadata need not meet the new schema/provenance requirements for
+    # inventory checking; the underlying original bytes must still verify.
+    require_complete_provider(tmp_path,'yahoo')
+
+
 @pytest.mark.parametrize('research_object', [False, True])
 def test_validation_config_requires_all_three_pinned_ids(tmp_path, monkeypatch, research_object):
     from regime_alloc.config import ResearchConfig

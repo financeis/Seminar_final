@@ -162,8 +162,8 @@ def write_parser_provenance(stage: Path, provider: str, *, previous_dataset_id: 
 def require_complete_provider(data_root: Path | str, provider: str) -> None:
     """Detect unfinished snapshots before acquisition; never repair their files.
 
-    Only completion and file presence are inspected for unselected snapshots.
-    The selected snapshot undergoes the full current contract/hash validation,
+    Completion, byte counts and hashes are inspected for every snapshot.
+    The selected snapshot also undergoes the full current metadata contract,
     allowing preserved older metadata-schema snapshots to coexist.
     """
     directory = Path(data_root)/'raw'/provider
@@ -191,6 +191,10 @@ def require_complete_provider(data_root: Path | str, provider: str) -> None:
             target = confined_path(data_root,entry['path'])
             if not target.is_relative_to(snapshot.resolve()) or not target.is_file():
                 incomplete(f'file absent/outside snapshot: {entry["path"]}')
+            if type(entry.get('bytes')) is not int or entry['bytes'] < 0 or not isinstance(entry.get('sha256'),str) or not re.fullmatch('[0-9a-f]{64}',entry['sha256']):
+                incomplete(f'byte count/hash absent or invalid: {entry["path"]}')
+            if target.stat().st_size != entry['bytes'] or sha256_file(target) != entry['sha256']:
+                raise ResearchError(ErrorCode.HASH_MISMATCH, f'existing snapshot changed: {target}; acquisition refused')
 
 
 def manifest_record(*, provider: str, source_urls: list[str], retrieved_at: str, request_parameters: dict, library_versions: dict, files: list[dict], tickers: tuple | list = (), coverage: dict, quality: dict, warnings: list) -> dict:
