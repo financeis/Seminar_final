@@ -15,7 +15,12 @@ __pycache__/
 *.so
 .Python
 env/
-venv/
+venv
+.venv-research
+.pytest_cache/
+data/raw/
+data/cache/
+artifacts/
 ENV/
 env.bak/
 venv.bak/
