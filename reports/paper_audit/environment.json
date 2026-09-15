@@ -1,7 +1,7 @@
 {
   "baseline_commit": "9439107b31f20c4b731ec1dc29f13c178beb311d",
   "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
-  "executable": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\runtime\\Scripts\\python.exe",
+  "executable": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
   "platform": "Windows-10-10.0.26200-SP0",
   "packages": {
     "numpy": "1.26.4",
