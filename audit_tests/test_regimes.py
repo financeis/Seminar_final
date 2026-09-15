@@ -100,10 +100,10 @@ def valid(p):
     return bool(np.isfinite(p).all() and np.min(p) >= 0 and abs(np.sum(p) - 1) < TOL)
 
 
-def original_combine(repo, scope, p0, typical):
+def original_combine(repo, scope, p0, typical, *, return_state=False):
     state = dict(scope, P_reg0=p0, p_stage2=np.array(typical), r=len(typical), hard=np.array([0]))
     block(repo, S1, 211, 217, state)
-    return state['probs']
+    return state if return_state else state['probs']
 
 
 def original_aggregate(repo, p, predictions):
@@ -182,13 +182,17 @@ def run(repo: Path, output: Path) -> list[dict]:
 
     stage1_scope = dict(s3, X_full=np.array([[0.,0.]]), C2=np.array([[1.,0.],[3.,0.]]))
     block(repo,S3,291,292,stage1_scope)
-    dl2 = np.array([np.linalg.norm(np.array([0.,0.])-c) for c in stage1_scope['C2']])
+    rolling_stage1 = dict(s1, scores=np.array([[0.,0.]]), cen2=np.array([[1.,0.],[3.,0.]]), outlier_id=0)
+    block(repo,S1,202,205,rolling_stage1)
     add(3, 'L2 distance is square-rooted before probability conversion',
-        close(stage1_scope['D2'], [[1,3]]) and close(s1['fuzzy_probs_from_dist'](dl2), [.75,.25]),
-        {'L2_probability':[.75,.25],'squared_distance_probability':[.9,.1]},
-        {'Section3_distance':stage1_scope['D2'], 'Step1_probability':s1['fuzzy_probs_from_dist'](dl2),
-         'counterfactual_squared':eq1(dl2**2)}, refs=[ref(repo,S3,lines=(285,297)),ref(repo,S1,lines=(202,205))],
-        inputs={'x':[0,0],'centers':[[1,0],[3,0]]}, oracle='Distances 1,3 versus squared distances 1,9.')
+        close(stage1_scope['D2'], [[1,3]]) and close(rolling_stage1['d1'],[1,3]) and
+        close(rolling_stage1['p_stage1'],[.75,.25]) and close(rolling_stage1['P_reg0'],.75),
+        {'L2_distances':[1,3],'L2_probability':[.75,.25],'P_reg0':.75,'squared_distance_probability':[.9,.1]},
+        {'Section3_distance':stage1_scope['D2'], 'Step1_distance':rolling_stage1['d1'],
+         'Step1_probability':rolling_stage1['p_stage1'],'Step1_P_reg0':rolling_stage1['P_reg0'],
+         'counterfactual_squared':eq1([1,9])}, refs=[ref(repo,S3,lines=(285,297)),ref(repo,S1,lines=(202,205))],
+        inputs={'scores':[[0,0]],'centers':[[1,0],[3,0]],'outlier_id':0},
+        oracle='Independent hand values: distances 1,3 yield [.75,.25] and P_reg0=.75; squared distances 1,9 yield [.9,.1].')
 
     ptyp = [.6,.4]
     vals = [0.,.25,.5,.75,1.]
@@ -220,10 +224,12 @@ def run(repo: Path, output: Path) -> list[dict]:
         oracle='Sum(d)=0 and K=1 invalidate the original denominator.', classification='implementation_choice',
         notes=['Step1 all-zero chooses first minimum; Section3 all-zero chooses uniform. Neither is the unique paper-defined answer.'])
     zero_dist = s1['cosine_distance_matrix'](np.zeros((1,2)),np.array([[1.,0.],[0.,1.]]))
-    tie = original_combine(repo,s1,.5,[.5,.5])
+    tie_state = original_combine(repo,s1,.5,[.5,.5],return_state=True)
+    tie = tie_state['probs']
     add(7,'Zero-vector cosine and hard-label ties are deterministic conventions',
-        close(zero_dist,[[1,1]]) and int(tie.argmax())==0,
-        {'zero_vector_distances':[[1,1]],'tie_argmax':0}, {'distances':zero_dist,'tie_probs':tie,'argmax':tie.argmax()},
+        close(zero_dist,[[1,1]]) and tie_state['hard_label_t']==0,
+        {'zero_vector_distances':[[1,1]],'hard_label_t':0},
+        {'distances':zero_dist,'tie_probs':tie,'original_hard_label_t':tie_state['hard_label_t']},
         refs=[ref(repo,S1,'cosine_distance_matrix'),ref(repo,S1,lines=(211,217))],
         inputs={'x':[0,0],'centers':[[1,0],[0,1]],'p0':.5,'typical':[.5,.5]},
         oracle='Cosine at zero is mathematically undefined; norm floor implies distance=1. np.argmax takes first tie.',
