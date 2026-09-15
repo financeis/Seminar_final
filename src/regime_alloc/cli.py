@@ -13,6 +13,11 @@ def main(argv=None):
     for action in ("acquire", "validate"):
         sub = actions.add_parser(action)
         sub.add_argument("--config", required=True)
+    run = commands.add_parser('run', help='고정 원자료로 독립 백테스트 실행')
+    run.add_argument('--config', required=True)
+    run.add_argument('--output', required=True)
+    run.add_argument('--smoke', action='store_true', help='최초·2020-04·마지막 평가월의 독립 통합 검사')
+    run.add_argument('--no-cache', action='store_true', help='이전 실행 캐시를 읽지 않음 (항상 적용되는 기본 정책)')
     args = parser.parse_args(argv)
     if args.command is None:
         parser.print_help()
@@ -22,10 +27,13 @@ def main(argv=None):
     from .contracts import ResearchError, canonical_json
 
     try:
-        from . import data as providers
-
         config = load_config(args.config)
-        result = getattr(providers, args.action)(config)
+        if args.command == 'run':
+            from .backtest.engine import run_research
+            result = run_research(config, args.output, smoke=args.smoke, use_prior_cache=False)
+        else:
+            from . import data as providers
+            result = getattr(providers, args.action)(config)
         print(canonical_json(result))
         return 0
     except ResearchError as exc:
