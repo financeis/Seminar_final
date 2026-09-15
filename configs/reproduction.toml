@@ -59,4 +59,3 @@ auxiliary_seed = 1
 sensitivity_variants = ["lag_1", "lag_3", "missing_rate_005", "ffill_limit_0", "pca_090", "pca_099", "fallback_regime_mean", "validation_forward", "cov_shrink_0", "cov_shrink_025", "omega_scale_05", "omega_scale_2", "cost_10bp", "cost_25bp", "gross_cap_1", "vol_lookback_12"]
 representative_strategy = "lo"
 representative_size = 2
-sensitivity_lags = [1, 2, 3]

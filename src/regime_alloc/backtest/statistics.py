@@ -9,7 +9,6 @@ combine seed variability with independent time-series sampling uncertainty.
 from __future__ import annotations
 import math
 import numpy as np
-from scipy.stats import t as student_t, norm
 from ..contracts import SCHEMA_VERSION, ErrorCode, ResearchError
 from ..data.calendar import month_range
 
@@ -31,6 +30,9 @@ def holm(pvalues):
 
 
 def paired_tests(treatment, control):
+    # SciPy's import may inspect the OS with a subprocess on Windows. Keep
+    # that initialization inside explicit statistical execution, never import.
+    from scipy.stats import t as student_t, norm
     if len(treatment) != len(control):
         raise ResearchError(ErrorCode.MISSING_DATA, 'paired metric lengths differ')
     valid, excluded = [], []
