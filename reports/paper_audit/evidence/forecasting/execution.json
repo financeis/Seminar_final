@@ -1,0 +1,43 @@
+{
+  "started_at_utc": "2026-09-15T16:20:01.377703+00:00",
+  "finished_at_utc": "2026-09-15T16:20:02.879561+00:00",
+  "command": [
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\runtime\\Scripts\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "audit_tests.test_forecasting"
+  ],
+  "interpreter_reported_orig_argv": [
+    "C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\python.exe",
+    "-X",
+    "utf8",
+    "-m",
+    "audit_tests.test_forecasting"
+  ],
+  "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T5",
+  "exit_code": 0,
+  "stdout": "Forecasting diagnostics completed: {'PASS': 11, 'FAIL': 5}\nFAIL records are retained diagnostic findings; execution completed successfully.\n",
+  "stderr": "",
+  "counts": {
+    "PASS": 11,
+    "FAIL": 5
+  },
+  "versions": {
+    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "sklearn": "1.9.1"
+  },
+  "source_sha256": {
+    "Section5_step2.py": "ec5799bc00e0435396b1625ad4eedd579bd2c7d7497deb4da8b338010ec75f98",
+    "Section5_step3.py": "24b1486486e7f4d98f9e6912af7f5ffe6f5a4ea3f163d82a833574366038963c",
+    "Section5_step4.py": "d15509d1fc0106be3a15eaa5336df30540e9ca939e8fa45c17545c9df4ba6c11"
+  },
+  "audit_sha256": "20c31de4504a8e6644228d2162deead19c717f5cd2d71fbf41d100afef7a95f5",
+  "artifact_sha256": {
+    "fixtures.json": "eeb5b290d8d6747dcd4e7cd6c7931d6ae1e1f9685fef53e86027e758448f8dd2",
+    "results.json": "924a60ecc94b19da2a471c594ae710f32474d1a57287bee693a3a17a62d65816"
+  },
+  "semantics": "exit 0 means diagnostic run completed; FAIL does not make the runner fail."
+}
