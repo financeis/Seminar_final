@@ -594,7 +594,7 @@ def make_notes(desc, deleted, gaps, jumps, counterexample, future_delta, boundar
 
 - 원 CSV는 1959-01~2024-11, 791개월·121변수다. 실행은 변환 **전에** 1978-07~2024-09의 {desc['raw_rows']}행으로 자른다. 따라서 최초 1/2개월 차분 자료를 경계 밖 역사로 채우지 않는다.
 - 그룹 처리 후 후보 {len(desc['candidate_variables'])}변수 → 내부 결측 비율 2% 초과 비보호변수 제거 → 남은 변수 {len(desc['retained_variables'])}개 → complete-case {desc['retained_rows']}개월이다. 시작 {desc['retained_start']:%Y-%m}, 끝 {desc['retained_end']:%Y-%m}. 삭제된 달 전체 {len(desc['deleted_months'])}개와 달별 결측 원인은 `panel.json`에 있다.
-- 실제 기간 내부 삭제월: {dates}. README의 1992년 시작·2020년 4월 설명과 실제 결과를 분리해야 한다. 코드에 2020년 4월만 수동 삭제하는 문장은 없다. 로그/차분의 결측 전파도 다음 달을 없앨 수 있다.
+- 실제 기간 내부 삭제월: {dates}. README의 1992년 시작·2020년 4월 설명과 실제 결과를 분리해야 한다. 코드에 2020년 4월만 수동 삭제하는 문장은 없다. 제공 CSV의 4월 CP3Mx·COMPAPFFx가 결측이며, CP3Mx의 t-code 2 차분이 5월까지 결측을 전파한다. 해당 raw 결측을 누가 언제 만들었는지는 이 스냅샷만으로 확정할 수 없다.
 - 그룹6 중 실제 유지 {len(desc['retained_group6'])}개: {', '.join(desc['retained_group6'])}. 논문 p.7의 그룹6 제외와 다르다.
 - 내부 gap 정책으로 제거된 변수: {', '.join(desc['removed_gap_variables']) or '없음'}.
 - 실제 유지 변수: {', '.join(desc['retained_variables'])}.
