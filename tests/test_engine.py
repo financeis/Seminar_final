@@ -33,6 +33,74 @@ def actual_config():
 
 
 @pytest.mark.real_data
+def test_public_vintage_inner_month_cache_and_deep_copies(actual_config, monkeypatch):
+    from regime_alloc.backtest import engine
+    context = ExecutionContext(actual_config)
+    def forbidden(*args, **kwargs): raise AssertionError('vintage access must not fit a model')
+    monkeypatch.setattr(engine, 'build_feature_window', forbidden)
+    monkeypatch.setattr(engine, 'build_window_state', forbidden)
+    first = context.vintage(actual_config, '2001-01')
+    assert first.vintage_month == '2000-11'
+    assert pd.Timestamp(first.assumed_available_at) < pd.Timestamp('2001-01-02T09:00:00-05:00')
+    expected_values = first.values.copy(deep=True)
+    expected_codes = first.tcodes.copy(deep=True)
+    expected_groups = first.groups.copy(deep=True)
+    first.values.iloc[0, 0] = 987654321.
+    first.tcodes.iloc[0] = 7
+    first.groups.iloc[0] = 6
+    first.metadata['test_mutation'] = ['changed']
+    series = first.values.columns[0]
+    first.metadata[series]['observed_vintages'].append('2999-01')
+    again = context.vintage(actual_config, '2001-01')
+    pd.testing.assert_frame_equal(again.values, expected_values)
+    pd.testing.assert_series_equal(again.tcodes, expected_codes)
+    pd.testing.assert_series_equal(again.groups, expected_groups)
+    assert 'test_mutation' not in again.metadata
+    assert '2999-01' not in again.metadata[series]['observed_vintages']
+    assert context.counts['raw_reads'] == 1
+    assert context.counts['states_computed'] == context.counts['models_computed'] == 0
+    fixed = replace(actual_config, research=replace(actual_config.research, profile='fixed_snapshot'))
+    release = context.vintage(fixed, '2001-01')
+    assert release.vintage_month == '2023-02'
+    assert pd.Timestamp(release.assumed_available_at) == pd.Timestamp('2023-04-01T00:00:00-04:00')
+    delayed = replace(actual_config, research=replace(actual_config.research, lag_months=3))
+    assert context.vintage(delayed, '2001-01').vintage_month == '2000-10'
+    assert context.counts['raw_reads'] == 3
+
+
+@pytest.mark.real_data
+def test_public_vintage_and_outer_state_share_one_loader(actual_config):
+    context = ExecutionContext(actual_config)
+    release = context.vintage(actual_config, '2003-02')
+    with threadpool_limits(1):
+        state = context.state(actual_config, '2003-02')
+    assert release.vintage_month == state.ledger['vintage_month']
+    assert context.counts['raw_reads'] == 1 and context.counts['states_computed'] == 1
+    context._vintages = (*context._vintages, '2099-01')
+    with pytest.raises(ResearchError, match='vintage catalog'):
+        context.vintage(actual_config, '2001-01')
+
+
+@pytest.mark.real_data
+def test_public_vintage_rejects_foreign_identity_and_cache_tampering(actual_config):
+    context = ExecutionContext(actual_config)
+    original = context.vintage(actual_config, '2001-01')
+    other = context.vintage(actual_config, '2001-02')
+    key = ('2000-11', 2)
+    saved = context._raw[key]
+    context._raw[key] = other
+    with pytest.raises(ResearchError, match='macro cache'):
+        context.vintage(actual_config, '2001-01')
+    context._raw[key] = saved
+    foreign = replace(actual_config, data=replace(actual_config.data, fred_dataset_id='0' * 64))
+    with pytest.raises(ResearchError, match='dataset identity'):
+        context.vintage(foreign, '2001-01')
+    context._raw[key].metadata['tampered'] = True
+    with pytest.raises(ResearchError, match='macro cache'):
+        context.vintage(actual_config, '2001-01')
+
+
+@pytest.mark.real_data
 @pytest.mark.parametrize('profile', ['fixed_snapshot', 'vintage_lagged'])
 def test_actual_smoke_complete_accounting_offline(actual_config, profile, tmp_path, monkeypatch):
     def offline(*a, **k): raise AssertionError('network forbidden')
