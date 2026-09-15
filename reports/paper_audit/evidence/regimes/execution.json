@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\runtime\\Scripts\\python.exe",
+    "-m",
+    "audit_tests.test_regimes"
+  ],
+  "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T4",
+  "exit_code": 1,
+  "elapsed_seconds": 1.7372793999966234,
+  "stdout": "REG-001 PASS: Independent equations (1), (4), (5), (7) hand self-check\nREG-002 PASS: Equation (1): finite nonnegative normalized probabilities on valid distances\nREG-003 PASS: L2 distance is square-rooted before probability conversion\nREG-004 PASS: Equations (2)-(4), (6): ordinary p0 and equality at 0.5\nREG-005 PASS: p0 endpoints: epsilon clipping differs from the exact limit\nREG-006 PASS: Identical centers and insufficient normal clusters: unspecified Eq (1) boundaries\nREG-007 PASS: Zero-vector cosine and hard-label ties are deterministic conventions\nREG-008 PASS: Algorithm 1 equal-sized first-stage groups and normal-count padding\nREG-009 FAIL: Section3 k-means++ initialization on identical vectors\nREG-010 PASS: Eq (5): counts, last-month denominator and empty row in both source paths\nREG-011 PASS: Eq (7): row-origin/column-destination direction and probability conservation\nREG-012 FAIL: Section3 absent intermediate regime creates nonfinite transition row\nREG-013 FAIL: PCA sign_flip: identical physical centroids retain identity only after basis alignment\nREG-014 FAIL: PCA quarter_turn: identical physical centroids retain identity only after basis alignment\nREG-015 FAIL: Changed PCA dimension: truncation does not establish a common coordinate system\nREG-016 PASS: Dimension reduction may also destroy identity information\nREG-017 PASS: Eq (14) simultaneous permutation invariance and one-sided permutation counterexample\nREG-018 FAIL: Actual identical FRED 48-row inputs: Step1/2 regime identifiers and partitions\nREG-019 FAIL: Original Ridge and Step3 aggregation: consequence of unmapped regime identifiers\nREG-020 PASS: Actual bounded windows: returned cluster labels agree with returned centers\nREG-021 PASS: Calendar clipping and independent matching histories have different first anchors\nREG-022 FAIL: Actual source connection does not carry partition identity across Step1→Step2→Step3\nSummary: {\"FAIL\": 8, \"PASS\": 14}\n",
+  "stderr": "",
+  "sha256": {
+    "audit_tests/test_regimes.py": "9e7216c30eb02d95a8e8c6de286aa650e9f3b5dc59079c29bcb6b9c753d2194a",
+    "Section3.py": "0df543cd1b3ff0b1e41380665210e85323e36f34fb700b809a123f8d5065002e",
+    "Section5_step1.py": "599351a474ccc12455980f9a934be5e2c4380c90de3152c6570312d8045ae98d",
+    "Section5_step2.py": "ec5799bc00e0435396b1625ad4eedd579bd2c7d7497deb4da8b338010ec75f98",
+    "Section5_step3.py": "24b1486486e7f4d98f9e6912af7f5ffe6f5a4ea3f163d82a833574366038963c",
+    "FRED-MD_2024m12.csv": "7494b30c6a3acbe46a9f9029e63db7cca6a5dd9dac0111e2f8d02ef62482f195",
+    "reports/paper_audit/methodology.md": "e3f1e6908c908140e94226b953f3d449a18f4bd6cb96b894fb9740b1e8541469",
+    "reports/paper_audit/evidence/inventory/manifest.json": "36b0d9b3a040ded7b342b47479ff59bc0fdb9d982762056dba96f67492cb5d2a"
+  },
+  "exit_semantics": "1 means at least one original-code property FAIL; no original file was patched."
+}
