@@ -6,6 +6,7 @@ Only the rolling window adapter imposes the research's 48-row contract.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from copy import deepcopy
 import hashlib
 from pathlib import Path
 from collections.abc import Mapping, Sequence
@@ -78,6 +79,9 @@ class FittedPreprocessor:
     folds); held-out rows inside the fit span cannot alter training imputation.
     inverse_transform reconstructs selected, t-code-transformed variables in
     their original units, not the raw levels before differencing/log transforms.
+    Every calculation, scope check and save verifies the complete fitted-state
+    digest. Public metadata/array inspection cannot silently modify computation
+    under an existing ID; changing a policy requires fitting a new object.
     """
     metadata: dict
     _arrays: dict[str, np.ndarray]
@@ -129,7 +133,17 @@ class FittedPreprocessor:
     def n_components(self) -> int:
         return self.components.shape[0]
 
+    def _verify_integrity(self) -> None:
+        try:
+            valid = (self.metadata.get('feature_hash') == self.feature_hash and
+                     self.transform_hash == _digest(self.metadata, self._arrays))
+        except (ResearchError, TypeError, ValueError, AttributeError) as exc:
+            raise ResearchError(ErrorCode.HASH_MISMATCH, 'fitted state changed after fitting; fit a new object') from exc
+        if not valid:
+            raise ResearchError(ErrorCode.HASH_MISMATCH, 'fitted state changed after fitting; fit a new object')
+
     def require_scope(self, scope: str) -> None:
+        self._verify_integrity()
         if self.metadata['scope'] != scope:
             raise ResearchError(ErrorCode.PARTITION_MISMATCH,
                                 f"preprocessor scope is {self.metadata['scope']}, expected {scope}")
@@ -150,6 +164,7 @@ class FittedPreprocessor:
 
     @property
     def fit_result(self) -> FeatureResult:
+        self._verify_integrity()
         index = pd.Index(self.fit_months, name='base_month')
         frames = [pd.DataFrame(self._arrays[name].copy(), index=index, columns=self.columns)
                   for name in ('fit_imputed', 'fit_observed', 'fit_ffill', 'fit_median')]
@@ -157,6 +172,7 @@ class FittedPreprocessor:
 
     def transform(self, transformed: pd.DataFrame, months: Sequence[str] | None = None,
                   *, expected_scope: str | None = None) -> FeatureResult:
+        self._verify_integrity()
         if expected_scope is not None:
             self.require_scope(expected_scope)
         values = _frame(transformed)
@@ -178,6 +194,7 @@ class FittedPreprocessor:
         return self._result(*parts)
 
     def inverse_transform(self, scores: pd.DataFrame | np.ndarray) -> pd.DataFrame:
+        self._verify_integrity()
         values = np.asarray(scores, dtype=float)
         if values.ndim != 2 or values.shape[1] != self.n_components:
             raise ResearchError(ErrorCode.INVALID_CONFIG, 'PCA inverse input has an incompatible component dimension')
@@ -190,11 +207,10 @@ class FittedPreprocessor:
 
     def save(self, directory: str | Path) -> dict:
         """Write UTF-8 JSON plus finite numeric NPZ, never pickle or overwrite."""
+        self._verify_integrity()
         directory = Path(directory)
         if any((directory / name).exists() for name in ('preprocessor.json', 'model.npz')):
             raise ResearchError(ErrorCode.RUN_CONFLICT, f'preprocessor output already exists: {directory}')
-        if self.transform_hash != _digest(self.metadata, self._arrays):
-            raise ResearchError(ErrorCode.HASH_MISMATCH, 'fitted state changed after fitting')
         archive = save_npz(directory / 'model.npz', self._arrays)
         manifest = {'metadata': self.metadata, 'feature_hash': self.feature_hash,
                     'transform_hash': self.transform_hash, 'archive': archive}
@@ -228,7 +244,7 @@ def fit_preprocessor(transformed: pd.DataFrame, fit_months: Sequence[str], group
     """
     if (not np.isfinite(missing_rate) or not 0 <= missing_rate < 1 or
         not np.isfinite(pca_variance) or not 0 < pca_variance <= 1 or
-        type(ffill_limit) is not int or ffill_limit < 0 or scope not in ('rolling', 'full_sample')):
+        type(ffill_limit) is not int or not 0 <= ffill_limit <= 2 or scope not in ('rolling', 'full_sample')):
         raise ResearchError(ErrorCode.INVALID_CONFIG, 'invalid preprocessing policy or scope')
     values = _frame(transformed)
     months = sorted(_months(fit_months))
@@ -300,7 +316,7 @@ def fit_preprocessor(transformed: pd.DataFrame, fit_months: Sequence[str], group
                 'history_missing_encoding': 'zero_placeholder_with_history_observed_mask',
                 'fit_imputation_counts': {column: {'observed': int(observed[column].sum()),
                     'ffill': int(ffill[column].sum()), 'median': int(median[column].sum())} for column in columns},
-                'provenance': dict(provenance or {})}
+                'provenance': deepcopy(provenance or {})}
     feature_hash = _digest(metadata, {k: arrays[k] for k in ('history_values', 'history_observed')})
     metadata['feature_hash'] = feature_hash
     transform_hash = _digest(metadata, arrays)

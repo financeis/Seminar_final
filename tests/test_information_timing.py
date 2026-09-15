@@ -49,6 +49,12 @@ def test_fixed_profile_retains_actual_later_availability():
     assert window.preprocessor.metadata['provenance']['profile'] == 'fixed_snapshot'
 
 
+def test_review_rolling_window_rejects_ffill_over_two():
+    ledger = decision_ledger('2003-02',['2002-12'])
+    with pytest.raises(ResearchError, match='invalid_config'):
+        build_feature_window(synthetic_vintage(ledger), ledger, ResearchSettings(ffill_limit=3))
+
+
 @pytest.mark.real_data
 def test_real_first_feature_window():
     root = Path(__file__).resolve().parents[1]

@@ -174,3 +174,77 @@ def test_transform_replays_frozen_fold_fit_and_preserves_caller_requested_months
     replay = fit.transform(x, list(fit.fit_months))
     np.testing.assert_array_equal(replay.imputed, fit.fit_result.imputed)
     assert list(replay.scores.index) == list(fit.fit_months)
+
+
+@pytest.mark.parametrize('limit', [0, 1, 2])
+def test_review_ffill_allowed_limits(limit):
+    x = frame({'a':[1.,2.,3.,4.]})
+    fit = fit_preprocessor(x, list(x.index), {'a':1}, ffill_limit=limit)
+    query = pd.DataFrame({'a':[np.nan]*3}, index=['2020-05','2020-06','2020-07'])
+    assert fit.transform(query).imputed.a.tolist() == [4.]*limit+[2.5]*(3-limit)
+
+
+def test_review_ffill_over_two_is_rejected():
+    x = frame({'a':[1.,2.,3.,4.]})
+    with pytest.raises(ResearchError, match='invalid_config'):
+        fit_preprocessor(x, list(x.index), {'a':1}, ffill_limit=3)
+
+
+@pytest.mark.parametrize('mutation', ['scope','ffill','nested_metadata','public_array','internal_array'])
+@pytest.mark.parametrize('operation', ['scope','transform','inverse','fit_result','save'])
+def test_review_mutated_state_cannot_compute_under_existing_hash(tmp_path, mutation, operation):
+    x = frame({'a':[1.,2.,3.,4.]})
+    fit = fit_preprocessor(x, list(x.index), {'a':1}, scope='full_sample',
+                           provenance={'source':{'vintage':'2020-06'}})
+    scores = fit.fit_result.scores
+    if mutation == 'scope': fit.metadata['scope'] = 'rolling'
+    elif mutation == 'ffill': fit.metadata['ffill_limit'] = 3
+    elif mutation == 'nested_metadata': fit.metadata['provenance']['source']['vintage'] = '2020-07'
+    elif mutation == 'public_array':
+        fit.mean.setflags(write=True)
+        fit.mean[0] += 1.
+    elif mutation == 'internal_array':
+        fit._arrays['history_values'].setflags(write=True)
+        fit._arrays['history_values'][0,0] += 1.
+    with pytest.raises(ResearchError, match='hash_mismatch'):
+        if operation == 'scope': fit.require_scope(fit.metadata['scope'])
+        elif operation == 'transform': fit.transform(x)
+        elif operation == 'inverse': fit.inverse_transform(scores)
+        elif operation == 'fit_result': fit.fit_result
+        elif operation == 'save': fit.save(tmp_path/'mutated-state')
+    assert not (tmp_path/'mutated-state').exists()
+
+
+def test_review_new_configuration_requires_new_fit_hash():
+    x = frame({'a':[1.,2.,3.,4.]})
+    first = fit_preprocessor(x, list(x.index), {'a':1}, ffill_limit=1)
+    second = fit_preprocessor(x, list(x.index), {'a':1}, ffill_limit=2)
+    assert first.transform_hash != second.transform_hash
+
+
+@pytest.mark.parametrize('threshold', [.90,.95,.99])
+def test_review_pca_sensitivity_thresholds_remain_supported(threshold):
+    x = frame({'a':[-1.,-1.,1.,1.], 'b':[-1.,1.,-1.,1.]})
+    fit = fit_preprocessor(x, list(x.index), {'a':1,'b':2}, pca_variance=threshold)
+    assert fit.metadata['pca_variance'] == threshold
+
+
+def test_review_input_provenance_is_detached_from_fitted_state():
+    x = frame({'a':[1.,2.,3.,4.]})
+    provenance = {'source':{'vintage':'2020-06'}}
+    fit = fit_preprocessor(x, list(x.index), {'a':1}, provenance=provenance)
+    before = fit.transform(x).query_hash
+    provenance['source']['vintage'] = '2020-07'
+    assert fit.metadata['provenance']['source']['vintage'] == '2020-06'
+    assert fit.transform(x).query_hash == before
+
+
+def test_review_loaded_state_uses_same_integrity_guard(tmp_path):
+    x = frame({'a':[1.,2.,3.,4.]})
+    fit = fit_preprocessor(x, list(x.index), {'a':1})
+    fit.save(tmp_path)
+    restored = FittedPreprocessor.load(tmp_path)
+    restored.components.setflags(write=True)
+    restored.components[0,0] *= -1
+    with pytest.raises(ResearchError, match='hash_mismatch'):
+        restored.transform(x)
