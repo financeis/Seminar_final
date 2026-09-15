@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "scope": "Independent consistency checker validation on an isolated copy; canonical final integrated run must be rerun in the retained repository after merge.",
+  "original_report_unchanged": true,
+  "events": [
+    {
+      "name": "fresh_integrated_run",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "audit_tests/run_audit.py",
+        "--output",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7\\paper-audit-report-s_8do8i_\\report\\evidence"
+      ],
+      "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7",
+      "started_at_utc": "2026-09-15T16:58:45.646705+00:00",
+      "finished_at_utc": "2026-09-15T16:58:57.982377+00:00",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "data_timing: PASS=13 FAIL=7 ERROR=0 SKIP=2\nregimes: PASS=14 FAIL=8 ERROR=0 SKIP=0\nforecasting: PASS=11 FAIL=5 ERROR=0 SKIP=0\nmetrics_integration: PASS=8 FAIL=9 ERROR=0 SKIP=1\nTOTAL: PASS=46 FAIL=29 ERROR=0 SKIP=3 EXIT=0\n",
+      "stderr": ""
+    },
+    {
+      "name": "consistent_report",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "audit_tests/check_artifacts.py",
+        "--report-dir",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7\\paper-audit-report-s_8do8i_\\report"
+      ],
+      "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7",
+      "started_at_utc": "2026-09-15T16:58:57.982377+00:00",
+      "finished_at_utc": "2026-09-15T16:58:58.957182+00:00",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"exit_code\": 0,\n  \"errors\": [],\n  \"facts\": {\n    \"baseline_git_exit\": 0,\n    \"original_file_count\": 18,\n    \"designated_paper_sha256\": \"1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab\",\n    \"counts\": {\n      \"PASS\": 46,\n      \"FAIL\": 29,\n      \"ERROR\": 0,\n      \"SKIP\": 3\n    },\n    \"domain_check_count\": 78,\n    \"finding_count\": 25,\n    \"evidence_id_count\": 80\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "missing_EQ19",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "audit_tests/check_artifacts.py",
+        "--report-dir",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7\\paper-audit-report-s_8do8i_\\report"
+      ],
+      "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7",
+      "started_at_utc": "2026-09-15T16:58:58.958683+00:00",
+      "finished_at_utc": "2026-09-15T16:58:59.870444+00:00",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "stdout": "{\n  \"status\": \"FAIL\",\n  \"exit_code\": 1,\n  \"errors\": [\n    \"traceability: equation/algorithm/method coverage incomplete or duplicated\"\n  ],\n  \"facts\": {\n    \"baseline_git_exit\": 0,\n    \"original_file_count\": 18,\n    \"designated_paper_sha256\": \"1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab\",\n    \"counts\": {\n      \"PASS\": 46,\n      \"FAIL\": 29,\n      \"ERROR\": 0,\n      \"SKIP\": 3\n    },\n    \"domain_check_count\": 78,\n    \"finding_count\": 25,\n    \"evidence_id_count\": 80\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "dangling_evidence",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "audit_tests/check_artifacts.py",
+        "--report-dir",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7\\paper-audit-report-s_8do8i_\\report"
+      ],
+      "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7",
+      "started_at_utc": "2026-09-15T16:58:59.872446+00:00",
+      "finished_at_utc": "2026-09-15T16:59:00.845161+00:00",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "stdout": "{\n  \"status\": \"FAIL\",\n  \"exit_code\": 1,\n  \"errors\": [\n    \"F01: dangling evidence IDs: {'REG-999'}\",\n    \"index REG-017: usage/finding mismatch\"\n  ],\n  \"facts\": {\n    \"baseline_git_exit\": 0,\n    \"original_file_count\": 18,\n    \"designated_paper_sha256\": \"1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab\",\n    \"counts\": {\n      \"PASS\": 46,\n      \"FAIL\": 29,\n      \"ERROR\": 0,\n      \"SKIP\": 3\n    },\n    \"domain_check_count\": 78,\n    \"finding_count\": 25,\n    \"evidence_id_count\": 80\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "report_count_mismatch",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "audit_tests/check_artifacts.py",
+        "--report-dir",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7\\paper-audit-report-s_8do8i_\\report"
+      ],
+      "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7",
+      "started_at_utc": "2026-09-15T16:59:00.846161+00:00",
+      "finished_at_utc": "2026-09-15T16:59:01.838940+00:00",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "stdout": "{\n  \"status\": \"FAIL\",\n  \"exit_code\": 1,\n  \"errors\": [\n    \"report count row mismatch: TOTAL\"\n  ],\n  \"facts\": {\n    \"baseline_git_exit\": 0,\n    \"original_file_count\": 18,\n    \"designated_paper_sha256\": \"1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab\",\n    \"counts\": {\n      \"PASS\": 46,\n      \"FAIL\": 29,\n      \"ERROR\": 0,\n      \"SKIP\": 3\n    },\n    \"domain_check_count\": 78,\n    \"finding_count\": 25,\n    \"evidence_id_count\": 80\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "restored_report",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "audit_tests/check_artifacts.py",
+        "--report-dir",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7\\paper-audit-report-s_8do8i_\\report"
+      ],
+      "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T7",
+      "started_at_utc": "2026-09-15T16:59:01.839938+00:00",
+      "finished_at_utc": "2026-09-15T16:59:02.735614+00:00",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"exit_code\": 0,\n  \"errors\": [],\n  \"facts\": {\n    \"baseline_git_exit\": 0,\n    \"original_file_count\": 18,\n    \"designated_paper_sha256\": \"1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab\",\n    \"counts\": {\n      \"PASS\": 46,\n      \"FAIL\": 29,\n      \"ERROR\": 0,\n      \"SKIP\": 3\n    },\n    \"domain_check_count\": 78,\n    \"finding_count\": 25,\n    \"evidence_id_count\": 80\n  }\n}\n",
+      "stderr": ""
+    }
+  ],
+  "facts": {
+    "baseline_git_exit": 0,
+    "original_file_count": 18,
+    "designated_paper_sha256": "1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab",
+    "counts": {
+      "PASS": 46,
+      "FAIL": 29,
+      "ERROR": 0,
+      "SKIP": 3
+    },
+    "domain_check_count": 78,
+    "finding_count": 25,
+    "evidence_id_count": 80
+  },
+  "checker_sha256": "b2013c9b8542badfe7a57e8caacf62790b8525ab854bfe5845aea81210020ddc",
+  "isolated_integrated_summary_sha256": "e7c3a83f6eb68abe2ab909e3b557a153e92cdf76a6587f36a2ee1242627e630e"
+}

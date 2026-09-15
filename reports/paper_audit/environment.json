@@ -36,11 +36,26 @@
   },
   "paper": {
     "path": "../idea_paper.pdf",
-    "sha256": "1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab"
+    "sha256": "1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab",
+    "resolution": "AUDIT_PAPER_PATH exact hash, otherwise idea_paper.pdf in repository parents; ../idea_paper.pdf is a typical location, not a fixed cwd-dependent requirement."
   },
   "data_sources": {
     "macro": "Repository snapshot named FRED-MD_2024m12.csv; identity with the official December 2024 vintage is unverified",
     "etf": "No real ETF return CSV supplied; original downloader uses Yahoo, paper uses WRDS"
   },
-  "replication_scope": "Local function and isolated script diagnostics; no reproduction of the published return tables."
+  "replication_scope": "Local function and isolated script diagnostics; no reproduction of the published return tables.",
+  "audit_runtime": {
+    "retained_repo_relative_executable": "venv/Scripts/python.exe",
+    "requirements": "audit_tests/requirements-audit.txt",
+    "python_option": "-X utf8",
+    "current_execution_record": "evidence/run_summary.json",
+    "historical_records": "Earlier per-domain execution/verification paths are historical and not required for current replay."
+  },
+  "audit_scope": {
+    "domain_check_count": 78,
+    "finding_count": 25,
+    "source_policy": "Original 18 source/input files preserved; diagnostics and proposals only.",
+    "actual_etf_replication": false,
+    "network": "Denied during experiments; original downloader not invoked."
+  }
 }
