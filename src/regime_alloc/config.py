@@ -142,6 +142,7 @@ def validate_config(c: ResearchConfig) -> ResearchConfig:
     check(dates[0] < dates[1], 'end_date must follow start_date')
     for value in (d.fixed_vintage, r.start_month, r.end_month):
         month_string(value)
+    check(d.fixed_vintage == '2023-02', 'fixed_snapshot requires the 2023-02 public release')
     check(r.start_month <= r.end_month, 'end_month precedes start_month')
     check(0 <= len(d.retry_delays) <= 3 and all(x >= 0 for x in d.retry_delays), 'at most three nonnegative retry delays')
     check(d.timeout_seconds > 0, 'timeout must be positive')

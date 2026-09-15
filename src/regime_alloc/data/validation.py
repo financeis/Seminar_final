@@ -15,6 +15,10 @@ def validate(config: ResearchConfig | DataConfig | Path | str, *, all_vintages: 
     root = config.data.root if isinstance(config, ResearchConfig) else config.root if isinstance(config, DataConfig) else Path(config)
     research = config.research if isinstance(config, ResearchConfig) else ResearchConfig().research
     data_config = config.data if isinstance(config, ResearchConfig) else config if isinstance(config, DataConfig) else DataConfig(root=root)
+    if isinstance(config,(ResearchConfig,DataConfig)):
+        missing = [name for name in ('yahoo','fred','nber') if not getattr(data_config,f'{name}_dataset_id')]
+        if missing:
+            raise ResearchError(ErrorCode.INVALID_CONFIG, f'validate requires pinned dataset IDs for {", ".join(missing)}')
     resolved = {name: resolve_dataset(root, name, getattr(data_config,f'{name}_dataset_id') or None) for name in ('yahoo','fred','nber')}
     manifests = {name: result[1] for name,result in resolved.items()}
     prices = load_prices(root, manifests['yahoo']['dataset_id'])

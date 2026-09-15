@@ -9,8 +9,8 @@ start_date = "1993-01-01"
 end_date = "2026-09-16"
 fixed_vintage = "2023-02"
 yahoo_dataset_id = "8952078810e47e92c9433ec09f38e40c1a21c059bd9bed6f457229253ac487a8"
-fred_dataset_id = "a32bfff1b0cacfd35bc37a1ea5f22c614f17e2cfeb6054bfbd7c5a9db64e7c06"
-nber_dataset_id = "db76659bf0380d319d2a18c5feaf40e2ad0aac25b5185016ea51ef118d13bb8e"
+fred_dataset_id = "c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473"
+nber_dataset_id = "48eade4c86a8846a931b7cfc9b7ca5a10ae8430be008b34871088fa36456904b"
 retry_delays = [2.0, 5.0, 10.0]
 
 [research]

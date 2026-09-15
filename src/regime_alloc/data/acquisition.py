@@ -13,7 +13,7 @@ import pandas as pd
 
 from ..config import DataConfig, ResearchConfig
 from ..contracts import ErrorCode, ResearchError, atomic_write_bytes, sha256_file, write_json
-from .io import read_json, file_record, manifest_record, stage_provider, publish_provider, verify_manifest, resolve_dataset
+from .io import read_json, file_record, manifest_record, stage_provider, publish_provider, verify_manifest, resolve_dataset, require_complete_provider, write_parser_provenance
 from .yahoo import accept_yahoo, acquire_yahoo
 from .fred import accept_fred, CHANGES_URL, FRED_PAGE
 
@@ -71,7 +71,9 @@ def acquire_nber(config: DataConfig, *, fetcher=download_bytes) -> dict:
     try:
         atomic_write_bytes(stage / 'USREC.csv', content)
         records = [file_record(stage / 'USREC.csv', 'raw/nber/USREC.csv', 'raw_indicator')]
-        manifest = manifest_record(provider='fred_usrec_nber', source_urls=[NBER_URL, 'https://fred.stlouisfed.org/series/USREC', 'https://www.nber.org/research/business-cycle-dating'], retrieved_at=datetime.now(timezone.utc).isoformat(), request_parameters={'series': 'USREC', 'purpose': 'ex_post_interpretation_only'}, library_versions={'parser': 'pandas'}, files=records, coverage={'first_month': table.month.iloc[0], 'last_month': table.month.iloc[-1]}, quality={'rows': len(table), 'binary': True}, warnings=['Ex-post business-cycle interpretation only; prohibited as a trading feature.', 'USREC covers the month after the NBER peak through the trough month.'])
+        versions, provenance = write_parser_provenance(stage,'nber')
+        records.append(provenance)
+        manifest = manifest_record(provider='fred_usrec_nber', source_urls=[NBER_URL, 'https://fred.stlouisfed.org/series/USREC', 'https://www.nber.org/research/business-cycle-dating'], retrieved_at=datetime.now(timezone.utc).isoformat(), request_parameters={'series': 'USREC', 'purpose': 'ex_post_interpretation_only'}, library_versions=versions, files=records, coverage={'first_month': table.month.iloc[0], 'last_month': table.month.iloc[-1]}, quality={'rows': len(table), 'binary': True}, warnings=['Ex-post business-cycle interpretation only; prohibited as a trading feature.', 'USREC covers the month after the NBER peak through the trough month.'])
         return publish_provider(stage, dest, manifest)
     except BaseException:
         shutil.rmtree(stage, ignore_errors=True)
@@ -108,6 +110,8 @@ def acquire(config: ResearchConfig | DataConfig) -> dict:
     """
     c = config.data if isinstance(config, ResearchConfig) else config
     manifests = {}
+    for name in ('yahoo','fred','nber'):
+        require_complete_provider(c.root,name)
     for name in ('yahoo', 'fred', 'nber'):
         identifier = getattr(c, f'{name}_dataset_id')
         candidates = list((c.root / 'raw' / name).glob('*/dataset_manifest.json'))

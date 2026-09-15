@@ -77,3 +77,10 @@ def test_research_window_and_fallback_policies_strict(tmp_path, text):
     p.write_text(text)
     with pytest.raises(ResearchError, match='invalid_config'):
         load_config(p)
+
+
+def test_fixed_snapshot_release_is_not_user_selectable(tmp_path):
+    p = tmp_path/'different-vintage.toml'
+    p.write_text('[data]\nfixed_vintage="2022-02"\n')
+    with pytest.raises(ResearchError, match='invalid_config'):
+        load_config(p)

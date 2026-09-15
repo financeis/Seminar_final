@@ -13,7 +13,7 @@ import pandas as pd
 
 from ..contracts import ErrorCode, ResearchError, require_unique, write_json
 from .calendar import assumed_available_at, month_range
-from .io import safe_zip_members, read_json, source_files, file_record, manifest_record, stage_provider, publish_provider, verify_manifest, confined_path, resolve_dataset
+from .io import safe_zip_members, read_json, source_files, file_record, manifest_record, stage_provider, publish_provider, verify_manifest, confined_path, resolve_dataset, write_parser_provenance
 
 FRED_PAGE = 'https://www.stlouisfed.org/research/economists/mccracken/fred-databases'
 CHANGES_URL = 'https://www.stlouisfed.org/-/media/project/frbstl/stlouisfed/research/fred-md/fredmdchanges0324.pdf'
@@ -178,8 +178,10 @@ def accept_fred(data_root: Path | str, source: Path | str, *, changes_pdf: bytes
         records.append(file_record(stage / 'Changes-to-FRED-MD.pdf', 'raw/fred/Changes-to-FRED-MD.pdf', 'official_metadata'))
         write_json(stage / 'catalog.json', catalog)
         records.append(file_record(stage / 'catalog.json', 'raw/fred/catalog.json', 'derived_metadata'))
+        versions, provenance = write_parser_provenance(stage,'fred')
+        records.append(provenance)
         acquired_at = datetime.strptime(source.name, '%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc).isoformat() if re.fullmatch(r'\d{8}T\d{6}Z', source.name) else datetime.now(timezone.utc).isoformat()
-        manifest = manifest_record(provider='fred_md', source_urls=[FRED_PAGE, *(x['url'] for x, _ in prepared), CHANGES_URL], retrieved_at=acquired_at, request_parameters={'vintages_start': '1999-08', 'vintages_end': '2025-12', 'fixed_vintage': '2023-02', 'transformations': 'raw; per-vintage t-code retained'}, library_versions={'parser': 'pandas'}, files=records, coverage={'first_vintage': '1999-08', 'last_vintage': '2025-12', 'vintage_count': len(catalog['vintages']), 'fixed_last_base_month': '2023-01', 'fixed_series_count': 126}, quality={'unknown_groups': [], 'metadata_only_alias_count': len(ALIASES), 'changes_document_retrieved_at': datetime.now(timezone.utc).isoformat()}, warnings=['Historical ZIP vintages can incorporate publisher corrections; this is a retrieved public archive, not proof of original publication bytes.', 'Group 6 is retained for feature-stage exclusion.', 'Series counts differ by vintage; the fixed file has 126 variables versus 127 described in the paper.', 'Assumed availability is a research convention, not an observed release timestamp.'])
+        manifest = manifest_record(provider='fred_md', source_urls=[FRED_PAGE, *(x['url'] for x, _ in prepared), CHANGES_URL], retrieved_at=acquired_at, request_parameters={'vintages_start': '1999-08', 'vintages_end': '2025-12', 'fixed_vintage': '2023-02', 'transformations': 'raw; per-vintage t-code retained'}, library_versions=versions, files=records, coverage={'first_vintage': '1999-08', 'last_vintage': '2025-12', 'vintage_count': len(catalog['vintages']), 'fixed_last_base_month': '2023-01', 'fixed_series_count': 126}, quality={'unknown_groups': [], 'metadata_only_alias_count': len(ALIASES), 'changes_document_retrieved_at': datetime.now(timezone.utc).isoformat()}, warnings=['Historical ZIP vintages can incorporate publisher corrections; this is a retrieved public archive, not proof of original publication bytes.', 'Group 6 is retained for feature-stage exclusion.', 'Series counts differ by vintage; the fixed file has 126 variables versus 127 described in the paper.', 'Assumed availability is a research convention, not an observed release timestamp.'])
         return publish_provider(stage, dest, manifest)
     except BaseException:
         shutil.rmtree(stage, ignore_errors=True)
