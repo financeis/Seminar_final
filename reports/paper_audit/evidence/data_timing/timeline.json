@@ -1,0 +1,32 @@
+[
+  {
+    "macro_reference_month_t": "1996-02-01 00:00:00",
+    "macro_actual_release_time": "unknown per variable; not encoded in supplied CSV",
+    "etf_price_observation_at_t": "first trading-day adjusted Close of t",
+    "stored_return_R_t": "P(first trading day t+1)/P(first trading day t)-1",
+    "last_train_predictor": "previous retained macro row before t",
+    "last_train_target_label": "1996-02-01 00:00:00",
+    "last_train_target_price_interval": "first trading day 1996-02 to first trading day 1996-03",
+    "decision_label_in_file": "1996-02-01 00:00:00",
+    "decision_time_in_code": "not specified; P_(t+1) observation is earliest price-consistent interpretation for complete monthly calendar",
+    "saved_sasdate_tp1": "1996-03-01 00:00:00",
+    "holding_return_label_used_step5": "1996-03-01 00:00:00",
+    "holding_price_interval": "first trading day 1996-03 to first trading day 1996-04",
+    "macro_label_step_in_calendar_months": 1
+  },
+  {
+    "macro_reference_month_t": "2020-03-01 00:00:00",
+    "macro_actual_release_time": "unknown per variable; not encoded in supplied CSV",
+    "etf_price_observation_at_t": "first trading-day adjusted Close of t",
+    "stored_return_R_t": "P(first trading day t+1)/P(first trading day t)-1",
+    "last_train_predictor": "previous retained macro row before t",
+    "last_train_target_label": "2020-03-01 00:00:00",
+    "last_train_target_price_interval": "first trading day 2020-03 to first trading day 2020-04",
+    "decision_label_in_file": "2020-03-01 00:00:00",
+    "decision_time_in_code": "not specified; P_(t+1) observation is earliest price-consistent interpretation for complete monthly calendar",
+    "saved_sasdate_tp1": "2020-06-01 00:00:00",
+    "holding_return_label_used_step5": "2020-06-01 00:00:00",
+    "holding_price_interval": "first trading day 2020-06 to first trading day 2020-07",
+    "macro_label_step_in_calendar_months": 3
+  }
+]
