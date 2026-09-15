@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-09-15T16:34:52.519782+00:00",
+  "started_at_utc": "2026-09-15T16:39:07.825549+00:00",
   "command": [
     "C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\python.exe",
     "-X",
@@ -8,9 +8,9 @@
     "--output",
     "reports/paper_audit/evidence"
   ],
-  "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6",
-  "repo": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6",
-  "output": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence",
+  "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final",
+  "repo": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final",
+  "output": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence",
   "environment": {
     "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
     "executable": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
@@ -355,8 +355,8 @@
     {
       "domain": "data_timing",
       "call": "audit_tests.test_data_timing.run(repo, output)",
-      "started_at_utc": "2026-09-15T16:34:52.581820+00:00",
-      "finished_at_utc": "2026-09-15T16:34:53.968548+00:00",
+      "started_at_utc": "2026-09-15T16:39:07.929254+00:00",
+      "finished_at_utc": "2026-09-15T16:39:09.532924+00:00",
       "exit_code": 0,
       "counts": {
         "PASS": 13,
@@ -366,14 +366,14 @@
       },
       "stdout": "",
       "stderr": "",
-      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\data_timing\\results.json",
+      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\data_timing\\results.json",
       "result_sha256": "b324cc8ee1be2d6eaee1de49308007ebe6617cdd9c53df91141a00d42ed745ab"
     },
     {
       "domain": "regimes",
       "call": "audit_tests.test_regimes.run(repo, output)",
-      "started_at_utc": "2026-09-15T16:34:53.974554+00:00",
-      "finished_at_utc": "2026-09-15T16:34:54.746066+00:00",
+      "started_at_utc": "2026-09-15T16:39:09.537926+00:00",
+      "finished_at_utc": "2026-09-15T16:39:10.398311+00:00",
       "exit_code": 0,
       "counts": {
         "PASS": 14,
@@ -383,14 +383,14 @@
       },
       "stdout": "",
       "stderr": "",
-      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\regimes\\results.json",
+      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\regimes\\results.json",
       "result_sha256": "8c543244fd09aebf3139f067feb5cfa3e55b9e6332d0333ec100cf518bf8351f"
     },
     {
       "domain": "forecasting",
       "call": "audit_tests.test_forecasting.run(repo, output)",
-      "started_at_utc": "2026-09-15T16:34:54.753066+00:00",
-      "finished_at_utc": "2026-09-15T16:34:55.948154+00:00",
+      "started_at_utc": "2026-09-15T16:39:10.406311+00:00",
+      "finished_at_utc": "2026-09-15T16:39:11.608797+00:00",
       "exit_code": 0,
       "counts": {
         "PASS": 11,
@@ -400,14 +400,14 @@
       },
       "stdout": "",
       "stderr": "",
-      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\forecasting\\results.json",
+      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\forecasting\\results.json",
       "result_sha256": "924a60ecc94b19da2a471c594ae710f32474d1a57287bee693a3a17a62d65816"
     },
     {
       "domain": "metrics_integration",
       "call": "audit_tests.test_metrics_integration.run(repo, output)",
-      "started_at_utc": "2026-09-15T16:34:55.953154+00:00",
-      "finished_at_utc": "2026-09-15T16:35:03.038514+00:00",
+      "started_at_utc": "2026-09-15T16:39:11.613795+00:00",
+      "finished_at_utc": "2026-09-15T16:39:19.005517+00:00",
       "exit_code": 0,
       "counts": {
         "PASS": 8,
@@ -417,8 +417,8 @@
       },
       "stdout": "",
       "stderr": "",
-      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\results.json",
-      "result_sha256": "c26ece3b64a01cd7071df9037febd37d8b57960570dea371c63c150cfb545805"
+      "result_file": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\results.json",
+      "result_sha256": "5da9407e76b3bb633f727650f663a6d450932c07ff897d75f643ef971ef8b167"
     }
   ],
   "semantics": "PASS/FAIL are property verdicts; ERROR is an execution/harness error; SKIP is unresolved/unavailable evidence. Exit 0 permits FAIL.",
@@ -469,14 +469,14 @@
     "file_count": 18
   },
   "audit_source_sha256": {
-    "audit_tests\\__init__.py": "11d1a0586c9bebd19c9cc33b70d62b632b01ef2eeb0ec8a4a91a41cf270ca95c",
-    "audit_tests\\build_inventory.py": "d75e19f385390bfabfd50fd85cfe29ec478a769774757b3e405c7a66e2eedd71",
-    "audit_tests\\common.py": "02d8f7f3edd544323fb098a1d48b955ea798d6756da3f6eb15defa01530c5ccf",
-    "audit_tests\\metrics_support.py": "9a37bcd6d7eb5343812fcf2d216355f124f2d0b8d509a712604ab809dd9008e2",
-    "audit_tests\\run_audit.py": "bbcc35c26b2080b028da5ebe76e57ca72f70d4882802045d21856a318af19230",
-    "audit_tests\\test_data_timing.py": "277fdffa0a6360daf672fcd29c9935fd2fbca56460277ce71404835e1d002f1b",
+    "audit_tests\\__init__.py": "5bba6928417822d284c9e2859659c493708adcf8833b7c756839a0bacc8a3c4c",
+    "audit_tests\\build_inventory.py": "7a0c6e4c44c654c614d211573b4d702b9a7b83e2b78da216b2a0cfd9f82ac397",
+    "audit_tests\\common.py": "ccb5620b4c3355d880d8839bb4c11d7cc723840bb4769f38e8f2426d553b51a1",
+    "audit_tests\\metrics_support.py": "454340d2cf235208fadebaccf59cbf812887f5b470141003d594f10f24787e31",
+    "audit_tests\\run_audit.py": "6391fec2b5166703b83ff26fcaaf239aba5d86e9a561e8c715fb0a32e014c2ff",
+    "audit_tests\\test_data_timing.py": "2eee214729c9c3ba098e66c73f4099aa1a2d8c07103640f938b0c49d7dcabe05",
     "audit_tests\\test_forecasting.py": "e3090e5e2426a91c98cf7f6575eefd46c4ac5e95311f32aa0cc6b43739282678",
-    "audit_tests\\test_metrics_integration.py": "cecc1c2d2674a25d486b178687c7c07d5fa66479736504342d8574778c504220",
+    "audit_tests\\test_metrics_integration.py": "b8fcbd22143375aef52183f5d6951e8efb81b60ed09b370e7b9d66f8fc995d08",
     "audit_tests\\test_regimes.py": "47703835b2a1652b01902c71dd2c06a2a555c5a498dedccc8135937ff06f802f"
   },
   "source_hashes_after": {
@@ -524,7 +524,7 @@
     "file_count": 18
   },
   "source_unchanged": true,
-  "finished_at_utc": "2026-09-15T16:35:03.053025+00:00",
+  "finished_at_utc": "2026-09-15T16:39:19.021516+00:00",
   "exit_code": 0,
   "counts": {
     "PASS": 46,
@@ -547,7 +547,7 @@
     },
     {
       "path": "data_timing\\notes.md",
-      "sha256": "abd4a02028b22ad13a445f2a1be9c591a9940cacb292200921a6817a0935a9bb"
+      "sha256": "59709422d1f4b198038e2752fbaab7f74876674c550d6f686b8cc6b0340d718c"
     },
     {
       "path": "data_timing\\panel.json",
@@ -627,7 +627,7 @@
     },
     {
       "path": "metrics_integration\\fixtures.json",
-      "sha256": "0c9f67b2e1570df14a646e859aee988ac1e2008ed26d9411fc317596acd84ee1"
+      "sha256": "b375ba2083e89dd2466b0b21cb608b22efe32be17c2b3c741b38a85f62fcccb3"
     },
     {
       "path": "metrics_integration\\loop_fixture\\etf_bom_returns_aligned_demo.csv",
@@ -651,11 +651,11 @@
     },
     {
       "path": "metrics_integration\\results.json",
-      "sha256": "c26ece3b64a01cd7071df9037febd37d8b57960570dea371c63c150cfb545805"
+      "sha256": "5da9407e76b3bb633f727650f663a6d450932c07ff897d75f643ef971ef8b167"
     },
     {
       "path": "metrics_integration\\script_executions.json",
-      "sha256": "07dddd2deaa46960248d453a9d480f8ec7de9385045831939da418192a20ba7e"
+      "sha256": "61445b9485fd38bf168791b4c8d99aab9dd49c9c807c71acdc5f6da4c25495b9"
     },
     {
       "path": "metrics_integration\\synthetic_prefix_Section5_step3.csv",

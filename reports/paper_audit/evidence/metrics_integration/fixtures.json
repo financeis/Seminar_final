@@ -238,7 +238,7 @@
       ],
       "matches_original_synthetic_generator": true,
       "source_marker_present": false,
-      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step3.csv",
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step3.csv",
       "sha256": "6d29a24a57d91a2e694eb14aaece0a2c308e119b1576cdc53dfb04f4f21e1aa2",
       "seed": 123,
       "source_ref": {
@@ -270,7 +270,7 @@
       ],
       "matches_original_synthetic_generator": true,
       "source_marker_present": false,
-      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step4.csv",
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step4.csv",
       "sha256": "6d29a24a57d91a2e694eb14aaece0a2c308e119b1576cdc53dfb04f4f21e1aa2",
       "seed": 123,
       "source_ref": {
@@ -571,35 +571,35 @@
     ],
     "files": [
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\audit_actual_FRED_first49.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\audit_actual_FRED_first49.csv",
         "sha256": "086be66379f8c85e19317705c5e0a90bb23733791c85c23375b9d2989bbe0e37"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\etf_bom_returns_aligned_demo.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\etf_bom_returns_aligned_demo.csv",
         "sha256": "a6abfa996122db2c871df605b02fb57bd59a3fb04af8f608e3c5bb81cf120f40"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step1_regime_probs.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step1_regime_probs.csv",
         "sha256": "591a6e0f4311386ba31602e46b75fa372a4c552d297c59cd25bed2e56c9643ba"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step2_per_regime_ridge_forecasts_DEMO.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step2_per_regime_ridge_forecasts_DEMO.csv",
         "sha256": "43aba1a593cf8f53a16a994a2019f4fd4f9f85dc6ecf9d20b35ac99228384842"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step3_ridge_aggregated_forecasts.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step3_ridge_aggregated_forecasts.csv",
         "sha256": "6c62aafcd8a519d561a6e82d2f814abb5e2076ee1540360e624aaeab733b6329"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step4_longonly_weights.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step4_longonly_weights.csv",
         "sha256": "9f421003972cae9e1e0d6ccf85070f6f965698226d54cbe03116fbdace71db1c"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_metrics.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_metrics.csv",
         "sha256": "74d60a10fc5cd0f9036a70aa376db27f26861730d14bf4676cb8e31fb26d57ad"
       },
       {
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_returns.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_returns.csv",
         "sha256": "787586bab43e095eedc022195dfb866302dfa15532a9acd237ac1584d09c996f"
       }
     ],

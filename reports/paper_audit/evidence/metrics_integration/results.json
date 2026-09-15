@@ -1332,7 +1332,7 @@
     "expected": "Visualization can consume unchanged Step5 output names",
     "observed": {
       "exit_code": 1,
-      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 14, in <module>\n    returns = pd.read_csv(RET_PATH, index_col=0, parse_dates=True)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n                   ^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\common.py\", line 873, in get_handle\n    handle = open(\n             ^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'backtest_returns_full_period.csv'\n",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\etc_visualize_backtest.py\", line 14, in <module>\n    returns = pd.read_csv(RET_PATH, index_col=0, parse_dates=True)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n                   ^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\common.py\", line 873, in get_handle\n    handle = open(\n             ^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'backtest_returns_full_period.csv'\n",
       "actual_names": [
         "section5_step5_longonly_backtest_returns.csv",
         "section5_step5_longonly_backtest_metrics.csv"
@@ -1385,7 +1385,7 @@
     },
     "observed": {
       "exit_code": 1,
-      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Strategy'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 109, in <module>\n    metric_row = metrics[metrics['Strategy'] == strategy]\n                         ~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Strategy'\n"
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Strategy'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\etc_visualize_backtest.py\", line 109, in <module>\n    metric_row = metrics[metrics['Strategy'] == strategy]\n                         ~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Strategy'\n"
     },
     "source_refs": [
       {
@@ -1424,16 +1424,16 @@
           "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
           "-X",
           "utf8",
-          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\audit_tests\\metrics_support.py",
           "--execute",
-          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py"
+          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\etc_visualize_backtest.py"
         ],
-        "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
-        "started_at_utc": "2026-09-15T16:34:58.618581+00:00",
-        "finished_at_utc": "2026-09-15T16:34:59.596447+00:00",
+        "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-5rk3m3hb",
+        "started_at_utc": "2026-09-15T16:39:14.436754+00:00",
+        "finished_at_utc": "2026-09-15T16:39:15.422430+00:00",
         "exit_code": 1,
         "stdout": "",
-        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Ann.Return'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 111, in <module>\n    ann_ret = metric_row['Ann.Return'].values[0]\n              ~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Ann.Return'\n",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Ann.Return'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\etc_visualize_backtest.py\", line 111, in <module>\n    ann_ret = metric_row['Ann.Return'].values[0]\n              ~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Ann.Return'\n",
         "source_sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
         "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
       },
@@ -1442,16 +1442,16 @@
           "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
           "-X",
           "utf8",
-          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\audit_tests\\metrics_support.py",
           "--execute",
-          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py"
+          "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\etc_visualize_backtest.py"
         ],
-        "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
-        "started_at_utc": "2026-09-15T16:34:59.598446+00:00",
-        "finished_at_utc": "2026-09-15T16:35:00.538982+00:00",
+        "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-5rk3m3hb",
+        "started_at_utc": "2026-09-15T16:39:15.424434+00:00",
+        "finished_at_utc": "2026-09-15T16:39:16.494856+00:00",
         "exit_code": 1,
         "stdout": "",
-        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Ann.Vol'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 112, in <module>\n    ann_vol = metric_row['Ann.Vol'].values[0]\n              ~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Ann.Vol'\n",
+        "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Ann.Vol'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\etc_visualize_backtest.py\", line 112, in <module>\n    ann_vol = metric_row['Ann.Vol'].values[0]\n              ~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Ann.Vol'\n",
         "source_sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
         "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
       }
@@ -1588,7 +1588,7 @@
         ],
         "matches_original_synthetic_generator": true,
         "source_marker_present": false,
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step3.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step3.csv",
         "sha256": "6d29a24a57d91a2e694eb14aaece0a2c308e119b1576cdc53dfb04f4f21e1aa2",
         "seed": 123,
         "source_ref": {
@@ -1620,7 +1620,7 @@
         ],
         "matches_original_synthetic_generator": true,
         "source_marker_present": false,
-        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step4.csv",
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step4.csv",
         "sha256": "6d29a24a57d91a2e694eb14aaece0a2c308e119b1576cdc53dfb04f4f21e1aa2",
         "seed": 123,
         "source_ref": {
@@ -2021,35 +2021,35 @@
       ],
       "files": [
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\audit_actual_FRED_first49.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\audit_actual_FRED_first49.csv",
           "sha256": "086be66379f8c85e19317705c5e0a90bb23733791c85c23375b9d2989bbe0e37"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\etf_bom_returns_aligned_demo.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\etf_bom_returns_aligned_demo.csv",
           "sha256": "a6abfa996122db2c871df605b02fb57bd59a3fb04af8f608e3c5bb81cf120f40"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step1_regime_probs.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step1_regime_probs.csv",
           "sha256": "591a6e0f4311386ba31602e46b75fa372a4c552d297c59cd25bed2e56c9643ba"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step2_per_regime_ridge_forecasts_DEMO.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step2_per_regime_ridge_forecasts_DEMO.csv",
           "sha256": "43aba1a593cf8f53a16a994a2019f4fd4f9f85dc6ecf9d20b35ac99228384842"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step3_ridge_aggregated_forecasts.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step3_ridge_aggregated_forecasts.csv",
           "sha256": "6c62aafcd8a519d561a6e82d2f814abb5e2076ee1540360e624aaeab733b6329"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step4_longonly_weights.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step4_longonly_weights.csv",
           "sha256": "9f421003972cae9e1e0d6ccf85070f6f965698226d54cbe03116fbdace71db1c"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_metrics.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_metrics.csv",
           "sha256": "74d60a10fc5cd0f9036a70aa376db27f26861730d14bf4676cb8e31fb26d57ad"
         },
         {
-          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_returns.csv",
+          "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_returns.csv",
           "sha256": "787586bab43e095eedc022195dfb866302dfa15532a9acd237ac1584d09c996f"
         }
       ],

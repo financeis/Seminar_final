@@ -1650,11 +1650,11 @@
         "p_next_aligned_L1_difference": 0.1409317438245497,
         "both_probabilities_valid": true,
         "Step2_Ridge_diagnostic_forecasts": [
-          0.01236993422014575,
-          -0.01201267560501089,
-          -0.007224895102432581,
-          0.007529525644898713,
-          0.011029079486877631
+          0.012369934217136015,
+          -0.01201267560442027,
+          -0.007224895102222308,
+          0.00752952564489872,
+          0.01102907948718357
         ],
         "Step2_training_counts_before_fallback": {
           "sasdate_t": "2003-12-01 00:00:00",
@@ -1665,9 +1665,9 @@
           "n_R4": 4,
           "n_R5": 6
         },
-        "Step3_unmapped_weighted_prediction": 0.0004440491027976651,
-        "best_membership_mapping_weighted_prediction": 0.0021490163263203706,
-        "absolute_prediction_difference": 0.0017049672235227055,
+        "Step3_unmapped_weighted_prediction": 0.00044404910263708434,
+        "best_membership_mapping_weighted_prediction": 0.0021490163258359885,
+        "absolute_prediction_difference": 0.0017049672231989042,
         "final_labels_vs_centers": {
           "Section5_step1.py": {
             "stage1_mismatches": 0,
@@ -1901,30 +1901,30 @@
           0.21326126733692458
         ],
         "Step2_recomputed_p_t_diagnostic": [
-          0.1504361124204394,
-          0.16259332406800692,
-          0.1692460337555503,
-          0.16232573857601276,
-          0.19841415223110753,
-          0.156984638948883
+          0.15043611242043942,
+          0.16259332406800694,
+          0.16924603375555033,
+          0.1623257385760128,
+          0.1984141522311076,
+          0.15698463894888304
         ],
         "Step2_recomputed_p_next_diagnostic": [
-          0.14416794106958775,
-          0.08116286928800638,
-          0.2707817342044371,
-          0.20937603368986318,
-          0.1676856709970327,
+          0.14416794106958777,
+          0.0811628692880064,
+          0.27078173420443713,
+          0.20937603368986324,
+          0.16768567099703272,
           0.1268257507510728
         ],
-        "p_next_raw_L1_difference": 0.23280003381252234,
-        "p_next_aligned_L1_difference": 0.23280003381252234,
+        "p_next_raw_L1_difference": 0.23280003381252248,
+        "p_next_aligned_L1_difference": 0.23280003381252248,
         "both_probabilities_valid": true,
         "Step2_Ridge_diagnostic_forecasts": [
-          0.002728970266341282,
-          0.002728970266341282,
-          0.007539024436794673,
-          0.002728970266341282,
-          0.002728970266341282
+          0.0027289702663412813,
+          0.0027289702663412813,
+          0.007539024437550356,
+          0.0027289702663412813,
+          0.0027289702663412813
         ],
         "Step2_training_counts_before_fallback": {
           "sasdate_t": "2003-12-01 00:00:00",
@@ -1935,8 +1935,8 @@
           "n_R4": 3,
           "n_R5": 3
         },
-        "Step3_unmapped_weighted_prediction": 0.003306757674870671,
-        "best_membership_mapping_weighted_prediction": 0.003306757674870671,
+        "Step3_unmapped_weighted_prediction": 0.003306757675021239,
+        "best_membership_mapping_weighted_prediction": 0.003306757675021239,
         "absolute_prediction_difference": 0.0,
         "final_labels_vs_centers": {
           "Section5_step1.py": {
@@ -2160,41 +2160,41 @@
           0.13835539894425866,
           0.1752932854653243,
           0.18664949297018996,
-          0.15576257941728597
+          0.15576257941728594
         ],
         "Step1_p_next": [
           0.16507729680603747,
           0.058431095155108095,
-          0.12209755075654032,
+          0.1220975507565403,
           0.2840974313356106,
           0.2130244819101279,
           0.15727214403657555
         ],
         "Step2_recomputed_p_t_diagnostic": [
-          0.17202235876865266,
-          0.14531892131434085,
-          0.18604551681272377,
+          0.17202235876865263,
+          0.14531892131434088,
+          0.18604551681272374,
           0.1754291016230508,
           0.16515693148023344,
           0.15602717000099842
         ],
         "Step2_recomputed_p_next_diagnostic": [
-          0.16454312577871125,
+          0.16454312577871122,
           0.2699758635282272,
-          0.23814711584006176,
+          0.23814711584006173,
           0.1793280373625833,
-          0.09923739163041667,
+          0.09923739163041669,
           0.04876846585999978
         ],
         "p_next_raw_L1_difference": 0.6551886669132811,
-        "p_next_aligned_L1_difference": 0.37736921849399097,
+        "p_next_aligned_L1_difference": 0.3773692184939911,
         "both_probabilities_valid": true,
         "Step2_Ridge_diagnostic_forecasts": [
-          0.00222126340068398,
-          0.002580509496195797,
-          0.0026895319071259345,
-          0.0026895319071259345,
-          0.0026895319071259345
+          0.002221263401029793,
+          0.0025805094966694095,
+          0.0026895319071259384,
+          0.0026895319071259384,
+          0.0026895319071259384
         ],
         "Step2_training_counts_before_fallback": {
           "sasdate_t": "2003-12-01 00:00:00",
@@ -2205,9 +2205,9 @@
           "n_R4": 4,
           "n_R5": 2
         },
-        "Step3_unmapped_weighted_prediction": 0.0022048784392138055,
-        "best_membership_mapping_weighted_prediction": 0.002157403825587745,
-        "absolute_prediction_difference": 4.7474613626060595e-05,
+        "Step3_unmapped_weighted_prediction": 0.002204878439291841,
+        "best_membership_mapping_weighted_prediction": 0.0021574038257645214,
+        "absolute_prediction_difference": 4.74746135273197e-05,
         "final_labels_vs_centers": {
           "Section5_step1.py": {
             "stage1_mismatches": 0,
@@ -2292,41 +2292,41 @@
       {
         "start_index": 0,
         "Step2_Ridge_diagnostic_forecasts": [
-          0.01236993422014575,
-          -0.01201267560501089,
-          -0.007224895102432581,
-          0.007529525644898713,
-          0.011029079486877631
+          0.012369934217136015,
+          -0.01201267560442027,
+          -0.007224895102222308,
+          0.00752952564489872,
+          0.01102907948718357
         ],
-        "Step3_unmapped_weighted_prediction": 0.0004440491027976651,
-        "best_membership_mapping_weighted_prediction": 0.0021490163263203706,
-        "absolute_prediction_difference": 0.0017049672235227055
+        "Step3_unmapped_weighted_prediction": 0.00044404910263708434,
+        "best_membership_mapping_weighted_prediction": 0.0021490163258359885,
+        "absolute_prediction_difference": 0.0017049672231989042
       },
       {
         "start_index": 82,
         "Step2_Ridge_diagnostic_forecasts": [
-          0.002728970266341282,
-          0.002728970266341282,
-          0.007539024436794673,
-          0.002728970266341282,
-          0.002728970266341282
+          0.0027289702663412813,
+          0.0027289702663412813,
+          0.007539024437550356,
+          0.0027289702663412813,
+          0.0027289702663412813
         ],
-        "Step3_unmapped_weighted_prediction": 0.003306757674870671,
-        "best_membership_mapping_weighted_prediction": 0.003306757674870671,
+        "Step3_unmapped_weighted_prediction": 0.003306757675021239,
+        "best_membership_mapping_weighted_prediction": 0.003306757675021239,
         "absolute_prediction_difference": 0.0
       },
       {
         "start_index": 83,
         "Step2_Ridge_diagnostic_forecasts": [
-          0.00222126340068398,
-          0.002580509496195797,
-          0.0026895319071259345,
-          0.0026895319071259345,
-          0.0026895319071259345
+          0.002221263401029793,
+          0.0025805094966694095,
+          0.0026895319071259384,
+          0.0026895319071259384,
+          0.0026895319071259384
         ],
-        "Step3_unmapped_weighted_prediction": 0.0022048784392138055,
-        "best_membership_mapping_weighted_prediction": 0.002157403825587745,
-        "absolute_prediction_difference": 4.7474613626060595e-05
+        "Step3_unmapped_weighted_prediction": 0.002204878439291841,
+        "best_membership_mapping_weighted_prediction": 0.0021574038257645214,
+        "absolute_prediction_difference": 4.74746135273197e-05
       }
     ],
     "source_refs": [
