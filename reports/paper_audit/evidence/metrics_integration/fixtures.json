@@ -1,0 +1,610 @@
+{
+  "metrics": {
+    "initial_loss": [
+      -0.1,
+      0.05
+    ],
+    "no_loss": [
+      0,
+      0.01,
+      0.02,
+      0.03
+    ],
+    "one_loss": [
+      0.04,
+      -0.02,
+      0.01,
+      0.03
+    ],
+    "constant": [
+      0.02,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "ordinary": [
+      0.03,
+      -0.04,
+      0.01,
+      -0.02,
+      0.03,
+      0
+    ],
+    "nan": [
+      0.02,
+      "nan",
+      -0.01,
+      0.03
+    ]
+  },
+  "loop_weights": [
+    {
+      "sasdate_t": "2001-01-01 00:00:00",
+      "sasdate_tp1": "2001-02-01 00:00:00",
+      "w_lo_2_SPY": 0.6,
+      "w_lo_2_XLB": 0.4,
+      "w_lo_2_XLE": 0.0,
+      "w_lo_2_XLF": 0.0,
+      "w_lo_2_XLI": 0.0,
+      "w_lo_2_XLK": 0.0,
+      "w_lo_2_XLP": 0.0,
+      "w_lo_2_XLU": 0.0,
+      "w_lo_2_XLV": 0.0,
+      "w_lo_2_XLY": 0.0,
+      "w_lo_3_SPY": 0.6,
+      "w_lo_3_XLB": 0.4,
+      "w_lo_3_XLE": 0.0,
+      "w_lo_3_XLF": 0.0,
+      "w_lo_3_XLI": 0.0,
+      "w_lo_3_XLK": 0.0,
+      "w_lo_3_XLP": 0.0,
+      "w_lo_3_XLU": 0.0,
+      "w_lo_3_XLV": 0.0,
+      "w_lo_3_XLY": 0.0,
+      "w_lo_4_SPY": 0.6,
+      "w_lo_4_XLB": 0.4,
+      "w_lo_4_XLE": 0.0,
+      "w_lo_4_XLF": 0.0,
+      "w_lo_4_XLI": 0.0,
+      "w_lo_4_XLK": 0.0,
+      "w_lo_4_XLP": 0.0,
+      "w_lo_4_XLU": 0.0,
+      "w_lo_4_XLV": 0.0,
+      "w_lo_4_XLY": 0.0
+    },
+    {
+      "sasdate_t": "2001-02-01 00:00:00",
+      "sasdate_tp1": "2001-03-01 00:00:00",
+      "w_lo_2_SPY": 1.0,
+      "w_lo_2_XLB": 0.0,
+      "w_lo_2_XLE": 0.0,
+      "w_lo_2_XLF": 0.0,
+      "w_lo_2_XLI": 0.0,
+      "w_lo_2_XLK": 0.0,
+      "w_lo_2_XLP": 0.0,
+      "w_lo_2_XLU": 0.0,
+      "w_lo_2_XLV": 0.0,
+      "w_lo_2_XLY": 0.0,
+      "w_lo_3_SPY": 1.0,
+      "w_lo_3_XLB": 0.0,
+      "w_lo_3_XLE": 0.0,
+      "w_lo_3_XLF": 0.0,
+      "w_lo_3_XLI": 0.0,
+      "w_lo_3_XLK": 0.0,
+      "w_lo_3_XLP": 0.0,
+      "w_lo_3_XLU": 0.0,
+      "w_lo_3_XLV": 0.0,
+      "w_lo_3_XLY": 0.0,
+      "w_lo_4_SPY": 1.0,
+      "w_lo_4_XLB": 0.0,
+      "w_lo_4_XLE": 0.0,
+      "w_lo_4_XLF": 0.0,
+      "w_lo_4_XLI": 0.0,
+      "w_lo_4_XLK": 0.0,
+      "w_lo_4_XLP": 0.0,
+      "w_lo_4_XLU": 0.0,
+      "w_lo_4_XLV": 0.0,
+      "w_lo_4_XLY": 0.0
+    },
+    {
+      "sasdate_t": "2001-03-01 00:00:00",
+      "sasdate_tp1": "2001-04-01 00:00:00",
+      "w_lo_2_SPY": 1.0,
+      "w_lo_2_XLB": 0.0,
+      "w_lo_2_XLE": 0.0,
+      "w_lo_2_XLF": 0.0,
+      "w_lo_2_XLI": 0.0,
+      "w_lo_2_XLK": 0.0,
+      "w_lo_2_XLP": 0.0,
+      "w_lo_2_XLU": 0.0,
+      "w_lo_2_XLV": 0.0,
+      "w_lo_2_XLY": 0.0,
+      "w_lo_3_SPY": 1.0,
+      "w_lo_3_XLB": 0.0,
+      "w_lo_3_XLE": 0.0,
+      "w_lo_3_XLF": 0.0,
+      "w_lo_3_XLI": 0.0,
+      "w_lo_3_XLK": 0.0,
+      "w_lo_3_XLP": 0.0,
+      "w_lo_3_XLU": 0.0,
+      "w_lo_3_XLV": 0.0,
+      "w_lo_3_XLY": 0.0,
+      "w_lo_4_SPY": 1.0,
+      "w_lo_4_XLB": 0.0,
+      "w_lo_4_XLE": 0.0,
+      "w_lo_4_XLF": 0.0,
+      "w_lo_4_XLI": 0.0,
+      "w_lo_4_XLK": 0.0,
+      "w_lo_4_XLP": 0.0,
+      "w_lo_4_XLU": 0.0,
+      "w_lo_4_XLV": 0.0,
+      "w_lo_4_XLY": 0.0
+    },
+    {
+      "sasdate_t": "2001-04-01 00:00:00",
+      "sasdate_tp1": "2001-05-01 00:00:00",
+      "w_lo_2_SPY": 1.0,
+      "w_lo_2_XLB": 0.0,
+      "w_lo_2_XLE": 0.0,
+      "w_lo_2_XLF": 0.0,
+      "w_lo_2_XLI": 0.0,
+      "w_lo_2_XLK": 0.0,
+      "w_lo_2_XLP": 0.0,
+      "w_lo_2_XLU": 0.0,
+      "w_lo_2_XLV": 0.0,
+      "w_lo_2_XLY": 0.0,
+      "w_lo_3_SPY": 1.0,
+      "w_lo_3_XLB": 0.0,
+      "w_lo_3_XLE": 0.0,
+      "w_lo_3_XLF": 0.0,
+      "w_lo_3_XLI": 0.0,
+      "w_lo_3_XLK": 0.0,
+      "w_lo_3_XLP": 0.0,
+      "w_lo_3_XLU": 0.0,
+      "w_lo_3_XLV": 0.0,
+      "w_lo_3_XLY": 0.0,
+      "w_lo_4_SPY": 1.0,
+      "w_lo_4_XLB": 0.0,
+      "w_lo_4_XLE": 0.0,
+      "w_lo_4_XLF": 0.0,
+      "w_lo_4_XLI": 0.0,
+      "w_lo_4_XLK": 0.0,
+      "w_lo_4_XLP": 0.0,
+      "w_lo_4_XLU": 0.0,
+      "w_lo_4_XLV": 0.0,
+      "w_lo_4_XLY": 0.0
+    }
+  ],
+  "loop_returns": [
+    {
+      "index": "2001-02-01 00:00:00",
+      "SPY": 0.1,
+      "XLB": -0.05,
+      "XLE": 0.0,
+      "XLF": 0.0,
+      "XLI": 0.0,
+      "XLK": 0.0,
+      "XLP": 0.0,
+      "XLU": 0.0,
+      "XLV": 0.0,
+      "XLY": 0.0
+    },
+    {
+      "index": "2001-03-01 00:00:00",
+      "SPY": -0.2,
+      "XLB": 0.0,
+      "XLE": 0.0,
+      "XLF": 0.0,
+      "XLI": 0.0,
+      "XLK": 0.0,
+      "XLP": 0.0,
+      "XLU": 0.0,
+      "XLV": 0.0,
+      "XLY": 0.0
+    },
+    {
+      "index": "2001-05-01 00:00:00",
+      "SPY": "nan",
+      "XLB": 0.1,
+      "XLE": 0.0,
+      "XLF": 0.0,
+      "XLI": 0.0,
+      "XLK": 0.0,
+      "XLP": 0.0,
+      "XLU": 0.0,
+      "XLV": 0.0,
+      "XLY": 0.0
+    }
+  ],
+  "synthetic_prefix": [
+    {
+      "source": "Section5_step3.py",
+      "rows": 389,
+      "columns": [
+        "SPY",
+        "XLB",
+        "XLE",
+        "XLF",
+        "XLI",
+        "XLK",
+        "XLP",
+        "XLU",
+        "XLV",
+        "XLY"
+      ],
+      "files_written": [
+        "FRED-MD_2024m12.csv",
+        "etf_bom_returns_aligned_demo.csv"
+      ],
+      "matches_original_synthetic_generator": true,
+      "source_marker_present": false,
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step3.csv",
+      "sha256": "6d29a24a57d91a2e694eb14aaece0a2c308e119b1576cdc53dfb04f4f21e1aa2",
+      "seed": 123,
+      "source_ref": {
+        "path": "Section5_step3.py",
+        "symbol": "original_FRED_prep_and_ETF_save_prefix_AST",
+        "line_start": 60,
+        "line_end": 110,
+        "sha256": "24b1486486e7f4d98f9e6912af7f5ffe6f5a4ea3f163d82a833574366038963c"
+      }
+    },
+    {
+      "source": "Section5_step4.py",
+      "rows": 389,
+      "columns": [
+        "SPY",
+        "XLB",
+        "XLE",
+        "XLF",
+        "XLI",
+        "XLK",
+        "XLP",
+        "XLU",
+        "XLV",
+        "XLY"
+      ],
+      "files_written": [
+        "FRED-MD_2024m12.csv",
+        "etf_bom_returns_aligned_demo.csv"
+      ],
+      "matches_original_synthetic_generator": true,
+      "source_marker_present": false,
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\synthetic_prefix_Section5_step4.csv",
+      "sha256": "6d29a24a57d91a2e694eb14aaece0a2c308e119b1576cdc53dfb04f4f21e1aa2",
+      "seed": 123,
+      "source_ref": {
+        "path": "Section5_step4.py",
+        "symbol": "original_FRED_prep_and_ETF_save_prefix_AST",
+        "line_start": 29,
+        "line_end": 84,
+        "sha256": "d15509d1fc0106be3a15eaa5336df30540e9ca939e8fa45c17545c9df4ba6c11"
+      }
+    }
+  ],
+  "connected": {
+    "first_step1": {
+      "record": {
+        "sasdate_t": "1996-02-01 00:00:00",
+        "sasdate_tp1": "1996-03-01 00:00:00",
+        "hard_label_t": 0,
+        "pca_p_components": 29,
+        "typical_k_r": 5,
+        "p_R0_t": 0.19118636880865877,
+        "ptp1_R0": 0.2522407535448615,
+        "p_R1_t": 0.17730465130086562,
+        "ptp1_R1": 0.11979063207010635,
+        "p_R2_t": 0.1549881978654363,
+        "ptp1_R2": 0.21231005115052948,
+        "p_R3_t": 0.16362928684124867,
+        "ptp1_R3": 0.14393883039158456,
+        "p_R4_t": 0.15496916907382227,
+        "ptp1_R4": 0.12693530802347247,
+        "p_R5_t": 0.15792232610996845,
+        "ptp1_R5": 0.1447844248194458
+      },
+      "p_t": [
+        0.19118636880865877,
+        0.17730465130086562,
+        0.1549881978654363,
+        0.16362928684124867,
+        0.15496916907382227,
+        0.15792232610996845
+      ],
+      "p_tp1": [
+        0.2522407535448615,
+        0.11979063207010635,
+        0.21231005115052948,
+        0.14393883039158456,
+        0.12693530802347247,
+        0.1447844248194458
+      ],
+      "window_rows": 48,
+      "zscore_rows": 48,
+      "pca_rows": 48,
+      "ref": {
+        "path": "Section5_step1.py",
+        "symbol": "first_rolling_iteration_AST",
+        "line_start": 175,
+        "line_end": 242,
+        "sha256": "599351a474ccc12455980f9a934be5e2c4380c90de3152c6570312d8045ae98d"
+      }
+    },
+    "first_step2": {
+      "forecasts": {
+        "sasdate_t": "1996-02-01 00:00:00",
+        "sasdate_tp1": "1996-03-01 00:00:00",
+        "yhat_R1_SPY": 0.0022303883486361684,
+        "yhat_R1_XLB": -0.011234017787943104,
+        "yhat_R1_XLE": -0.014701257351124136,
+        "yhat_R1_XLF": -0.003410150977109433,
+        "yhat_R1_XLI": -0.003869303232316072,
+        "yhat_R1_XLK": 0.017142212226027964,
+        "yhat_R1_XLP": -0.0053551875164747085,
+        "yhat_R1_XLU": 0.026375380923832625,
+        "yhat_R1_XLV": 0.018698493912895305,
+        "yhat_R1_XLY": 0.008884846808113803,
+        "yhat_R2_SPY": 0.007026784357845599,
+        "yhat_R2_XLB": 0.02072055532548307,
+        "yhat_R2_XLE": 0.01471181778506067,
+        "yhat_R2_XLF": 0.026590547596702437,
+        "yhat_R2_XLI": 0.019449621673551173,
+        "yhat_R2_XLK": 0.03129992629616146,
+        "yhat_R2_XLP": 0.02398946989236532,
+        "yhat_R2_XLU": 0.011857334783986793,
+        "yhat_R2_XLV": 0.011869880102812381,
+        "yhat_R2_XLY": 0.0018960201657925683,
+        "yhat_R3_SPY": 0.001721447813631647,
+        "yhat_R3_XLB": 0.03747675396354907,
+        "yhat_R3_XLE": -0.00398638084736537,
+        "yhat_R3_XLF": 0.00553478360215449,
+        "yhat_R3_XLI": 0.014938435343950191,
+        "yhat_R3_XLK": 0.015325334681418619,
+        "yhat_R3_XLP": 0.01694674448923935,
+        "yhat_R3_XLU": -0.005002591802065972,
+        "yhat_R3_XLV": 0.007677259770600656,
+        "yhat_R3_XLY": -0.0036606957355083325,
+        "yhat_R4_SPY": 0.00530429867162525,
+        "yhat_R4_XLB": 0.010188785446813356,
+        "yhat_R4_XLE": 0.03472467669982758,
+        "yhat_R4_XLF": 0.013381367039596347,
+        "yhat_R4_XLI": 0.014148984326857083,
+        "yhat_R4_XLK": 0.026556592445772916,
+        "yhat_R4_XLP": 0.016079087862594793,
+        "yhat_R4_XLU": -0.006279323798849715,
+        "yhat_R4_XLV": 0.026523734920429764,
+        "yhat_R4_XLY": -0.00042406838124370815,
+        "yhat_R5_SPY": 0.007709620285292247,
+        "yhat_R5_XLB": -0.005007723716017799,
+        "yhat_R5_XLE": 0.000650860870317497,
+        "yhat_R5_XLF": 0.007910397936509982,
+        "yhat_R5_XLI": 0.014353764922964753,
+        "yhat_R5_XLK": 0.021243711108783897,
+        "yhat_R5_XLP": 0.00016918580736910872,
+        "yhat_R5_XLU": -0.037639261615017995,
+        "yhat_R5_XLV": 0.003003676471642451,
+        "yhat_R5_XLY": 0.043787553601724045
+      },
+      "lambdas": {
+        "sasdate_t": "1996-02-01 00:00:00",
+        "sasdate_tp1": "1996-03-01 00:00:00",
+        "lambda_R1_SPY": 0.0001,
+        "lambda_R1_XLB": 0.0001,
+        "lambda_R1_XLE": 0.0001,
+        "lambda_R1_XLF": 0.0001,
+        "lambda_R1_XLI": 0.0001,
+        "lambda_R1_XLK": 0.0001,
+        "lambda_R1_XLP": 0.0001,
+        "lambda_R1_XLU": 0.0001,
+        "lambda_R1_XLV": 0.0001,
+        "lambda_R1_XLY": 0.0001,
+        "lambda_R2_SPY": 0.0001,
+        "lambda_R2_XLB": 0.0001,
+        "lambda_R2_XLE": 0.0001,
+        "lambda_R2_XLF": 0.0001,
+        "lambda_R2_XLI": 0.0001,
+        "lambda_R2_XLK": 0.0001,
+        "lambda_R2_XLP": 0.0001,
+        "lambda_R2_XLU": 0.0001,
+        "lambda_R2_XLV": 0.0001,
+        "lambda_R2_XLY": 0.0001,
+        "lambda_R3_SPY": 0.0001,
+        "lambda_R3_XLB": 0.0001,
+        "lambda_R3_XLE": 0.0001,
+        "lambda_R3_XLF": 0.0001,
+        "lambda_R3_XLI": 0.0001,
+        "lambda_R3_XLK": 0.0001,
+        "lambda_R3_XLP": 0.0001,
+        "lambda_R3_XLU": 0.0001,
+        "lambda_R3_XLV": 0.0001,
+        "lambda_R3_XLY": 0.0001,
+        "lambda_R4_SPY": 100.0,
+        "lambda_R4_XLB": 100.0,
+        "lambda_R4_XLE": 100.0,
+        "lambda_R4_XLF": 100.0,
+        "lambda_R4_XLI": 100.0,
+        "lambda_R4_XLK": 100.0,
+        "lambda_R4_XLP": 100.0,
+        "lambda_R4_XLU": 100.0,
+        "lambda_R4_XLV": 100.0,
+        "lambda_R4_XLY": 100.0,
+        "lambda_R5_SPY": 0.0001,
+        "lambda_R5_XLB": 0.0001,
+        "lambda_R5_XLE": 0.0001,
+        "lambda_R5_XLF": 0.0001,
+        "lambda_R5_XLI": 0.0001,
+        "lambda_R5_XLK": 0.0001,
+        "lambda_R5_XLP": 0.0001,
+        "lambda_R5_XLU": 0.0001,
+        "lambda_R5_XLV": 0.0001,
+        "lambda_R5_XLY": 0.0001
+      },
+      "counts": {
+        "sasdate_t": "1996-02-01 00:00:00",
+        "sasdate_tp1": "1996-03-01 00:00:00",
+        "n_R1": 7,
+        "n_R2": 6,
+        "n_R3": 9,
+        "n_R4": 4,
+        "n_R5": 6
+      },
+      "window_rows": 48,
+      "zscore_rows": 48,
+      "pca_rows": 48,
+      "lambda_candidate_count": 8,
+      "final_regime_train_rows": 6,
+      "ref": {
+        "path": "Section5_step2.py",
+        "symbol": "first_rolling_iteration_AST",
+        "line_start": 225,
+        "line_end": 290,
+        "sha256": "ec5799bc00e0435396b1625ad4eedd579bd2c7d7497deb4da8b338010ec75f98"
+      }
+    },
+    "expected_aggregation": [
+      0.003796355485670773,
+      0.00901608842310059,
+      0.005290620929136371,
+      0.008877477019815524,
+      0.009690272085902424,
+      0.017351403876058377,
+      0.00895649830357836,
+      -0.0012897590506081172,
+      0.009666739080704277,
+      0.007225875802663428
+    ],
+    "expected_weights": {
+      "2": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.35834583993734753,
+        0.6416541600626524,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.263979582737084,
+        0.47268191383069436,
+        0.0,
+        0.0,
+        0.26333850343222176,
+        0.0
+      ],
+      "4": [
+        0.0,
+        0.19718286126061518,
+        0.0,
+        0.0,
+        0.21192733329860244,
+        0.3794771415954144,
+        0.0,
+        0.0,
+        0.21141266384536792,
+        0.0
+      ]
+    },
+    "expected_return": {
+      "2": 0.003175371087060331,
+      "3": 0.006505205206388439,
+      "4": 0.00562311491268862
+    },
+    "actual_backtest": [
+      {
+        "Date": "1996-03-01 00:00:00",
+        "sasdate_t": "1996-02-01",
+        "ret_lo_2": 0.0031753710870603,
+        "ret_lo_3": 0.0065052052063884,
+        "ret_lo_4": 0.0056231149126886,
+        "ret_spy": 0.0067446165106463,
+        "ret_ew": 0.0167339129616484
+      }
+    ],
+    "actual_metrics": [
+      {
+        "Sharpe": "nan",
+        "Sortino": "nan",
+        "AvgDD": 0.0,
+        "MaxDD": 0.0,
+        "% Positive Ret.": 1.0,
+        "Model": "ridge_lo_2"
+      },
+      {
+        "Sharpe": "nan",
+        "Sortino": "nan",
+        "AvgDD": 0.0,
+        "MaxDD": 0.0,
+        "% Positive Ret.": 1.0,
+        "Model": "ridge_lo_3"
+      },
+      {
+        "Sharpe": "nan",
+        "Sortino": "nan",
+        "AvgDD": 0.0,
+        "MaxDD": 0.0,
+        "% Positive Ret.": 1.0,
+        "Model": "ridge_lo_4"
+      },
+      {
+        "Sharpe": "nan",
+        "Sortino": "nan",
+        "AvgDD": 0.0,
+        "MaxDD": 0.0,
+        "% Positive Ret.": 1.0,
+        "Model": "spy"
+      },
+      {
+        "Sharpe": "nan",
+        "Sortino": "nan",
+        "AvgDD": 0.0,
+        "MaxDD": 0.0,
+        "% Positive Ret.": 1.0,
+        "Model": "ew"
+      }
+    ],
+    "files": [
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\audit_actual_FRED_first49.csv",
+        "sha256": "086be66379f8c85e19317705c5e0a90bb23733791c85c23375b9d2989bbe0e37"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\etf_bom_returns_aligned_demo.csv",
+        "sha256": "a6abfa996122db2c871df605b02fb57bd59a3fb04af8f608e3c5bb81cf120f40"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step1_regime_probs.csv",
+        "sha256": "591a6e0f4311386ba31602e46b75fa372a4c552d297c59cd25bed2e56c9643ba"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step2_per_regime_ridge_forecasts_DEMO.csv",
+        "sha256": "43aba1a593cf8f53a16a994a2019f4fd4f9f85dc6ecf9d20b35ac99228384842"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step3_ridge_aggregated_forecasts.csv",
+        "sha256": "6c62aafcd8a519d561a6e82d2f814abb5e2076ee1540360e624aaeab733b6329"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step4_longonly_weights.csv",
+        "sha256": "9f421003972cae9e1e0d6ccf85070f6f965698226d54cbe03116fbdace71db1c"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_metrics.csv",
+        "sha256": "74d60a10fc5cd0f9036a70aa376db27f26861730d14bf4676cb8e31fb26d57ad"
+      },
+      {
+        "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\reports\\paper_audit\\evidence\\metrics_integration\\connected_fixture\\section5_step5_longonly_backtest_returns.csv",
+        "sha256": "787586bab43e095eedc022195dfb866302dfa15532a9acd237ac1584d09c996f"
+      }
+    ],
+    "macro_panels_equal": true,
+    "seed": 20260916,
+    "FRED_sha256": "7494b30c6a3acbe46a9f9029e63db7cca6a5dd9dac0111e2f8d02ef62482f195"
+  }
+}
