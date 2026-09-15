@@ -1,0 +1,68 @@
+{
+  "captured_at_utc": "2026-09-15T17:11:40.849647+00:00",
+  "verified_commit_before_validation_record": "724ea90161e4ecbec9aee86d172bc19d3bb12955",
+  "master_commit": "9439107b31f20c4b731ec1dc29f13c178beb311d",
+  "origin_master_local_ref": "9439107b31f20c4b731ec1dc29f13c178beb311d",
+  "integrated_run": {
+    "record": "evidence/run_summary.json",
+    "sha256": "4117fa1f3d5834029c0452841485e90aaca7a2ef647097a5132a2eb4c98bf427",
+    "command": [
+      "C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\python.exe",
+      "-X",
+      "utf8",
+      "audit_tests/run_audit.py",
+      "--output",
+      "reports/paper_audit/evidence"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-09-15T17:00:23.760577+00:00",
+    "finished_at_utc": "2026-09-15T17:00:34.865306+00:00",
+    "stdout": "data_timing: PASS=13 FAIL=7 ERROR=0 SKIP=2\nregimes: PASS=14 FAIL=8 ERROR=0 SKIP=0\nforecasting: PASS=11 FAIL=5 ERROR=0 SKIP=0\nmetrics_integration: PASS=8 FAIL=9 ERROR=0 SKIP=1\nTOTAL: PASS=46 FAIL=29 ERROR=0 SKIP=3 EXIT=0\n",
+    "counts": {
+      "PASS": 46,
+      "FAIL": 29,
+      "ERROR": 0,
+      "SKIP": 3
+    },
+    "source_unchanged": true,
+    "interpretation": "Existing captured final integrated run, not a newly claimed replay."
+  },
+  "artifact_checker": {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "audit_tests/check_artifacts.py",
+      "--report-dir",
+      "reports/paper_audit"
+    ],
+    "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final",
+    "exit_code": 0,
+    "stdout": "{\n  \"status\": \"PASS\",\n  \"exit_code\": 0,\n  \"errors\": [],\n  \"facts\": {\n    \"baseline_git_exit\": 0,\n    \"original_file_count\": 18,\n    \"designated_paper_sha256\": \"1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab\",\n    \"counts\": {\n      \"PASS\": 46,\n      \"FAIL\": 29,\n      \"ERROR\": 0,\n      \"SKIP\": 3\n    },\n    \"domain_check_count\": 78,\n    \"finding_count\": 25,\n    \"evidence_id_count\": 80\n  }\n}\n",
+    "stderr": ""
+  },
+  "project_document_check": {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      ".dryforge/verification/check_project_docs.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final",
+    "exit_code": 0,
+    "stdout": "PASS: 14 project files; entry files identical; required docs complete; prohibited references absent\n",
+    "stderr": ""
+  },
+  "independent_review": {
+    "reviewed_commit": "724ea90161e4ecbec9aee86d172bc19d3bb12955",
+    "status": "approved",
+    "blocking": [],
+    "advisory": [],
+    "scope": "Full audit diff, scientific claims and evidence, project documents; read-only review."
+  },
+  "cleanup": "Merged task checkouts and temporary old runtime removed; retained venv imports verified. Historical execution paths need not exist.",
+  "limitations": [
+    "Original research defects remain as findings; no source corrections.",
+    "Actual ETF/WRDS performance and release-vintage replication not performed."
+  ]
+}
