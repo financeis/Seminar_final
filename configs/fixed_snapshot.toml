@@ -55,5 +55,4 @@ bootstrap_repetitions = 1000
 bootstrap_block_months = 12
 representative_strategy = "lo"
 representative_size = 2
-sensitivity_lags = [1, 2, 3]
 
