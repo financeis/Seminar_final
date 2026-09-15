@@ -1,0 +1,62 @@
+output_root = "../runs"
+
+[data]
+root = "../data"
+yahoo_source = "../../work/etf-acquisition/20260915T173858Z"
+fred_source = "../../work/fred-acquisition/20260915T174738Z"
+tickers = ["SPY", "XLB", "XLE", "XLF", "XLI", "XLK", "XLP", "XLU", "XLV", "XLY"]
+start_date = "1993-01-01"
+end_date = "2026-09-16"
+fixed_vintage = "2023-02"
+yahoo_dataset_id = "8952078810e47e92c9433ec09f38e40c1a21c059bd9bed6f457229253ac487a8"
+fred_dataset_id = "c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473"
+nber_dataset_id = "48eade4c86a8846a931b7cfc9b7ca5a10ae8430be008b34871088fa36456904b"
+retry_delays = [2.0, 5.0, 10.0]
+
+[research]
+profile = "vintage_lagged"
+start_month = "2003-02"
+end_month = "2022-12"
+train_months = 48
+lag_months = 2
+missing_rate = 0.20
+ffill_limit = 2
+pca_variance = 0.95
+k_normal = 5
+n_init = 20
+max_iter = 300
+tol = 0.000001
+seed = 0
+lambda_min = 0.0001
+lambda_max = 10000.0
+lambda_count = 41
+min_regime_samples = 6
+fallback = "pooled"
+validation = "loo"
+cov_shrink = 0.1
+cov_eps = 0.00000001
+tau = 0.05
+omega_scale = 1.0
+delta = 3.0
+
+[portfolio]
+transaction_cost_bps = 0.0
+borrow_rate = 0.0
+financing_rate = 0.0
+cash_rate = 0.0
+vol_target = 0.10
+vol_lookback = 36
+gross_cap = 2.0
+main_table_scaled = false
+
+[suite]
+control_repetitions = 100
+bootstrap_repetitions = 1000
+bootstrap_block_months = 12
+bootstrap_seed = 0
+bootstrap_sensitivity_blocks = [6, 24]
+auxiliary_seed = 1
+sensitivity_variants = ["lag_1", "lag_3", "missing_rate_005", "ffill_limit_0", "pca_090", "pca_099", "fallback_regime_mean", "validation_forward", "cov_shrink_0", "cov_shrink_025", "omega_scale_05", "omega_scale_2", "cost_10bp", "cost_25bp", "gross_cap_1", "vol_lookback_12"]
+representative_strategy = "lo"
+representative_size = 2
+sensitivity_lags = [1, 2, 3]
