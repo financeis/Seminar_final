@@ -35,5 +35,17 @@
       "checked_date": "2026-09-16",
       "supported_claim": "CPI reference month, release date and release time are separate fields"
     }
-  ]
+  ],
+  "integration_followup": {
+    "command": "python -m audit_tests.test_data_timing",
+    "exit_code": 0,
+    "counts": {
+      "PASS": 13,
+      "FAIL": 7,
+      "SKIP": 2,
+      "ERROR": 0
+    },
+    "reason": "Pin transform source_refs to executed definition and resolve designated PDF by hash",
+    "audit_test_sha256": "9b898a6d5a00f5dc57aa3ccf726103901220df81178d5dc6c71008994dc2ec79"
+  }
 }

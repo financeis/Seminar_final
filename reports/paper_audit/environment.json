@@ -39,7 +39,7 @@
     "sha256": "1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab"
   },
   "data_sources": {
-    "macro": "FRED-MD_2024m12.csv, repository-supplied December 2024 vintage",
+    "macro": "Repository snapshot named FRED-MD_2024m12.csv; identity with the official December 2024 vintage is unverified",
     "etf": "No real ETF return CSV supplied; original downloader uses Yahoo, paper uses WRDS"
   },
   "replication_scope": "Local function and isolated script diagnostics; no reproduction of the published return tables."

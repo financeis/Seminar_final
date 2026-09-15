@@ -11,9 +11,9 @@ import numpy as np
 import pandas as pd
 
 try:
-    from .common import sha256, jsonable
+    from .common import sha256, jsonable, resolve_paper
 except ImportError:
-    from common import sha256, jsonable
+    from common import sha256, jsonable, resolve_paper
 
 BASELINE = '9439107b31f20c4b731ec1dc29f13c178beb311d'
 
@@ -54,8 +54,8 @@ def build(repo):
         try: versions[name]=md.version(name)
         except md.PackageNotFoundError: versions[name]=None
     env={'baseline_commit':BASELINE,'python':sys.version,'executable':sys.executable,'platform':platform.platform(),'packages':versions,
-         'original_file_sha256':sources,'paper':{'path':'../idea_paper.pdf','sha256':sha256(repo.parent/'idea_paper.pdf')},
-         'data_sources':{'macro':'FRED-MD_2024m12.csv, repository-supplied December 2024 vintage','etf':'No real ETF return CSV supplied; original downloader uses Yahoo, paper uses WRDS'},
+         'original_file_sha256':sources,'paper':{'path':'../idea_paper.pdf','sha256':sha256(resolve_paper(repo))},
+         'data_sources':{'macro':'Repository snapshot named FRED-MD_2024m12.csv; identity with the official December 2024 vintage is unverified','etf':'No real ETF return CSV supplied; original downloader uses Yahoo, paper uses WRDS'},
          'replication_scope':'Local function and isolated script diagnostics; no reproduction of the published return tables.'}
     (output/'environment.json').write_text(json.dumps(env,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     assert len(files)==11

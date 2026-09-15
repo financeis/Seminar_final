@@ -17,9 +17,9 @@ import numpy as np
 import pandas as pd
 
 try:
-    from .common import TICKERS, jsonable, load_functions, record, sha256, source_ref, write_results
+    from .common import TICKERS, jsonable, load_functions, record, resolve_paper, sha256, source_ref, write_results
 except ImportError:
-    from common import TICKERS, jsonable, load_functions, record, sha256, source_ref, write_results
+    from common import TICKERS, jsonable, load_functions, record, resolve_paper, sha256, source_ref, write_results
 
 
 FILES = ['Section3.py', 'Section5_step1.py', 'Section5_step2.py',
@@ -243,7 +243,7 @@ def run(repo: Path, output: Path) -> list[dict]:
     trow = pd.read_csv(repo / 'FRED-MD_2024m12.csv', nrows=1)
     codes = {c: int(trow[c].iloc[0]) for c in trow if c != 'sasdate'}
     data_ref = ref_range(repo, 'FRED-MD_2024m12.csv', 1, len(raw) + 2, 'supplied_2024m12_named_snapshot')
-    paper_path = Path('C:/Users/imyon/Projects/renewal_seminar/idea_paper.pdf')
+    paper_path = resolve_paper(repo)
     paper_ref = {'path': str(paper_path), 'sha256': sha256(paper_path),
                  'pages': [7, 16], 'note': 'methodology.md records full original-paper review'}
 
@@ -266,7 +266,12 @@ def run(repo: Path, output: Path) -> list[dict]:
                     errors.append({'case': name, 'expected': expected, 'observed': actual})
             transform_details.append({'file': filename, 'tcode': code, 'mismatches': errors})
     mismatch = [x for x in transform_details if x['mismatches']]
-    refs = [source_ref(repo, f, 'transform_series') for f in FILES + ['etc_regime_stats_transformed.py']]
+    refs = []
+    for filename in FILES + ['etc_regime_stats_transformed.py']:
+        first = transform_function(repo, filename).__code__.co_firstlineno
+        node = next(n for n in ast.walk(tree_of(repo, filename))
+                    if isinstance(n, ast.FunctionDef) and n.lineno == first and n.name == 'transform_series')
+        refs.append(ref_range(repo, filename, node.lineno, node.end_lineno, 'transform_series'))
     refs.append({'path': 'FRED-MD_updated_appendix.pdf', 'sha256': sha256(repo / 'FRED-MD_updated_appendix.pdf'),
                  'pages': [1], 'note': 'Supplementary t-code appendix; not the designated research paper'})
     results.append(record('DATA-TCODE', 't-code 1~7 원 구현과 부록 산식', not mismatch,

@@ -9,6 +9,7 @@ import ast
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 
 import numpy as np
@@ -16,10 +17,21 @@ import pandas as pd
 from numpy.linalg import norm
 
 TICKERS = ['SPY', 'XLB', 'XLE', 'XLF', 'XLI', 'XLK', 'XLP', 'XLU', 'XLV', 'XLY']
+PAPER_SHA256 = '1dfd2574208a52effd3fa195e6005e33122b54f19220b4fb974cae603fc1aaab'
 
 
 def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def resolve_paper(repo):
+    """Locate the designated PDF by hash, including from an isolated worktree."""
+    explicit = os.environ.get('AUDIT_PAPER_PATH')
+    candidates = [Path(explicit)] if explicit else [p / 'idea_paper.pdf' for p in Path(repo).resolve().parents]
+    for path in candidates:
+        if path.is_file() and sha256(path) == PAPER_SHA256:
+            return path.resolve()
+    raise FileNotFoundError('Designated idea_paper.pdf not found with the required SHA-256. Set AUDIT_PAPER_PATH to that PDF.')
 
 
 def source_ref(repo, filename, symbol=None):
