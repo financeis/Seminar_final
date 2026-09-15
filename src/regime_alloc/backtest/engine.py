@@ -310,16 +310,18 @@ def _metric_rows(run_id, strategy_ids, accounts, months, smoke):
 
 
 def _check_forecast_panel(records, conditional, state, models, run_id):
+    decision_month, partition_id = state.decision_month, state.partition_id
+    regime_ids, next_probability = state.regime_ids, state.next_probability
     expected = {(model, ticker) for model in models for ticker in TICKERS}
     found = {(r['model'], r['ticker']) for r in records}
-    modal = state.regime_ids[int(np.argmax(state.next_probability))]
+    modal = regime_ids[int(np.argmax(next_probability))]
     expected_conditional = {(model, ticker, regime) for model in models for ticker in TICKERS
-                            for regime in (state.regime_ids[1:] if model == 'ridge' else [modal] if model in ('naive', 'bl') else [])}
+                            for regime in (regime_ids[1:] if model == 'ridge' else [modal] if model in ('naive', 'bl') else [])}
     found_conditional = {(r['model'], r['ticker'], r['regime_id']) for r in conditional}
     if found != expected or len(records) != len(expected) or found_conditional != expected_conditional or len(conditional) != len(expected_conditional):
         raise ResearchError(ErrorCode.MISSING_DATA, 'forecast output has missing, duplicated or unexpected model/ticker/regime rows')
     for row in records + conditional:
-        if row['run_id'] != run_id or row['decision_month'] != state.decision_month or row['partition_id'] != state.partition_id:
+        if row['run_id'] != run_id or row['decision_month'] != decision_month or row['partition_id'] != partition_id:
             raise ResearchError(ErrorCode.PARTITION_MISMATCH, 'forecast output key differs from shared window')
 
 
@@ -412,6 +414,7 @@ def run_research(config: ResearchConfig, output, *, smoke=False, strategy_select
                 state.save(writer.path / 'states' / month)
                 model.save(writer.path / 'models' / month)
                 scores = model.scores
+                next_probability = state.next_probability
                 end_dates = pd.Series([r['target_end_at'] for r in ledger['training_rows']], index=training.index)
                 realized = all_returns.loc[month, list(TICKERS)]
                 for strategy in strategies:
@@ -419,7 +422,7 @@ def run_research(config: ResearchConfig, output, *, smoke=False, strategy_select
                         base = benchmark_weights(strategy)
                     else:
                         name, sizing, size = strategy.split('_')
-                        base = allocate(scores[name], sizing, int(size), next_probabilities=state.next_probability)
+                        base = allocate(scores[name], sizing, int(size), next_probabilities=next_probability)
                     scaled = scale_to_volatility(base, training, decision_month=month, decision_at=ledger['decision_at'],
                         return_end_at=end_dates, lookback=config.portfolio.vol_lookback, vol_target=config.portfolio.vol_target,
                         gross_cap=config.portfolio.gross_cap)
