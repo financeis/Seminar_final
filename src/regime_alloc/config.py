@@ -10,6 +10,12 @@ from typing import get_type_hints, get_origin, get_args
 
 from .contracts import TICKERS, ErrorCode, ResearchError
 
+SENSITIVITY_VARIANTS = (
+    'lag_1', 'lag_3', 'missing_rate_005', 'ffill_limit_0', 'pca_090', 'pca_099',
+    'fallback_regime_mean', 'validation_forward', 'cov_shrink_0', 'cov_shrink_025',
+    'omega_scale_05', 'omega_scale_2', 'cost_10bp', 'cost_25bp', 'gross_cap_1', 'vol_lookback_12',
+)
+
 
 def month_string(value: str) -> str:
     if not isinstance(value, str) or not re.fullmatch(r'\d{4}-(0[1-9]|1[0-2])', value) or int(value[:4]) < 1:
@@ -86,6 +92,10 @@ class SuiteSettings:
     control_repetitions: int = 100
     bootstrap_repetitions: int = 1000
     bootstrap_block_months: int = 12
+    bootstrap_seed: int = 0
+    bootstrap_sensitivity_blocks: tuple[int, ...] = (6, 24)
+    auxiliary_seed: int = 1
+    sensitivity_variants: tuple[str, ...] = SENSITIVITY_VARIANTS
     representative_strategy: str = 'lo'
     representative_size: int = 2
     sensitivity_lags: tuple[int, ...] = (1, 2, 3)
@@ -160,6 +170,13 @@ def validate_config(c: ResearchConfig) -> ResearchConfig:
     check(all(x >= 0 for x in (p.transaction_cost_bps, p.borrow_rate, p.financing_rate)), 'negative cost/rate')
     check(p.vol_target > 0 and p.vol_lookback >= 2 and p.gross_cap > 0, 'invalid volatility scaling')
     check(min(s.control_repetitions, s.bootstrap_repetitions, s.bootstrap_block_months) > 0, 'suite counts must be positive')
+    check(type(s.bootstrap_seed) is int and s.bootstrap_seed >= 0 and type(s.auxiliary_seed) is int and s.auxiliary_seed >= 0,
+          'suite random seeds must be nonnegative integers')
+    check(bool(s.bootstrap_sensitivity_blocks) and len(set(s.bootstrap_sensitivity_blocks)) == len(s.bootstrap_sensitivity_blocks)
+          and all(type(x) is int and x > 0 for x in s.bootstrap_sensitivity_blocks),
+          'bootstrap sensitivity blocks must be unique positive integers')
+    check(bool(s.sensitivity_variants) and len(set(s.sensitivity_variants)) == len(s.sensitivity_variants)
+          and set(s.sensitivity_variants) <= set(SENSITIVITY_VARIANTS), 'unknown or duplicated sensitivity variants')
     check(s.representative_strategy in r.strategies and s.representative_size in r.selection_sizes, 'representative strategy not included')
     check(bool(s.sensitivity_lags) and len(set(s.sensitivity_lags)) == len(s.sensitivity_lags) and set(s.sensitivity_lags) <= {1, 2, 3}, 'invalid sensitivity lags')
     return c
