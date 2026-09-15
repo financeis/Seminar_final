@@ -197,25 +197,50 @@ class ExecutionContext:
             raise ResearchError(ErrorCode.HASH_MISMATCH, 'return cache ID collision or mutation')
         return result.copy(deep=True)
 
-    def state(self, config, month):
+    def _decision_ledger(self, config, month):
+        validate_config(config)
         self._require_identity(config)
+        if canonical_id(self._vintages) != self._vintages_id:
+            raise ResearchError(ErrorCode.HASH_MISMATCH, 'execution context vintage catalog changed')
         settings = config.research
-        ledger = decision_ledger(month, self._vintages, profile=settings.profile,
-                                 lag_months=settings.lag_months, train_months=48, fixed_vintage=config.data.fixed_vintage)
+        return decision_ledger(month, self._vintages, profile=settings.profile,
+                               lag_months=settings.lag_months, train_months=48, fixed_vintage=config.data.fixed_vintage)
+
+    def _cached_vintage(self, ledger):
+        """Load once, then check the owned value against its original content ID."""
+        raw_key = (ledger['vintage_month'], ledger['lag_months'])
+        if raw_key not in self._raw:
+            vintage = load_macro_vintage(self.data_root, raw_key[0], lag_months=raw_key[1], dataset_id=self.dataset_ids['fred'])
+            if (vintage.vintage_month != raw_key[0] or vintage.dataset_id != self.dataset_ids['fred']
+                or vintage.assumed_available_at != ledger['assumed_available_at']):
+                raise ResearchError(ErrorCode.HASH_MISMATCH, 'loaded macro vintage differs from selected source identity')
+            self._raw[raw_key], self._raw_ids[raw_key] = vintage, self._vintage_id(vintage)
+            self.counts['raw_reads'] += 1
+        vintage = self._raw[raw_key]
+        if self._vintage_id(vintage) != self._raw_ids[raw_key]:
+            raise ResearchError(ErrorCode.HASH_MISMATCH, 'macro cache ID collision or mutation')
+        return vintage
+
+    def vintage(self, config, decision_month):
+        """Return a deep copy of the release selected for this decision month.
+
+        Uses the same profile/lag ledger as an outer window, but does not fit
+        features or require 48 observed target returns. Inner forward folds can
+        therefore reuse raw releases without requesting a future release or
+        accessing the private cache. A fixed snapshot keeps its actual assumed
+        availability, even when it is later than the decision.
+        """
+        vintage = self._cached_vintage(self._decision_ledger(config, decision_month))
+        return replace(vintage, values=vintage.values.copy(deep=True), tcodes=vintage.tcodes.copy(deep=True),
+                       groups=vintage.groups.copy(deep=True), metadata=deepcopy(vintage.metadata))
+
+    def state(self, config, month):
+        ledger = self._decision_ledger(config, month)
+        settings = config.research
         key = canonical_id({'dataset': self.dataset_ids['fred'], 'ledger': ledger,
                             'settings': {k: getattr(settings, k) for k in FEATURE_SETTINGS}})
-        raw_key = (ledger['vintage_month'], settings.lag_months)
-        if raw_key in self._raw and self._vintage_id(self._raw[raw_key]) != self._raw_ids[raw_key]:
-            raise ResearchError(ErrorCode.HASH_MISMATCH, 'macro cache ID collision or mutation')
+        vintage = self._cached_vintage(ledger)
         if key not in self._states:
-            if raw_key not in self._raw:
-                vintage = load_macro_vintage(self.data_root, raw_key[0], lag_months=raw_key[1], dataset_id=self.dataset_ids['fred'])
-                self._raw[raw_key] = vintage
-                self._raw_ids[raw_key] = self._vintage_id(vintage)
-                self.counts['raw_reads'] += 1
-            vintage = self._raw[raw_key]
-            if self._vintage_id(vintage) != self._raw_ids[raw_key]:
-                raise ResearchError(ErrorCode.HASH_MISMATCH, 'macro cache ID collision or mutation')
             features = build_feature_window(vintage, ledger, settings)
             state = build_window_state(features, settings)
             self._states[key], self._state_ids[key] = state, state.partition_id
@@ -238,7 +263,8 @@ class ExecutionContext:
     def _vintage_id(vintage):
         return canonical_id({'values': _frame_id(vintage.values), 'tcodes': vintage.tcodes.to_dict(),
                              'groups': vintage.groups.to_dict(), 'month': vintage.vintage_month,
-                             'available': vintage.assumed_available_at, 'dataset': vintage.dataset_id})
+                             'available': vintage.assumed_available_at, 'dataset': vintage.dataset_id,
+                             'metadata': vintage.metadata})
 
     def forecast(self, state, training, settings, selection=None):
         record = selection.record(state.decision_month, state.ledger['decision_at']) if selection is not None else {}

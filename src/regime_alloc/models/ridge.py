@@ -33,6 +33,21 @@ class RidgeCandidates:
 
 
 @dataclass(frozen=True)
+class RidgePredictionCandidates:
+    """Fixed-penalty fits only; forward validation owns its separate losses.
+
+    Arrays use candidate/feature/target order, matching RidgeCandidates.
+    Invalid fit slots are finite zero padding, explicitly masked by valid.
+    """
+    lambdas: np.ndarray
+    predictions: np.ndarray
+    valid: np.ndarray
+    reasons: tuple[str, ...]
+    coefficients: np.ndarray
+    intercepts: np.ndarray
+
+
+@dataclass(frozen=True)
 class RidgeFit:
     prediction: np.ndarray
     coefficients: np.ndarray
@@ -68,6 +83,39 @@ def _fit(decomposition, query, lam):
     intercept = my - mx @ coefficients
     prediction = query @ coefficients + intercept
     return coefficients, intercept, prediction
+
+
+def ridge_prediction_candidates(x, y, query, lambdas):
+    """Fit every fixed lambda with one shared SVD and no LOO calculation.
+
+    A finite candidate remains eligible even if squaring an unrelated LOO
+    residual would overflow. This does not evaluate or select a lambda: the
+    caller must use its own past-only validation observations and loss policy.
+    """
+    x, y, query = _input(x, y, query)
+    grid = finite(lambdas, 'lambda grid', 1)
+    if not len(grid) or (grid <= 0).any() or len(set(grid)) != len(grid):
+        raise ResearchError(ErrorCode.INVALID_CONFIG, 'lambda grid requires distinct positive values')
+    count, p, a = len(grid), x.shape[1], y.shape[1]
+    predictions, coefficients = np.zeros((count, a)), np.zeros((count, p, a))
+    intercepts, valid, reasons = np.zeros((count, a)), np.zeros(count, dtype=bool), []
+    try:
+        with np.errstate(over='raise', invalid='raise', divide='raise'):
+            decomposition = _svd(x, y)
+    except (np.linalg.LinAlgError, FloatingPointError) as exc:
+        raise ResearchError(ErrorCode.NUMERICAL_FAILURE, 'Ridge SVD failed') from exc
+    for i, lam in enumerate(grid):
+        try:
+            with np.errstate(over='raise', invalid='raise', divide='raise'):
+                beta, intercept, prediction = _fit(decomposition, query, lam)
+                for value in (beta, intercept, prediction):
+                    finite(value, 'fixed Ridge candidate result')
+            predictions[i], coefficients[i], intercepts[i] = prediction, beta, intercept
+            valid[i] = True
+            reasons.append('')
+        except (np.linalg.LinAlgError, FloatingPointError, ResearchError) as exc:
+            reasons.append(f'invalid_fixed_ridge_fit: {type(exc).__name__}')
+    return RidgePredictionCandidates(grid.copy(), predictions, valid, tuple(reasons), coefficients, intercepts)
 
 
 def ridge_candidates(x, y, query, lambdas, *, hat_tolerance=1e-8):
