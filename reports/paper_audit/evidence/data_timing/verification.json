@@ -1,0 +1,39 @@
+{
+  "working_directory": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T3",
+  "commands": [
+    {
+      "command": "git rev-parse --show-toplevel",
+      "exit_code": 0,
+      "stdout": "C:/Users/imyon/Projects/renewal_seminar/Seminar_final/.dryforge/worktrees/T3\n"
+    },
+    {
+      "command": "& 'C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\runtime\\Scripts\\python.exe' -m audit_tests.test_data_timing --self-check",
+      "exit_code": 0,
+      "stdout": "{\"assertions\": 9, \"passed\": true, \"oracle\": \"scalar t-code formulas; literal arithmetic returns; calendar year/month arithmetic\"}\n"
+    },
+    {
+      "command": "& 'C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\runtime\\Scripts\\python.exe' -m audit_tests.test_data_timing",
+      "exit_code": 0,
+      "stdout": "{\"domain\": \"data_timing\", \"results\": 22, \"counts\": {\"PASS\": 13, \"FAIL\": 7, \"SKIP\": 2}, \"output\": \"C:\\\\Users\\\\imyon\\\\Projects\\\\renewal_seminar\\\\Seminar_final\\\\.dryforge\\\\worktrees\\\\T3\\\\reports\\\\paper_audit\\\\evidence\\\\data_timing\\\\results.json\"}\r\n",
+      "elapsed_seconds": 3.0554787
+    }
+  ],
+  "scope": "Literal commands and observed tool exits; diagnostic FAIL findings do not fail runner. No whole backtest or original downloader executed.",
+  "external_reference_checks": [
+    {
+      "url": "https://www.stlouisfed.org/research/economists/mccracken/fred-databases",
+      "checked_date": "2026-09-16",
+      "supported_claim": "FRED-MD updates/revisions and historical vintages are distinct; original snapshot identity unverified"
+    },
+    {
+      "url": "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+      "checked_date": "2026-09-16",
+      "supported_claim": "Real-time period describes what was known at a time, distinct from retrospective observation values"
+    },
+    {
+      "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+      "checked_date": "2026-09-16",
+      "supported_claim": "CPI reference month, release date and release time are separate fields"
+    }
+  ]
+}
