@@ -98,7 +98,6 @@ class SuiteSettings:
     sensitivity_variants: tuple[str, ...] = SENSITIVITY_VARIANTS
     representative_strategy: str = 'lo'
     representative_size: int = 2
-    sensitivity_lags: tuple[int, ...] = (1, 2, 3)
 
 
 @dataclass(frozen=True)
@@ -178,7 +177,6 @@ def validate_config(c: ResearchConfig) -> ResearchConfig:
     check(bool(s.sensitivity_variants) and len(set(s.sensitivity_variants)) == len(s.sensitivity_variants)
           and set(s.sensitivity_variants) <= set(SENSITIVITY_VARIANTS), 'unknown or duplicated sensitivity variants')
     check(s.representative_strategy in r.strategies and s.representative_size in r.selection_sizes, 'representative strategy not included')
-    check(bool(s.sensitivity_lags) and len(set(s.sensitivity_lags)) == len(s.sensitivity_lags) and set(s.sensitivity_lags) <= {1, 2, 3}, 'invalid sensitivity lags')
     return c
 
 

@@ -98,7 +98,8 @@ def test_suite_randomness_and_block_settings(tmp_path):
 @pytest.mark.parametrize('setting', ['bootstrap_seed=-1', 'auxiliary_seed=-1',
     'bootstrap_seed=true', 'bootstrap_sensitivity_blocks=[6,6]',
     'bootstrap_sensitivity_blocks=[0,24]', 'bootstrap_sensitivity_blocks=[]',
-    'sensitivity_variants=["future"]', 'sensitivity_variants=["lag_1","lag_1"]', 'sensitivity_variants=[]'])
+    'sensitivity_variants=["future"]', 'sensitivity_variants=["lag_1","lag_1"]', 'sensitivity_variants=[]',
+    'sensitivity_lags=[1,2,3]'])
 def test_suite_randomness_and_block_settings_reject_invalid(tmp_path, setting):
     p = tmp_path/'suite.toml'
     p.write_text('[suite]\n'+setting+'\n')
