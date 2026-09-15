@@ -1,0 +1,146 @@
+[
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\Section5_step5.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
+    "started_at_utc": "2026-09-15T16:34:56.013668+00:00",
+    "finished_at_utc": "2026-09-15T16:34:56.595407+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "source_sha256": "86743dba1d7a8a09826c9cb2bfa53eb8378502cea6a40c82419bdccc5e9ef4a7",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
+    "started_at_utc": "2026-09-15T16:34:56.635408+00:00",
+    "finished_at_utc": "2026-09-15T16:34:57.550486+00:00",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 14, in <module>\n    returns = pd.read_csv(RET_PATH, index_col=0, parse_dates=True)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\parsers\\readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n                   ^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\io\\common.py\", line 873, in get_handle\n    handle = open(\n             ^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: 'backtest_returns_full_period.csv'\n",
+    "source_sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
+    "started_at_utc": "2026-09-15T16:34:57.571610+00:00",
+    "finished_at_utc": "2026-09-15T16:34:58.608580+00:00",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Strategy'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 109, in <module>\n    metric_row = metrics[metrics['Strategy'] == strategy]\n                         ~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Strategy'\n",
+    "source_sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
+    "started_at_utc": "2026-09-15T16:34:58.618581+00:00",
+    "finished_at_utc": "2026-09-15T16:34:59.596447+00:00",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Ann.Return'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 111, in <module>\n    ann_ret = metric_row['Ann.Return'].values[0]\n              ~~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Ann.Return'\n",
+    "source_sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-step5-odr78o58",
+    "started_at_utc": "2026-09-15T16:34:59.598446+00:00",
+    "finished_at_utc": "2026-09-15T16:35:00.538982+00:00",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'Ann.Vol'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py\", line 77, in <module>\n    runpy.run_path(sys.argv[2], run_name='__main__')\n  File \"<frozen runpy>\", line 291, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\etc_visualize_backtest.py\", line 112, in <module>\n    ann_vol = metric_row['Ann.Vol'].values[0]\n              ~~~~~~~~~~^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\imyon\\.pyenv\\pyenv-win\\versions\\3.11.9\\Lib\\site-packages\\pandas\\core\\indexes\\base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'Ann.Vol'\n",
+    "source_sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\Section5_step3.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-connected-ch2jlwwq",
+    "started_at_utc": "2026-09-15T16:35:01.138822+00:00",
+    "finished_at_utc": "2026-09-15T16:35:01.710385+00:00",
+    "exit_code": 0,
+    "stdout": "=== Step 3 Aggregation Complete (Eq. 14) ===\nStep-1 probs source: section5_step1_regime_probs.csv\nStep-2 forecasts source: section5_step2_per_regime_ridge_forecasts_DEMO.csv\nAggregated rows: 1 | range: 1996-02-01 → 1996-02-01\n\nHead (5):\n sasdate_t sasdate_tp1      SPY      XLB      XLE      XLF     XLI      XLK      XLP      XLU      XLV      XLY\n1996-02-01  1996-03-01 0.003796 0.009016 0.005291 0.008877 0.00969 0.017351 0.008956 -0.00129 0.009667 0.007226\n\nTail (5):\n sasdate_t sasdate_tp1      SPY      XLB      XLE      XLF     XLI      XLK      XLP      XLU      XLV      XLY\n1996-02-01  1996-03-01 0.003796 0.009016 0.005291 0.008877 0.00969 0.017351 0.008956 -0.00129 0.009667 0.007226\n\nSaved: section5_step3_ridge_aggregated_forecasts.csv\n",
+    "stderr": "",
+    "source_sha256": "24b1486486e7f4d98f9e6912af7f5ffe6f5a4ea3f163d82a833574366038963c",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\Section5_step4.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-connected-ch2jlwwq",
+    "started_at_utc": "2026-09-15T16:35:01.710385+00:00",
+    "finished_at_utc": "2026-09-15T16:35:02.316629+00:00",
+    "exit_code": 0,
+    "stdout": "Saved: section5_step4_longonly_weights.csv\n",
+    "stderr": "",
+    "source_sha256": "d15509d1fc0106be3a15eaa5336df30540e9ca939e8fa45c17545c9df4ba6c11",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  },
+  {
+    "command": [
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\venv\\Scripts\\python.exe",
+      "-X",
+      "utf8",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\audit_tests\\metrics_support.py",
+      "--execute",
+      "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.dryforge\\worktrees\\T6\\Section5_step5.py"
+    ],
+    "cwd": "C:\\Users\\imyon\\AppData\\Local\\Temp\\paper-audit-connected-ch2jlwwq",
+    "started_at_utc": "2026-09-15T16:35:02.317629+00:00",
+    "finished_at_utc": "2026-09-15T16:35:02.906294+00:00",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "source_sha256": "86743dba1d7a8a09826c9cb2bfa53eb8378502cea6a40c82419bdccc5e9ef4a7",
+    "execution": "runpy.run_path of unchanged complete source; socket operations denied; matplotlib Agg"
+  }
+]
