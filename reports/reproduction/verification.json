@@ -1,0 +1,77 @@
+{
+  "status": "succeeded",
+  "revision": "7910a37a711918e3451f13ba6dae721dcbbda2e6",
+  "checks": [
+    {
+      "name": "final-pytest",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.venv-research\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "final-pytest.log"
+    },
+    {
+      "name": "final-report",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.venv-research\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "regime_alloc",
+        "report",
+        "--run",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\reproduction\\evidence-bundle.json",
+        "--output",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\reproduction\\report"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "final-report.log"
+    },
+    {
+      "name": "final_report_inventory_and_references",
+      "status": "pass",
+      "items": 39,
+      "findings": 25,
+      "scope": "hashes, required inventory, source association and references; no model/market rerun"
+    },
+    {
+      "name": "final-verify-cli",
+      "command": [
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\.venv-research\\Scripts\\python.exe",
+        "-X",
+        "utf8",
+        "-m",
+        "regime_alloc",
+        "verify",
+        "--run",
+        "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\children\\fixed_snapshot\\cost_10bp"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "log": "final-verify-cli.log"
+    }
+  ],
+  "report": "report/report.md",
+  "verification_scope": "Final integrated tests, report hash/reference check, representative saved 3-month cost child via public CLI. No fresh market run.",
+  "baseline_revision": "1541930",
+  "baseline_profiles": 2,
+  "baseline_months_per_profile": 239,
+  "baseline_strategies": 50,
+  "controls_sensitivities_revision": "ac069ce",
+  "smoke_children": 38,
+  "small_children": 8,
+  "not_run": [
+    "profile별100개 대조군 전체239개월",
+    "16개 민감도 전체239개월",
+    "전체 suite 두 번 오프라인 반복 인증",
+    "최신 최종코드로 두 profile 전체 기본실험 재실행"
+  ],
+  "local_source_dependency": "Full run/state/raw evidence is retained outside Git under ../work and data/raw; report copies include plots/tables. Source re-verification needs those original paths or relocation."
+}

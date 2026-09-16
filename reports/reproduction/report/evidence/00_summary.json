@@ -1,0 +1,213 @@
+{
+  "status": "pass",
+  "fit_seconds": 7.0,
+  "analysis_id": "d100aeea918390fd7afadd6a84fe22ad3fea7f384444d2b6f0c35688909ac912",
+  "model_id": "ee2ef6a018b6bf1f3f91d2223a9eda5b8968996a48911c8b91b8149d98056766",
+  "sample_count": 758,
+  "start": "1959-12",
+  "end": "2023-01",
+  "selected_features": 102,
+  "pca_components": 52,
+  "cumulative_variance": 0.951562590961042,
+  "regime_counts": [
+    1,
+    131,
+    116,
+    142,
+    151,
+    217
+  ],
+  "outlier_diagnostics": [
+    {
+      "month": "2020-04",
+      "standardized_extremes": [
+        {
+          "series": "SRVPRD",
+          "standardized_value": -25.38516859329195,
+          "transformed_imputed_value": -0.15026619596963542,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "PAYEMS",
+          "standardized_value": -24.737108127294878,
+          "transformed_imputed_value": -0.1460722227196598,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "UNRATE",
+          "standardized_value": 23.70032789116622,
+          "transformed_imputed_value": 10.299999999999999,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "CE16OV",
+          "standardized_value": -23.146358612080615,
+          "transformed_imputed_value": -0.15404347065348034,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "USTPU",
+          "standardized_value": -22.97962710719017,
+          "transformed_imputed_value": -0.11853344366942764,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "USTRADE",
+          "standardized_value": -22.78082037226363,
+          "transformed_imputed_value": -0.1520941693211011,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "USWTRADE",
+          "standardized_value": -20.019109859707527,
+          "transformed_imputed_value": -0.06888594638545342,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "NDMANEMP",
+          "standardized_value": -19.63914571472034,
+          "transformed_imputed_value": -0.08969100956957199,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "USGOOD",
+          "standardized_value": -18.661527666074164,
+          "transformed_imputed_value": -0.12041367211305243,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        },
+        {
+          "series": "MANEMP",
+          "standardized_value": -17.932738169034838,
+          "transformed_imputed_value": -0.10833488579745953,
+          "was_observed": true,
+          "was_forward_filled": false,
+          "was_median_filled": false
+        }
+      ],
+      "interpretation": "largest absolute fitted z-scores, not causal explanations or tuned labels"
+    }
+  ],
+  "table1": [
+    {
+      "regime": "R0",
+      "sample_count": 1,
+      "description": "Within this sample: relatively high UNRATE; relatively low FEDFUNDS.",
+      "basis": "extremes of row min-max raw indicator means; compare numeric Table 1 evidence",
+      "economic_label_status": "descriptive_only_not_ground_truth",
+      "group_definition": "smaller first-stage L2 cluster; not NBER recession ground truth",
+      "sample_limitation": "single observed month; no evidence of a persistent economic state",
+      "outlier_group": true
+    },
+    {
+      "regime": "R1",
+      "sample_count": 131,
+      "description": "Within this sample: relatively high FEDFUNDS; relatively low S&P 500.",
+      "basis": "extremes of row min-max raw indicator means; compare numeric Table 1 evidence",
+      "economic_label_status": "descriptive_only_not_ground_truth",
+      "group_definition": "spherical cluster within first-stage normal sample",
+      "sample_limitation": "sample-specific descriptive association",
+      "outlier_group": false
+    },
+    {
+      "regime": "R2",
+      "sample_count": 116,
+      "description": "Within this sample: relatively high UMCSENTx; relatively low UNRATE.",
+      "basis": "extremes of row min-max raw indicator means; compare numeric Table 1 evidence",
+      "economic_label_status": "descriptive_only_not_ground_truth",
+      "group_definition": "spherical cluster within first-stage normal sample",
+      "sample_limitation": "sample-specific descriptive association",
+      "outlier_group": false
+    },
+    {
+      "regime": "R3",
+      "sample_count": 142,
+      "description": "Within this sample: relatively high CPIAUCSL; relatively low UNRATE.",
+      "basis": "extremes of row min-max raw indicator means; compare numeric Table 1 evidence",
+      "economic_label_status": "descriptive_only_not_ground_truth",
+      "group_definition": "spherical cluster within first-stage normal sample",
+      "sample_limitation": "sample-specific descriptive association",
+      "outlier_group": false
+    },
+    {
+      "regime": "R4",
+      "sample_count": 151,
+      "description": "Within this sample: relatively high UMCSENTx; relatively low UNRATE.",
+      "basis": "extremes of row min-max raw indicator means; compare numeric Table 1 evidence",
+      "economic_label_status": "descriptive_only_not_ground_truth",
+      "group_definition": "spherical cluster within first-stage normal sample",
+      "sample_limitation": "sample-specific descriptive association",
+      "outlier_group": false
+    },
+    {
+      "regime": "R5",
+      "sample_count": 217,
+      "description": "Within this sample: relatively high UMCSENTx; relatively low CPIAUCSL.",
+      "basis": "extremes of row min-max raw indicator means; compare numeric Table 1 evidence",
+      "economic_label_status": "descriptive_only_not_ground_truth",
+      "group_definition": "spherical cluster within first-stage normal sample",
+      "sample_limitation": "sample-specific descriptive association",
+      "outlier_group": false
+    }
+  ],
+  "gmm": {
+    "n_components": 6,
+    "covariance_type": "full",
+    "reg_covar": 1e-06,
+    "seed": 0,
+    "n_init": 20,
+    "max_iter": 300,
+    "tol": 0.001,
+    "init_params": "kmeans",
+    "converged": true,
+    "iterations": 70,
+    "lower_bound": -49.65902933333619,
+    "alignment": "Hungarian Euclidean distance: empirical PCA regime means to GMM means",
+    "alignment_ties": "scipy linear_sum_assignment deterministic input order",
+    "nber_used_in_fit_or_alignment": false,
+    "r0_meaning": "GMM component aligned to layered outlier group; not a known crisis label",
+    "warnings": [],
+    "input_hash": "f6119781f581d7e21fe232f66518db9122a9b2d330673d4fa359bd2777807f6e"
+  },
+  "raw_hashes_unchanged": true,
+  "raw_hashes": {
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\vintages-1999-2014.zip": "3434963f26fbf1aa2e6ff06fd43e1f7b2318ab1a529fa38ac28762f84736a9bb",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\vintages-2015-2025.zip": "7cf486e5f7fe6142fa47f78dedbb290111cfdd0ff6ac2273400110103271e41e",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\appendix-2024-03.zip": "b51fd612fea7d067ab564b9e7e11ab0c654ecbccad042793dfbe4c2c9df2aa77",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\source_manifest.json": "f64f18dd6a24dfe8ca790df168efa096b97d8078b2a73df1bfaf45331787f7b4",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\Changes-to-FRED-MD.pdf": "caad71ec33ceb74543c21ee1d3d5d1a965cf0d1058cc3ad8387610102d12351f",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\catalog.json": "89d84f8e4d2838ef6dd1c16f7dd4e8bd0a4cdc11c0a262c0cee5ca52afe072c3",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\fred\\c9953188bfc56cb5eeb959df7a2910a661f647d82229a50fda6422b89c53e473\\parser_provenance.json": "1b85ad1866381cbe5221032f3a428d6180d032ef65d9a5c4cc8b61cbdcc70fb3",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\nber\\48eade4c86a8846a931b7cfc9b7ca5a10ae8430be008b34871088fa36456904b\\USREC.csv": "de2b859e0cd8cb1c56f74bbc2b16b1f8bab4f882e5b8a9d83dfb58c3aa10dad9",
+    "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\data\\raw\\nber\\48eade4c86a8846a931b7cfc9b7ca5a10ae8430be008b34871088fa36456904b\\parser_provenance.json": "e1c8b29b302ca9da0c0b963556180bf4718e62717a0d83078cae77241bf20e48"
+  },
+  "array_count": 56,
+  "source_hashes": {
+    "src/regime_alloc/reporting/regime_analysis.py": "cc23ca671efb94f0c6ac319f6c84316658fd1dac98a380c7bff85d2ba6c34783",
+    "src/regime_alloc/reporting/regime_plots.py": "913b9a7b4f4af2c227548dbde937af8cca3f873206ad92e4e530aa8d1893b489",
+    "tests/test_regime_analysis.py": "953d3f7e9e5fb4ea5176dbe490801eccd8162dace2e2da43afcc57db5f990c86"
+  },
+  "figures": 8,
+  "tables": 1,
+  "numerical_replay": "exact equality for every saved array",
+  "render_replay": "all 8 PNG and 8 SVG files byte-identical on second render",
+  "svg_date_metadata": "absent",
+  "svg_hashsalt": "d100aeea918390fd7afadd6a84fe22ad3fea7f384444d2b6f0c35688909ac912"
+}

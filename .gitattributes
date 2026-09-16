@@ -1,0 +1,2 @@
+# Preserve generated evidence bytes, including manifest hashes, on Windows checkouts.
+reports/reproduction/** -text
