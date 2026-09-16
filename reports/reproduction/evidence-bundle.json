@@ -1,0 +1,137 @@
+{
+  "kind": "research_evidence_bundle",
+  "unrun": [
+    "profile별100개 대조군 전체239개월",
+    "16개 민감도 전체239개월",
+    "전체 suite 두 번 오프라인 반복 인증",
+    "최신 최종코드로 두 profile 전체 기본실험 재실행"
+  ],
+  "runs": [
+    {
+      "execution_scope": "1541930 /239개월/50전략/후속코드 전체재실행 아님",
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T07/full-baseline-preflight-v1/fixed_snapshot",
+      "role": "고정 공개본 전체 기본 결과"
+    },
+    {
+      "execution_scope": "1541930 /239개월/50전략/후속코드 전체재실행 아님",
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T07/full-baseline-preflight-v1/vintage_lagged",
+      "role": "과거 공개본 전체 기본 결과"
+    },
+    {
+      "execution_scope": "ac069ce /38자식/분리된3개월/16변형/연결진단",
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T08/smoke-ac069ce-r1",
+      "role": "대조·민감도 연결 검사"
+    },
+    {
+      "execution_scope": "ac069ce /8자식/연속3개월/2대조군/10bp민감도/재표집8회",
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T08/small-ac069ce-r1",
+      "role": "대조·비용 연속 구간 검사"
+    }
+  ],
+  "references": [
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T06/actual-v2/summary.json",
+      "role": "T06 실제 전체표본 요약"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T06/handoff.json",
+      "role": "T06 계산 소스 버전·재사용 기록"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/paper-caption-index.json",
+      "role": "원문 그림·표 caption과 페이지"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/outlier-exclusion-analysis/comparison.json",
+      "role": "코로나 제외 재적합 비교"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/outlier-exclusion-analysis/posthoc_nber_overlap.json",
+      "role": "NBER 사후 교차 분모"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/outlier-exclusion-analysis/r0_summary.png",
+      "role": "R0 제외 민감도 요약"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/outlier-exclusion-analysis/exclusion_timeline_v2.png",
+      "role": "레짐 사후 타임라인"
+    },
+    {
+      "path": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/outlier-exclusion-analysis/exclusion_timeline_v2.svg",
+      "role": "타임라인 SVG"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure01_pca.png",
+      "role": "T06 figure01_pca.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure01_pca.svg",
+      "role": "T06 figure01_pca.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure02_regime_timeline.png",
+      "role": "T06 figure02_regime_timeline.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure02_regime_timeline.svg",
+      "role": "T06 figure02_regime_timeline.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure03_r0_probability.png",
+      "role": "T06 figure03_r0_probability.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure03_r0_probability.svg",
+      "role": "T06 figure03_r0_probability.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_raw.png",
+      "role": "T06 figure04_indicators_raw.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_raw.svg",
+      "role": "T06 figure04_indicators_raw.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_tcode.png",
+      "role": "T06 figure04_indicators_tcode.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_tcode.svg",
+      "role": "T06 figure04_indicators_tcode.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure05_transitions.png",
+      "role": "T06 figure05_transitions.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure05_transitions.svg",
+      "role": "T06 figure05_transitions.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure06_departure_network.png",
+      "role": "T06 figure06_departure_network.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure06_departure_network.svg",
+      "role": "T06 figure06_departure_network.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figures_manifest.json",
+      "role": "T06 figures_manifest.json"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\supplement_elbow.png",
+      "role": "T06 supplement_elbow.png"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\supplement_elbow.svg",
+      "role": "T06 supplement_elbow.svg"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\table01_regime_descriptions.json",
+      "role": "T06 table01_regime_descriptions.json"
+    }
+  ]
+}

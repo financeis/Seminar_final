@@ -1,0 +1,77 @@
+{
+  "status": "DONE",
+  "task": "T06",
+  "commit": "97652a89f0e0b33fff6f5068bbedf8bb1f6ff676",
+  "branch": "dryforge/rebuild-t06",
+  "base": "ecfeeac1c5bef5aeda5bdeb41509c3fbcce0b874",
+  "worktree": "C:/Users/imyon/Projects/renewal_seminar/Seminar_final/.dryforge/worktrees/slot2",
+  "files_changed": [
+    "src/regime_alloc/reporting/regime_analysis.py",
+    "src/regime_alloc/reporting/regime_plots.py",
+    "tests/test_regime_analysis.py"
+  ],
+  "working_tree_clean": true,
+  "checks": [
+    {"command": "python -X utf8 -m pytest tests/test_regime_analysis.py -q", "stage": "RED missing module", "exit_code": 2, "log": "red.txt"},
+    {"command": "python -X utf8 -m pytest tests/test_regime_analysis.py -q -k r0_months", "stage": "RED outlier interpretation", "exit_code": 1, "log": "red-outlier-interpretation.txt"},
+    {"command": "python -X utf8 -m pytest tests/test_regime_analysis.py -q", "stage": "GREEN final", "exit_code": 0, "result": "15 passed", "log": "green-final.txt"},
+    {"command": "python -X utf8 -m pytest -q", "stage": "final full suite with REGIME_DATA_ROOT", "exit_code": 0, "result": "278 passed, no skips", "log": "full-tests-v2.txt"},
+    {"command": "python -X utf8 C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T06/run_actual_v2.py", "stage": "actual pinned fixed snapshot", "exit_code": 0, "log": "actual-run-v2.txt"},
+    {"command": "git diff --cached --check", "exit_code": 0},
+    {"command": "git commit -m 'feat: add isolated full-sample regime analysis and diagnostics'", "exit_code": 0}
+  ],
+  "python": "C:/Users/imyon/Projects/renewal_seminar/Seminar_final/.venv-research/Scripts/python.exe",
+  "environment": {
+    "PYTHONPATH": "C:/Users/imyon/Projects/renewal_seminar/Seminar_final/.dryforge/worktrees/slot2/src",
+    "REGIME_DATA_ROOT": "C:/Users/imyon/Projects/renewal_seminar/Seminar_final/data",
+    "MPLCONFIGDIR": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T06/mpl-cache"
+  },
+  "actual": {
+    "directory": "C:/Users/imyon/Projects/renewal_seminar/work/rebuild-execution/T06/actual-v2",
+    "summary": "actual-v2/summary.json",
+    "state": "actual-v2/state/analysis.json",
+    "figures_manifest": "actual-v2/plots/figures_manifest.json",
+    "sample": "1959-12 through 2023-01; 758 months",
+    "selected_features": 102,
+    "pca_components": 52,
+    "cumulative_variance": 0.951562590961042,
+    "regime_counts": [1, 131, 116, 142, 151, 217],
+    "r0_month": "2020-04",
+    "r0_extremes": {"SRVPRD_z": -25.38516859329195, "PAYEMS_z": -24.737108127294878, "UNRATE_z": 23.70032789116622},
+    "r0_extremes_observed_not_imputed": true,
+    "analysis_id": "d100aeea918390fd7afadd6a84fe22ad3fea7f384444d2b6f0c35688909ac912",
+    "model_id": "ee2ef6a018b6bf1f3f91d2223a9eda5b8968996a48911c8b91b8149d98056766",
+    "fit_seconds": 7.0,
+    "array_replay": "56 numeric arrays exactly equal after NPZ/JSON load",
+    "render_replay": "8 PNG and 8 SVG files byte-identical on second render; SVG Date absent and hashsalt fixed by analysis ID",
+    "raw_hashes_unchanged": true,
+    "visual_review": "All 8 PNG figures inspected; updated Korean Figure4 raw/tcode and Figure6 inspected again. Root independently checked Figure2/4/6 and final Figure4/6. No outstanding clipping or label overlap."
+  },
+  "public_api": {
+    "AnalysisSettings": "dataclass, default full sample 1959-12..2023-01, same preprocessing defaults, six GMM components, explicit GMM settings and indicators",
+    "fit_full_sample": "(raw, tcodes, groups, nber, *, settings=None, provenance=None, series_metadata=None) -> FullSampleAnalysis",
+    "analyze_fixed_snapshot": "(config, *, settings=None) -> FullSampleAnalysis; offline explicit FRED/NBER snapshot IDs",
+    "FullSampleAnalysis": "metadata/arrays copy views, preprocessor, analysis_id, model_id, require_scope, save(new_directory), load(directory)",
+    "conditional_departures": "(matrix) -> (conditional_matrix, no_departure_flags)",
+    "row_minmax": "(values) -> (normalized, constant_flags); unavailable cells retained as missing",
+    "summarize_indicators": "(frame, labels, *, indicators=PAPER_INDICATORS, n_regimes=6) -> means/counts/normalized/constant/records",
+    "fit_gmm_comparison": "(scores, labels, *, settings=None) -> arrays, metadata; no NBER inputs",
+    "plot_regime_analysis": "(analysis, new_directory, *, language='ko', font_path=None, dpi=140) -> figure/table manifest"
+  },
+  "integration_notes": [
+    "T09 owns package exports, report/CLI wiring and complete paper correspondence. No shared files were changed here.",
+    "Model ID excludes NBER and post-hoc indicator annotations. Analysis ID includes displayed NBER/indicator evidence.",
+    "State is full_sample scope only and cannot pass a rolling scope guard.",
+    "GMM labels are aligned by Hungarian distance between empirical PCA regime means and GMM means, without NBER.",
+    "Figure 4 uses raw means explicitly; separate transformed heatmap and both sets of observed-only statistics are saved.",
+    "Figure/table records use paper_id values Figure 1 through Figure 6 and Table 1; elbow and transformed indicators are supplements.",
+    "Output directories must not already exist. Raw and all previous evidence remain unchanged."
+  ],
+  "concerns": [],
+  "reported_method_limits": [
+    "R0 contains only April 2020 in this sample. It is the smaller L2 cluster and is not NBER recession ground truth.",
+    "PCA count 52 differs from the paper value 61. This is an actual public-snapshot method re-execution, not matching-paper-number certification.",
+    "Raw economic levels can reflect secular trends. Source base years/units are not inferred, and absent series are never replaced.",
+    "No paper economic regime labels or path-shaped graph layout are imposed. Descriptions remain sample dependent."
+  ]
+}

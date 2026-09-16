@@ -1,0 +1,452 @@
+{
+  "kind": "research_report",
+  "schema_version": "1.0",
+  "status": "succeeded",
+  "started_at": "2026-09-16T04:28:45.602445+00:00",
+  "sources": [
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\reproduction\\evidence-bundle.json",
+      "sha256": "fe27b0b3e50edd066042d9da0fa7e5932bbbe35e875822b0b08ab2f0dca88209"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\summary.json",
+      "sha256": "2ca192a7e9accfb289cbeb45006d81dd485a71c3e1318f9f4f1e1e985363197f"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\handoff.json",
+      "sha256": "33f823770cec31c6bfd88bd50c12654064ab089dbe62d43ef695a61c50a7edef"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\paper-caption-index.json",
+      "sha256": "ad7a4633c3fbcd721edd6fbb3799f021773ea303c9142a3b95caec3b1ae52377"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\outlier-exclusion-analysis\\comparison.json",
+      "sha256": "7fca1bc6397aee0c936b733227f56d6d7e2fefeb21beba44fb4dc06226b00aab"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\outlier-exclusion-analysis\\posthoc_nber_overlap.json",
+      "sha256": "3c40790e378800068e609db4a6f42c7bb7fa5198f3cf7d090a7fd805d2e98449"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\outlier-exclusion-analysis\\r0_summary.png",
+      "sha256": "11f6fde08a2c2141b789d3fb39581f694c7263990669d4902a69dfde5b89bf68"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\outlier-exclusion-analysis\\exclusion_timeline_v2.png",
+      "sha256": "87aa7ddcfde54a85df55bdcd8e3454c933c97003672777ddbefa9276e014b5dd"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\outlier-exclusion-analysis\\exclusion_timeline_v2.svg",
+      "sha256": "7dca12727d1e504f179492faad4ee3958bd0e5f1c32789b8403ffdc7b65317f0"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure01_pca.png",
+      "sha256": "09c57242431ba90b69545dc94eec7ad0eef18eeae3caf4163962cf535607391b"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure01_pca.svg",
+      "sha256": "3ee6ffa008818757e936eb00e2ba2b4835d9b67f7f3909cdff251b6a606d7a80"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure02_regime_timeline.png",
+      "sha256": "8a345f376fc109dc038b7dbbf7763742480a50b50e761927675b9c3ee9a646fc"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure02_regime_timeline.svg",
+      "sha256": "b4e832e692d98f47b441b48aa9152f56ef924b899995d5aa9606f522367ce95a"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure03_r0_probability.png",
+      "sha256": "9ae6e108ae6caad29a1bf9af3cbb9706d0c2a3d37f85c6c3a1f8d9bbbb5a2233"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure03_r0_probability.svg",
+      "sha256": "7afdf66817593f43ba6716a6e74bd48e12dc4b8a750d7213a9b4d89b841d7b57"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_raw.png",
+      "sha256": "21849ca6df0f7d7064d926aab41e1ab589a7e602f1b63ffa390221e5494fd7c7"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_raw.svg",
+      "sha256": "861a698cadb70496f6f799a18ba4307864ed6196212320bd8130866d6dd86243"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_tcode.png",
+      "sha256": "175caadeb58545cf51a653e4fd17e2b9fbfd2d90ea8832ef6b37dc79e34c6ed2"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure04_indicators_tcode.svg",
+      "sha256": "0bb35287f05d64108cb244c290f11aeeb3fc460ae2bd58e0b6296eb02f5fd55c"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure05_transitions.png",
+      "sha256": "662bdab43a116ebd0cce7a29351e1d2445daf5b526a8fcaa999ebb75fe2ba04b"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure05_transitions.svg",
+      "sha256": "8c632a31f6d969b836a6286cca4372fbc3a3e58e432e68cc0e56ffe09195de94"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure06_departure_network.png",
+      "sha256": "e5f7b549e136e17f9b0ad27ac2349c563a7514cb7263ce37c55f9a0be70c3bcc"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figure06_departure_network.svg",
+      "sha256": "2074dc9323c6eef983dcd583426608370d1cc5414280affb2bfe41ab76e2d12e"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\figures_manifest.json",
+      "sha256": "b0bbf6100c111f6bcaee60da003287eb86fb8e8d14b2d4d389db0ca8c2036c34"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\supplement_elbow.png",
+      "sha256": "85a1891eccaa92dc799b923d0fc50b0c83660473d550b241853edc06cb15f56d"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\supplement_elbow.svg",
+      "sha256": "82ac68c2acc06b14613f709487ca453b9ff702371b66d6e6751ebf5991b4f4b7"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T06\\actual-v2\\plots\\table01_regime_descriptions.json",
+      "sha256": "1f0799e7e6c11b86ca3229e622e312d4b5ce648ce2e99600f7c3c8a3547dd525"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\run_manifest.json",
+      "sha256": "cc457b05e638ff164d611a75f1653a05ca63550de72b1e031d803416e48def86"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\run_manifest.json",
+      "sha256": "65b9807003e0773d134723c10092cf5b9bdf6afbf99d4436ab049b0c30c8d166"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\run_manifest.json",
+      "sha256": "9de6060d371d632636abf921e0758483228f14d2f82d5940603af3f8a099b1ab"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\run_manifest.json",
+      "sha256": "62986594ad51186ffd49ca468e33fae90bb06afe07109fb649c4ceb6ccd70ac3"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\metrics.csv",
+      "sha256": "a45cea33cf31be148c289dc34b163ee1bbc17691f0a0b07b6fea7de14b56d3c3"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\metrics_reasons.json",
+      "sha256": "368f15dbea5ebf7c9b86472b45ce1274b387f902f715bf8bb81a9fd6a115a184"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\returns.csv",
+      "sha256": "9cda586254cd799b9c48491fe898d7784c6ed4f924ff5efcd8511b9749c95562"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\scaled\\metrics.csv",
+      "sha256": "6942fa350ee2c2aa531010de3764563b333ae74ff0ed40b8ef326cc401477f5b"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\scaled\\metrics_reasons.json",
+      "sha256": "368f15dbea5ebf7c9b86472b45ce1274b387f902f715bf8bb81a9fd6a115a184"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\fixed_snapshot\\scaled\\returns.csv",
+      "sha256": "6d6a2891a6eccfa8741777cdc94915acb394eaae0840b298bfd7d060dd74d926"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\metrics.csv",
+      "sha256": "281ad617aa141d9c07842c8dcb8afb0ca73fd7f1e54b96940f7b69744404973a"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\metrics_reasons.json",
+      "sha256": "368f15dbea5ebf7c9b86472b45ce1274b387f902f715bf8bb81a9fd6a115a184"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\returns.csv",
+      "sha256": "5ae9344106cebeb04505167460d8220fd0554f9699765206622e65ec7a7781db"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\scaled\\metrics.csv",
+      "sha256": "c1162de5b92be4ea2eaa61311e08b70bc5b9372674481c718f16ddde202867b6"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\scaled\\metrics_reasons.json",
+      "sha256": "368f15dbea5ebf7c9b86472b45ce1274b387f902f715bf8bb81a9fd6a115a184"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T07\\full-baseline-preflight-v1\\vintage_lagged\\scaled\\returns.csv",
+      "sha256": "46b9a48e8455c3dec02d3e97a9c8c72626e3992eea2430fe3e4be8af247deeed"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\suite_results.json",
+      "sha256": "050190ef775f392cbf9f101bc69886414c2494f4024fb606eb6db2eb804d1167"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\comparisons.json",
+      "sha256": "9ec1d55c71114b179e68290e28f0d79a0b6ec2c365f6b2f0a52e3b3e6b9d73cf"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\sensitivity.json",
+      "sha256": "43f3e958920b0f1adb06b942f11933cb5cff8ad02eacb385ffb926c33e8f9e63"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\planned_runs.json",
+      "sha256": "384cbcdf4992faf278198b9ae316976a71559007298081b26288a06c255b9a7d"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\execution_plan.json",
+      "sha256": "6a34708392129a0d93200e10fd04c156dd49ea3f5e2759d0ce12dc331552ec50"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\statistics\\fixed_snapshot.json",
+      "sha256": "7987441eb2918b3886ba20c1d24eb4f1ff205ffc24ac63d36c2932b4ded6fa51"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\smoke-ac069ce-r1\\statistics\\vintage_lagged.json",
+      "sha256": "04a030f6619ad2c4eebc37349c6117f790b598e5e5025f8df4883db954410e4d"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\suite_results.json",
+      "sha256": "d74e2446a6d537c1252b6c3d74dca583c956d04273f18b92ac40d8d35024435c"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\comparisons.json",
+      "sha256": "563cdca5037de6ccf9a3e50102c0ff6fd7c6ca6fbc45faff807ced4d668138dd"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\sensitivity.json",
+      "sha256": "e718b236cb0d0bb73a87e0b1d4fea057a2f121ddeb2d1c268bcf4a893a4695b8"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\planned_runs.json",
+      "sha256": "f6b5c0a5c2d90f0a237dd8fde63ef3ecbb2329b16345c062764efdfe0e2aadcd"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\execution_plan.json",
+      "sha256": "938705bfc91f1dea751ed28137e031c8af26a15ac96ab7c93a5a4451c2e390d4"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\statistics\\fixed_snapshot.json",
+      "sha256": "0b546cfaad627ea9e9381c6a1894bcd7d1416aed444ba134fa4304ce93b21037"
+    },
+    {
+      "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\work\\rebuild-execution\\T08\\small-ac069ce-r1\\statistics\\vintage_lagged.json",
+      "sha256": "64e3e18fa4e43d1ded5b3f0c7c5593b6fe245df2a8c16cb2b8066604238e4e79"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/00_summary.json",
+      "sha256": "2ca192a7e9accfb289cbeb45006d81dd485a71c3e1318f9f4f1e1e985363197f"
+    },
+    {
+      "path": "evidence/01_handoff.json",
+      "sha256": "33f823770cec31c6bfd88bd50c12654064ab089dbe62d43ef695a61c50a7edef"
+    },
+    {
+      "path": "evidence/02_paper-caption-index.json",
+      "sha256": "ad7a4633c3fbcd721edd6fbb3799f021773ea303c9142a3b95caec3b1ae52377"
+    },
+    {
+      "path": "evidence/03_comparison.json",
+      "sha256": "7fca1bc6397aee0c936b733227f56d6d7e2fefeb21beba44fb4dc06226b00aab"
+    },
+    {
+      "path": "evidence/04_posthoc_nber_overlap.json",
+      "sha256": "3c40790e378800068e609db4a6f42c7bb7fa5198f3cf7d090a7fd805d2e98449"
+    },
+    {
+      "path": "evidence/05_r0_summary.png",
+      "sha256": "11f6fde08a2c2141b789d3fb39581f694c7263990669d4902a69dfde5b89bf68"
+    },
+    {
+      "path": "evidence/06_exclusion_timeline_v2.png",
+      "sha256": "87aa7ddcfde54a85df55bdcd8e3454c933c97003672777ddbefa9276e014b5dd"
+    },
+    {
+      "path": "evidence/07_exclusion_timeline_v2.svg",
+      "sha256": "7dca12727d1e504f179492faad4ee3958bd0e5f1c32789b8403ffdc7b65317f0"
+    },
+    {
+      "path": "evidence/08_figure01_pca.png",
+      "sha256": "09c57242431ba90b69545dc94eec7ad0eef18eeae3caf4163962cf535607391b"
+    },
+    {
+      "path": "evidence/09_figure01_pca.svg",
+      "sha256": "3ee6ffa008818757e936eb00e2ba2b4835d9b67f7f3909cdff251b6a606d7a80"
+    },
+    {
+      "path": "evidence/10_figure02_regime_timeline.png",
+      "sha256": "8a345f376fc109dc038b7dbbf7763742480a50b50e761927675b9c3ee9a646fc"
+    },
+    {
+      "path": "evidence/11_figure02_regime_timeline.svg",
+      "sha256": "b4e832e692d98f47b441b48aa9152f56ef924b899995d5aa9606f522367ce95a"
+    },
+    {
+      "path": "evidence/12_figure03_r0_probability.png",
+      "sha256": "9ae6e108ae6caad29a1bf9af3cbb9706d0c2a3d37f85c6c3a1f8d9bbbb5a2233"
+    },
+    {
+      "path": "evidence/13_figure03_r0_probability.svg",
+      "sha256": "7afdf66817593f43ba6716a6e74bd48e12dc4b8a750d7213a9b4d89b841d7b57"
+    },
+    {
+      "path": "evidence/14_figure04_indicators_raw.png",
+      "sha256": "21849ca6df0f7d7064d926aab41e1ab589a7e602f1b63ffa390221e5494fd7c7"
+    },
+    {
+      "path": "evidence/15_figure04_indicators_raw.svg",
+      "sha256": "861a698cadb70496f6f799a18ba4307864ed6196212320bd8130866d6dd86243"
+    },
+    {
+      "path": "evidence/16_figure04_indicators_tcode.png",
+      "sha256": "175caadeb58545cf51a653e4fd17e2b9fbfd2d90ea8832ef6b37dc79e34c6ed2"
+    },
+    {
+      "path": "evidence/17_figure04_indicators_tcode.svg",
+      "sha256": "0bb35287f05d64108cb244c290f11aeeb3fc460ae2bd58e0b6296eb02f5fd55c"
+    },
+    {
+      "path": "evidence/18_figure05_transitions.png",
+      "sha256": "662bdab43a116ebd0cce7a29351e1d2445daf5b526a8fcaa999ebb75fe2ba04b"
+    },
+    {
+      "path": "evidence/19_figure05_transitions.svg",
+      "sha256": "8c632a31f6d969b836a6286cca4372fbc3a3e58e432e68cc0e56ffe09195de94"
+    },
+    {
+      "path": "evidence/20_figure06_departure_network.png",
+      "sha256": "e5f7b549e136e17f9b0ad27ac2349c563a7514cb7263ce37c55f9a0be70c3bcc"
+    },
+    {
+      "path": "evidence/21_figure06_departure_network.svg",
+      "sha256": "2074dc9323c6eef983dcd583426608370d1cc5414280affb2bfe41ab76e2d12e"
+    },
+    {
+      "path": "evidence/22_figures_manifest.json",
+      "sha256": "b0bbf6100c111f6bcaee60da003287eb86fb8e8d14b2d4d389db0ca8c2036c34"
+    },
+    {
+      "path": "evidence/23_supplement_elbow.png",
+      "sha256": "85a1891eccaa92dc799b923d0fc50b0c83660473d550b241853edc06cb15f56d"
+    },
+    {
+      "path": "evidence/24_supplement_elbow.svg",
+      "sha256": "82ac68c2acc06b14613f709487ca453b9ff702371b66d6e6751ebf5991b4f4b7"
+    },
+    {
+      "path": "evidence/25_table01_regime_descriptions.json",
+      "sha256": "1f0799e7e6c11b86ca3229e622e312d4b5ce648ce2e99600f7c3c8a3547dd525"
+    },
+    {
+      "path": "evidence/suite02_comparisons.json",
+      "sha256": "9ec1d55c71114b179e68290e28f0d79a0b6ec2c365f6b2f0a52e3b3e6b9d73cf"
+    },
+    {
+      "path": "evidence/suite02_execution_plan.json",
+      "sha256": "6a34708392129a0d93200e10fd04c156dd49ea3f5e2759d0ce12dc331552ec50"
+    },
+    {
+      "path": "evidence/suite02_planned_runs.json",
+      "sha256": "384cbcdf4992faf278198b9ae316976a71559007298081b26288a06c255b9a7d"
+    },
+    {
+      "path": "evidence/suite02_sensitivity.json",
+      "sha256": "43f3e958920b0f1adb06b942f11933cb5cff8ad02eacb385ffb926c33e8f9e63"
+    },
+    {
+      "path": "evidence/suite02_statistics_fixed_snapshot.json",
+      "sha256": "7987441eb2918b3886ba20c1d24eb4f1ff205ffc24ac63d36c2932b4ded6fa51"
+    },
+    {
+      "path": "evidence/suite02_statistics_vintage_lagged.json",
+      "sha256": "04a030f6619ad2c4eebc37349c6117f790b598e5e5025f8df4883db954410e4d"
+    },
+    {
+      "path": "evidence/suite02_suite_results.json",
+      "sha256": "050190ef775f392cbf9f101bc69886414c2494f4024fb606eb6db2eb804d1167"
+    },
+    {
+      "path": "evidence/suite03_comparisons.json",
+      "sha256": "563cdca5037de6ccf9a3e50102c0ff6fd7c6ca6fbc45faff807ced4d668138dd"
+    },
+    {
+      "path": "evidence/suite03_execution_plan.json",
+      "sha256": "938705bfc91f1dea751ed28137e031c8af26a15ac96ab7c93a5a4451c2e390d4"
+    },
+    {
+      "path": "evidence/suite03_planned_runs.json",
+      "sha256": "f6b5c0a5c2d90f0a237dd8fde63ef3ecbb2329b16345c062764efdfe0e2aadcd"
+    },
+    {
+      "path": "evidence/suite03_sensitivity.json",
+      "sha256": "e718b236cb0d0bb73a87e0b1d4fea057a2f121ddeb2d1c268bcf4a893a4695b8"
+    },
+    {
+      "path": "evidence/suite03_statistics_fixed_snapshot.json",
+      "sha256": "0b546cfaad627ea9e9381c6a1894bcd7d1416aed444ba134fa4304ce93b21037"
+    },
+    {
+      "path": "evidence/suite03_statistics_vintage_lagged.json",
+      "sha256": "64e3e18fa4e43d1ded5b3f0c7c5593b6fe245df2a8c16cb2b8066604238e4e79"
+    },
+    {
+      "path": "evidence/suite03_suite_results.json",
+      "sha256": "d74e2446a6d537c1252b6c3d74dca583c956d04273f18b92ac40d8d35024435c"
+    },
+    {
+      "path": "evidence_index.json",
+      "sha256": "2b0de0b45fa5742f09464b5726a36a0bf1aacfe638122f4c8ced509da96961e3"
+    },
+    {
+      "path": "finding_resolution.json",
+      "sha256": "de774eb1df9e7ec5ba1ff3efdf22453969cb8317ceaeeff65220321133585beb"
+    },
+    {
+      "path": "findings.json",
+      "sha256": "c7fb87d0aea916de826493464505603d3f3feb9a287f80f09971e37ca7bbaef6"
+    },
+    {
+      "path": "report.md",
+      "sha256": "17c5046f10c86f82c7996bc188241266d57893a92278a5c7eeb9e0732d139f67"
+    },
+    {
+      "path": "run00_fixed_snapshot_curves.png",
+      "sha256": "f8052087af194ef9e2439a6e935d96f5e239a36e370abb7e23e4c5fb98f00e07"
+    },
+    {
+      "path": "run00_fixed_snapshot_curves.svg",
+      "sha256": "5c58be806a21c41a864b680158aa4dbc2195f08d9897f114e1bf0b73bfdc268a"
+    },
+    {
+      "path": "run00_fixed_snapshot_main_metrics.csv",
+      "sha256": "a45cea33cf31be148c289dc34b163ee1bbc17691f0a0b07b6fea7de14b56d3c3"
+    },
+    {
+      "path": "run00_fixed_snapshot_metrics_reasons.json",
+      "sha256": "368f15dbea5ebf7c9b86472b45ce1274b387f902f715bf8bb81a9fd6a115a184"
+    },
+    {
+      "path": "run01_vintage_lagged_curves.png",
+      "sha256": "d0c7180b1a34811210d77eb1223bfcc3da0e8d6f445c4515f5186f33449c5bc1"
+    },
+    {
+      "path": "run01_vintage_lagged_curves.svg",
+      "sha256": "25545927f33dca62c7b3226b0ba722ec08d638409aaba13a1b78da8835e09dfd"
+    },
+    {
+      "path": "run01_vintage_lagged_main_metrics.csv",
+      "sha256": "281ad617aa141d9c07842c8dcb8afb0ca73fd7f1e54b96940f7b69744404973a"
+    },
+    {
+      "path": "run01_vintage_lagged_metrics_reasons.json",
+      "sha256": "368f15dbea5ebf7c9b86472b45ce1274b387f902f715bf8bb81a9fd6a115a184"
+    },
+    {
+      "path": "traceability.json",
+      "sha256": "266f40d5e959ade793ac5bce13f543caf36f4c4088f023c9443d07c78bd32e65"
+    }
+  ],
+  "verification": "not_performed_by_report_generator",
+  "finished_at": "2026-09-16T04:28:52.584335+00:00"
+}

@@ -1,0 +1,28 @@
+{
+  "status": "approved",
+  "issues": [],
+  "advisory": [],
+  "language": "ko",
+  "baseline": "281ca05",
+  "reviewed_revision": "8815860ab7d170781b483d4e410314fbcd53b3c7",
+  "scope": "최신 사용자 범위 조정을 우선한 최종 제한 검토. 전체 변경 구조와 기존 독립 검토 경계를 확인하고 report/verify CLI, 한국어 프로젝트 문서, 실행 증거 버전, 원본 보존·역사 감사 경계에 집중했다.",
+  "lenses": {
+    "spec": "실행 가능한 재구현과 실제 수행 범위를 구분한다. 1541930의 두 profile 전체 기본 결과와 ac069ce의 짧은 후속 실행을 최신 전체 재현으로 오인하게 하는 중대 주장을 발견하지 않았다.",
+    "code": "보고서 입력 산출물 해시, 별도 출력 수명, 검증 범위 표시, CLI 종료코드의 연결에서 인계를 막는 문제를 발견하지 않았다.",
+    "harness_content_format": "한국어로 작성된 역할별 규칙과 시간·회계·자료 한계가 현재 구조에 맞는다. 진입 트리, 핵심 문서와 모듈 지침이 갖춰져 있고 미실행 범위를 영구 금지로 바꾸지 않았다.",
+    "harness_source_crosscheck": "구현/실행/원문 수치 인증을 구별하고 역사 감사를 별도 Git 버전으로 제한한다. 원본 보존 목록과 Git 이력의 역할, 원자료·전체 상태의 로컬 의존성을 명시한다."
+  },
+  "evidence": [
+    "reports/reproduction/verification.json: final pytest/report/representative verify CLI exit 0",
+    "reports/reproduction/final-pytest.log: 369 passed",
+    "reports/reproduction/report/report.md와 report.py/verification.py",
+    "README.md, AGENTS.md, CLAUDE.md, docs와 모듈 AGENTS.md, legacy/README.md",
+    "../work/rebuild-execution/finalization-scope-update.md"
+  ],
+  "verification_limits": [
+    "pytest·시장 실험·기존 독립 수학 검사를 재실행하지 않았다.",
+    "100개 대조군 전체 기간,16개 민감도 전체 기간,전체 suite 두 번 반복은 사용자 지시로 미실행이며 차단 사유로 판단하지 않았다.",
+    "보고서 산술 검증은 모형 재적합·변동성 추정기·통계 재표집을 인증하지 않는다.",
+    "reports/reproduction은 검토 시점에 최종 산출물 커밋 전이었다. 계산 소스를 변경하지 않는 산출물 커밋으로 인계를 마칠 수 있다."
+  ]
+}

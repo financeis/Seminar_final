@@ -1,0 +1,78 @@
+[
+  {
+    "page": 8,
+    "caption_context": "Fig. 1. The cumulative variance explained from using different amounts of eigenvector components in the PCA dimensionality reduction process. The curve reaches 95% at around the 61-component mark. Figure 2 compares the regime labels assigned by the modified k-means and GMM methods. The gray-shaded areas denote NBER-defined recession periods. Both methods capture similar regimes, aligning on most classifica-"
+  },
+  {
+    "page": 9,
+    "caption_context": "Fig. 2. A comparison of the regimes detected using the layered k-means method and the analogous GMM method. NBER recession periods are highlighted, alongside regime labels for both methods. Most classifications align, with notable differences between the two methods observed in Regime 2 and Regime 3. 4.4 Regime Properties"
+  },
+  {
+    "page": 10,
+    "caption_context": "Fig. 3. A comparison of the probabilities of being in a crisis period versus a normal period, as computed using the k-means distribution heuristic and the GMM. NBER recession periods are highlighted. The k-means probabilities show gradual transitions, while GMM distributions appear deterministic. We also note that some matrix elements have shallow values, with some being precisely 0. This implies that"
+  },
+  {
+    "page": 11,
+    "caption_context": "Fig. 4. Macroeconomic differences across regimes as measured via the average value of crucial FRED-MD statistics. The value of the statistics are min-max normalized along each row to make them easier to compare with one another. Fig. 5. Left: Regime transition probability matrix computed using all available data. Right: Regime transition probability matrix given that a regime transition occurs."
+  },
+  {
+    "page": 11,
+    "caption_context": "Fig. 5. Left: Regime transition probability matrix computed using all available data. Right: Regime transition probability matrix given that a regime transition occurs. 5 Forecasting Experiments We now demonstrate how these regimes can be leveraged to augment forecasting models to improve their"
+  },
+  {
+    "page": 12,
+    "caption_context": "Table 1. Economic characterizations of each of the regimes in this work. Regime Index Regime Label Characteristic Description 0 Economic Difficulty This regime has the highest unemployment rate and lowest con- sumer sentiment, federal funds rate, and real personal income. This"
+  },
+  {
+    "page": 13,
+    "caption_context": "Fig. 6. Regime transitions visualized in network form. Darker edges signify larger transition probabilities, and nodes have been positioned to emphasize the emergent path graph between the regimes. Labels are taken from Table 1. As mentioned at the end of Section 3.2, we first need to ensure that 𝒑𝑡 is renormalized to sum to 1. We achieve this by dividing it by its magnitude as follows"
+  },
+  {
+    "page": 16,
+    "caption_context": "Table 2. Economic characterizations of ETFs used in this work. Figures 7, 8, and 9 present comparative boxplots of performance metrics for control (random regimes) versus treatment (non-random regimes) across our three modeling approaches. Each figure displays four key metrics: Sharpe ratio, Sortino ratio, maximum drawdown (MaxDD), and percentage of positive returns. The boxplots"
+  },
+  {
+    "page": 17,
+    "caption_context": "Fig. 7. The figure depicts boxplots for controls and treatment portfolio metrics. The control is defined as the the naive method based on random regimes, whereas the control is defined as the naive method based on non-random regimes. The figure also shows p-values for the t-test for two related samples where the null hypothesis is that the control mean is higher than the treatment mean."
+  },
+  {
+    "page": 18,
+    "caption_context": "Fig. 8. The figure depicts boxplots for controls and treatment portfolio metrics. The control is defined as the the mean-variance optimization method (mvo), whereas the control is defined s the black-litterman (bl) where the views are defined based on the regimes. The figure also shows p-values for the t-test for two related samples where the null hypothesis is that the control mean is higher than the treatment mean."
+  },
+  {
+    "page": 19,
+    "caption_context": "Fig. 9. The figure depicts boxplots for controls and treatment portfolio metrics. The control is defined as the ridge (Ridge) method based on random regimes, whereas the control is defined as the ridge method based on not random regimes. The figure also shows p-values for the t-test for two related samples where the null hypothesis is that the control mean is higher than the treatment mean."
+  },
+  {
+    "page": 19,
+    "caption_context": "Table 3. The table shows results for the Nemenyi test. Control and treatment methods are defined as in Figure 7-9. The table shows the rank statistics for control and treatment methods, as long as p-values are associated with it. Metric Control Rank Treatment Rank p-value Panel A: Naive Random vs not Random Regimes Portfolios"
+  },
+  {
+    "page": 21,
+    "caption_context": "Fig. 10. Cumulative log returns with 10% volatility scaling of various tactical allocation methods over time. Linear ridge strategies are in yellow, naive strategies are in red, mean-variance optimization strategies are in blue, and Black-Litterman strategies are in green. Fig. 11. Cumulative log returns with 10% volatility scaling of various tactical allocation methods over time. Naive strategies"
+  },
+  {
+    "page": 21,
+    "caption_context": "Fig. 11. Cumulative log returns with 10% volatility scaling of various tactical allocation methods over time. Naive strategies are in blue, and mean-variance optimization strategies are in red."
+  },
+  {
+    "page": 22,
+    "caption_context": "Table 4. Performance metrics for portfolio strategies. Bold values indicate the best performance per column. Model Sharpe Sortino MaxDD % Positive Ret. naive_lns_2 0.651 1.984 -14.942 0.580 naive_mx_2 0.773 1.771 -14.643 0.585"
+  },
+  {
+    "page": 22,
+    "caption_context": "Fig. 12. Cumulative log returns with 10% volatility scaling of various tactical allocation methods over time. Black-Litterman strategies are in pink, and mean-variance optimization strategies are in red."
+  },
+  {
+    "page": 23,
+    "caption_context": "Table 5. Performance metrics for portfolio strategies with Black-Litterman and MVO approaches. Bold values indicate the best performance per column. Model Sharpe Sortino MaxDD % Positive Ret. bl_lns_2 0.390 1.507 -17.926 0.522"
+  },
+  {
+    "page": 23,
+    "caption_context": "Fig. 13. Cumulative log returns with 10% volatility scaling of various tactical allocation methods over time. Linear ridge strategies are in blue, and mean-variance optimization strategies are in red."
+  },
+  {
+    "page": 24,
+    "caption_context": "Table 6. Performance metrics for linear ridge regression and MVO approaches. Bold values indicate the best performance per column. Model Sharpe Sortino MaxDD % Positive Ret. ridge_lns_2 0.666 0.718 -27.020 0.621"
+  }
+]

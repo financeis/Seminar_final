@@ -1,6 +1,5 @@
 # CSV files (except raw data)
 *.csv
-!FRED-MD_2024m12.csv
 
 # PNG files
 *.png
@@ -15,13 +14,21 @@ __pycache__/
 *.so
 .Python
 env/
-venv/
+venv
+.venv-research
+.pytest_cache/
+data/raw/
+data/cache/
+artifacts/
 ENV/
 env.bak/
 venv.bak/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
+# Local audit planning and isolated task checkouts
+.dryforge/
 
 # Distribution / packaging
 dist/
