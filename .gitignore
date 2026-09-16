@@ -1,6 +1,5 @@
 # CSV files (except raw data)
 *.csv
-!FRED-MD_2024m12.csv
 
 # PNG files
 *.png

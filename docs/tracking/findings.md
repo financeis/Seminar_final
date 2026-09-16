@@ -1,6 +1,6 @@
 # 남아 있는 연구 한계
 
-원 코드의 결함·누락 대응은 새 패키지와 보고서에서 구분해 기록한다. 역사 발견 목록은 reports/paper_audit/findings.json에 유지한다.
+원 코드의 결함·누락 대응은 새 패키지와 보고서에서 구분해 기록한다. 처리 목록은 reports/reproduction/report/finding_resolution.json에 기록한다. 구 감사 파일은 현재 체크아웃에서 제거했다.
 
 | 조건과 한계 | 영향 | 이번에 남기는 이유와 후속 접근 |
 |---|---|---|

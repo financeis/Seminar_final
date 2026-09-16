@@ -32,6 +32,6 @@ py -3.11 -m venv .venv-research
 
 suite의 --smoke를 빼면 100개 대조군과 전체 민감도 묶음을 실행한다. 이번 마무리에서는 이 긴 실행을 수행하지 않았다. 결과 폴더는 매번 새 이름이어야 한다. --no-cache는 과거 실행 캐시를 읽지 않는 기본 정책을 명시한다. 실행 중에는 코드를 편집하지 않는다. 서버·배포 절차는 없다.
 
-## 역사 감사
+## 현재 프로젝트의 보존 자료
 
-원 감사 기록은 reports/paper_audit에 보존돼 있다. 재실행이 필요할 때만 281ca05를 별도 체크아웃하고 그곳에서 audit_tests/run_audit.py --output reports/paper_audit/evidence 다음 audit_tests/check_artifacts.py --report-dir reports/paper_audit 순으로 실행한다. 감사 의존성은 그 버전의 audit_tests/requirements-audit.txt, 지정 논문은 부모의 idea_paper.pdf 또는 AUDIT_PAPER_PATH 절대 경로다. 현재 패키지에서 이 명령을 실행해 옛 해시를 인증하지 않는다. 이번에는 역사 감사의 반복 실행을 생략했다.
+구 구현·옛 감사 실행기는 현재 체크아웃에서 제거했다. 지정 논문은 docs/idea_paper.pdf다. 최신 결과의 재검증에 필요한 원자료는 data/raw, 실제 실험 원본은 저장소 부모 work/rebuild-execution에 남아 있다. 과거 코드가 필요한 경우에만 Git 이력에서 별도로 확인한다.

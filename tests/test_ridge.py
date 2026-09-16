@@ -8,8 +8,8 @@ from regime_alloc.models import fit_ridge, ridge_candidates, aggregate_ridge
 
 
 def fixture():
-    path = Path(__file__).resolve().parents[1] / 'reports/paper_audit/evidence/forecasting/fixtures.json'
-    return json.loads(path.read_text(encoding='utf-8'))['loocv_counterexample']['data']
+    path = Path(__file__).parent / 'fixtures/ridge_loo_counterexample.json'
+    return json.loads(path.read_text(encoding='utf-8'))['data']
 
 
 def independent_fit(x, y, lam):

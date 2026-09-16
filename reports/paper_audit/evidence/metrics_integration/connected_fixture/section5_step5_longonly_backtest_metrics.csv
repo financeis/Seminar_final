@@ -1,6 +1,0 @@
-Sharpe,Sortino,AvgDD,MaxDD,% Positive Ret.,Model
-,,0.0,0.0,1.0,ridge_lo_2
-,,0.0,0.0,1.0,ridge_lo_3
-,,0.0,0.0,1.0,ridge_lo_4
-,,0.0,0.0,1.0,spy
-,,0.0,0.0,1.0,ew

@@ -2,7 +2,7 @@
   "kind": "research_report",
   "schema_version": "1.0",
   "status": "succeeded",
-  "started_at": "2026-09-16T00:15:55.930926+00:00",
+  "started_at": "2026-09-16T04:28:45.602445+00:00",
   "sources": [
     {
       "path": "C:\\Users\\imyon\\Projects\\renewal_seminar\\Seminar_final\\reports\\reproduction\\evidence-bundle.json",
@@ -416,7 +416,7 @@
     },
     {
       "path": "run00_fixed_snapshot_curves.svg",
-      "sha256": "207165c981e41b1dda546d12f34b0a325a219f9d8191e7655a412edfa04cf481"
+      "sha256": "5c58be806a21c41a864b680158aa4dbc2195f08d9897f114e1bf0b73bfdc268a"
     },
     {
       "path": "run00_fixed_snapshot_main_metrics.csv",
@@ -432,7 +432,7 @@
     },
     {
       "path": "run01_vintage_lagged_curves.svg",
-      "sha256": "d07d7344ed896bbaf3f389c70174f8ce9bff0cb0b1f7672e85ac5bb2490064d5"
+      "sha256": "25545927f33dca62c7b3226b0ba722ec08d638409aaba13a1b78da8835e09dfd"
     },
     {
       "path": "run01_vintage_lagged_main_metrics.csv",
@@ -444,9 +444,9 @@
     },
     {
       "path": "traceability.json",
-      "sha256": "3e6fd63a24a0b58e7033cddf65702f29ca6be70d178a154f382dd9730bc1721c"
+      "sha256": "266f40d5e959ade793ac5bce13f543caf36f4c4088f023c9443d07c78bd32e65"
     }
   ],
   "verification": "not_performed_by_report_generator",
-  "finished_at": "2026-09-16T00:16:12.350497+00:00"
+  "finished_at": "2026-09-16T04:28:52.584335+00:00"
 }
