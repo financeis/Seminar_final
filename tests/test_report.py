@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from regime_alloc.reporting.report import generate_report
+from regime_alloc.reporting.report import generate_report, _curves
 from regime_alloc.contracts import ResearchError
 from regime_alloc.contracts import sha256_file
 from regime_alloc.reporting.verification import verify_run
@@ -34,3 +34,27 @@ def test_report_is_immutable_and_labels_unrun(tmp_path):
     result = verify_run(bundle, report=out)
     assert next(c for c in result['checks'] if c['name'] == 'report_evidence')['status'] == 'fail'
     assert any('missing-evidence' in e['reason'] for e in result['errors'])
+
+
+def test_smoke_points_and_corrupt_input_rejection(tmp_path, monkeypatch):
+    from matplotlib.axes import Axes
+    run = tmp_path/'smoke'
+    run.mkdir()
+    (run/'effective_config.json').write_text('{"smoke": true}', encoding='utf-8')
+    (run/'returns.csv').write_text('holding_month,strategy_id,net_return,wealth\n2003-02,spy,-0.1,0.9\n2022-12,spy,0.2,1.2\n', encoding='utf-8')
+    points = []
+    original = Axes.scatter
+    def capture(self, x, y, **kwargs):
+        points.append(list(y))
+        return original(self, x, y, **kwargs)
+    def no_line(*args, **kwargs):
+        raise AssertionError('smoke must not connect independent NAV observations')
+    monkeypatch.setattr(Axes, 'scatter', capture)
+    monkeypatch.setattr(Axes, 'plot', no_line)
+    _curves(run, tmp_path, 'smoke')
+    assert points == [[-.1, .2]]
+    (run/'run_manifest.json').write_text(json.dumps({'status':'succeeded', 'artifacts':[
+        {'path':'effective_config.json','sha256':'incorrect'}]}), encoding='utf-8')
+    with pytest.raises(ResearchError, match='hash mismatch'):
+        generate_report(run, tmp_path/'rejected-report')
+    assert json.loads((tmp_path/'rejected-report/report_manifest.json').read_text())['status'] == 'failed'
