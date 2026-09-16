@@ -19,6 +19,12 @@ def main(argv=None):
         run.add_argument('--output', required=True)
         run.add_argument('--smoke', action='store_true', help='최초·2020-04·마지막 평가월의 독립 통합 검사')
         run.add_argument('--no-cache', action='store_true', help='이전 실행 캐시를 읽지 않음 (항상 적용되는 기본 정책)')
+    report = commands.add_parser('report', help='저장 결과로 한국어 보고서 생성')
+    report.add_argument('--run', required=True)
+    report.add_argument('--output')
+    verify = commands.add_parser('verify', help='저장 결과와 보고서의 산출물 점검')
+    verify.add_argument('--run', required=True)
+    verify.add_argument('--report')
     args = parser.parse_args(argv)
     if args.command is None:
         parser.print_help()
@@ -28,18 +34,26 @@ def main(argv=None):
     from .contracts import ResearchError, canonical_json
 
     try:
-        config = load_config(args.config)
-        if args.command == 'run':
+        if args.command == 'report':
+            from .reporting.report import generate_report
+            result = generate_report(args.run, args.output)
+        elif args.command == 'verify':
+            from .reporting.verification import verify_run
+            result = verify_run(args.run, args.report)
+        elif args.command == 'run':
             from .backtest.engine import run_research
+            config = load_config(args.config)
             result = run_research(config, args.output, smoke=args.smoke, use_prior_cache=False)
         elif args.command == 'suite':
             from .backtest.experiments import run_suite
+            config = load_config(args.config)
             result = run_suite(config, args.output, smoke=args.smoke)
         else:
             from . import data as providers
+            config = load_config(args.config)
             result = getattr(providers, args.action)(config)
         print(canonical_json(result))
-        return 0
+        return 4 if args.command == 'verify' and result['status'] != 'succeeded' else 0
     except ResearchError as exc:
         print(canonical_json(exc.to_dict()), file=sys.stderr)
         return exc.exit_code
