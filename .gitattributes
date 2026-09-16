@@ -1,2 +1,3 @@
-# Preserve generated evidence bytes, including manifest hashes, on Windows checkouts.
-reports/reproduction/** -text
+# Preserve generated/copied evidence bytes and manifest hashes on Windows checkouts.
+# Whitespace normalization would invalidate these immutable source copies.
+reports/reproduction/** -text -whitespace
