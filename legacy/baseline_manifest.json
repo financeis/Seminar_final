@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "algorithm": "sha256",
+  "original_commit": "9439107b31f20c4b731ec1dc29f13c178beb311d",
+  "historical_audit_checkout": "281ca05",
+  "preservation": "Approved hashes describe Windows checkout bytes. Git text blobs use LF; baseline_byte_encoding records exact reconstruction. Historical audit was not rerun.",
+  "files": [
+    {
+      "path": "FRED-MD_2024m12.csv",
+      "sha256": "7494b30c6a3acbe46a9f9029e63db7cca6a5dd9dac0111e2f8d02ef62482f195",
+      "git_blob_sha256": "9a402b387c520444c1d27c376733ebd1bcbd93b17a492fe26882f47fc784a37f",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:FRED-MD_2024m12.csv"
+    },
+    {
+      "path": "FRED-MD_updated_appendix.pdf",
+      "sha256": "8394206932cf7e73d945054dcffb5687b1baf0db425bea60410b1e66dac50b7d",
+      "git_blob_sha256": "8394206932cf7e73d945054dcffb5687b1baf0db425bea60410b1e66dac50b7d",
+      "baseline_byte_encoding": "unchanged",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:FRED-MD_updated_appendix.pdf"
+    },
+    {
+      "path": "README.md",
+      "sha256": "37d2236b0a9c359b65d209ef15efe209e77eaf92f2eb480d74d2278229619017",
+      "git_blob_sha256": "d33c1f0969e30e03224d2831a0608734a981ada82c8c2709a275b00d11131d06",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:README.md"
+    },
+    {
+      "path": "Section3.py",
+      "sha256": "0df543cd1b3ff0b1e41380665210e85323e36f34fb700b809a123f8d5065002e",
+      "git_blob_sha256": "6b8dbc6241949d52394e3cbbabcbf2cfc6888d2ec4699c6d8bbea8cd7a83bbd2",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section3.py"
+    },
+    {
+      "path": "Section5_step0_ETF_Loader.py",
+      "sha256": "3b7467adc97f58eea4a95fbb7c676df655a91493c12ea475608eab3eb718b7c3",
+      "git_blob_sha256": "44c085521dbef7627c224fb390b67da5516036bbfd4ed0c21044540ffd876e8a",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section5_step0_ETF_Loader.py"
+    },
+    {
+      "path": "Section5_step1.py",
+      "sha256": "599351a474ccc12455980f9a934be5e2c4380c90de3152c6570312d8045ae98d",
+      "git_blob_sha256": "9c9aac7381cc3f866595bf1ae823df4809eea1f98454c41e611501aa01ca71a8",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section5_step1.py"
+    },
+    {
+      "path": "Section5_step2.py",
+      "sha256": "ec5799bc00e0435396b1625ad4eedd579bd2c7d7497deb4da8b338010ec75f98",
+      "git_blob_sha256": "e6de53793a463e71831dbe2447999c6a69d4f008b0d194c4f9305b41ef630a7a",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section5_step2.py"
+    },
+    {
+      "path": "Section5_step3.py",
+      "sha256": "24b1486486e7f4d98f9e6912af7f5ffe6f5a4ea3f163d82a833574366038963c",
+      "git_blob_sha256": "0f15ed645bdc1e341d2ab2163f55b2350345131530dab54fc95c8b29a6f56e9a",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section5_step3.py"
+    },
+    {
+      "path": "Section5_step4.py",
+      "sha256": "d15509d1fc0106be3a15eaa5336df30540e9ca939e8fa45c17545c9df4ba6c11",
+      "git_blob_sha256": "e562a45a094d727923fe07254c640ea2049b462912ba11b1bf7edb6dffac9fad",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section5_step4.py"
+    },
+    {
+      "path": "Section5_step5.py",
+      "sha256": "86743dba1d7a8a09826c9cb2bfa53eb8378502cea6a40c82419bdccc5e9ef4a7",
+      "git_blob_sha256": "42f0f2ecc8c05b394812c6ee57d59e6ff60cac753b3db36559d9776efc3b00ab",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Section5_step5.py"
+    },
+    {
+      "path": "Tactical Asset Allocation with Macroeconomic Regime Detection (1).pdf",
+      "sha256": "5a42c98786bd0e607475221ae6180861192a79508bcd0c65372b4186b7616522",
+      "git_blob_sha256": "5a42c98786bd0e607475221ae6180861192a79508bcd0c65372b4186b7616522",
+      "baseline_byte_encoding": "unchanged",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:Tactical Asset Allocation with Macroeconomic Regime Detection (1).pdf"
+    },
+    {
+      "path": "etc_regime_stats_transformed.py",
+      "sha256": "344d3c3c47bef7c7aa7afdcf028b66d75a1c3516d77a675f45bd69703fee5e05",
+      "git_blob_sha256": "d9845281be88a2e0b5a509e3fe623ec4b291406f0d5fa94b7535284b2dbd699c",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:etc_regime_stats_transformed.py"
+    },
+    {
+      "path": "etc_regime_visualization.py",
+      "sha256": "599abf8728031a4b7c194e4c346d00beea0795349bd17413dfef5e87694e6d39",
+      "git_blob_sha256": "5f6542e338c0a5caf4146ad2a911adced884cb99d61006f5bcfea32cf2fb09be",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:etc_regime_visualization.py"
+    },
+    {
+      "path": "etc_visualize_backtest.py",
+      "sha256": "acff3933d6719833b9b4d22007c7851f280422e6272776868b0291fa965aac31",
+      "git_blob_sha256": "8921dfa6d06c9f9d0fb9809d5c9461b78c5cfe189e65f01d143eec5ea9c69fad",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:etc_visualize_backtest.py"
+    },
+    {
+      "path": "etc_visualize_transition_matrix.py",
+      "sha256": "f14d9aa9b0f52d5e6171b2ef67bb69a61c06d11b816bcda560523df08b67ba9d",
+      "git_blob_sha256": "a150a4033791621a70c6899a3542eeaf85d8cfc22655c4a0525a3970e6c38ef3",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:etc_visualize_transition_matrix.py"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "3873dc75d4ca7351ffee18fa013a276f2ed330630ed7f46dc3f358932541f4c0",
+      "git_blob_sha256": "4779b48a9375f1d52ecb7b87805d33300ebfb38069f19df61e37cfd0b0d49817",
+      "baseline_byte_encoding": "LF to CRLF for Windows baseline bytes",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:requirements.txt"
+    },
+    {
+      "path": "section3_1_centroids_and_indices.npz",
+      "sha256": "86940f5d0b61b1a94b752b1427e31ea9005ed2587f1b5a300e19963e614b4d52",
+      "git_blob_sha256": "86940f5d0b61b1a94b752b1427e31ea9005ed2587f1b5a300e19963e614b4d52",
+      "baseline_byte_encoding": "unchanged",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:section3_1_centroids_and_indices.npz"
+    },
+    {
+      "path": "section5_step1_E_matrices.npz",
+      "sha256": "7bd05bb056a825c58301a494d0884b6260785a1b70e4f86e36a0ea638e7e7c81",
+      "git_blob_sha256": "7bd05bb056a825c58301a494d0884b6260785a1b70e4f86e36a0ea638e7e7c81",
+      "baseline_byte_encoding": "unchanged",
+      "git_source": "9439107b31f20c4b731ec1dc29f13c178beb311d:section5_step1_E_matrices.npz"
+    }
+  ]
+}

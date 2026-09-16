@@ -1,27 +1,22 @@
-# 진단 CLI와 산출물 계약
+# CLI와 결과 계약
 
-명령은 저장소 루트에서 호출한다. 애플리케이션 인증은 없으며 로컬 파일 읽기·결과 폴더 쓰기 권한이 필요하다. 경로 옵션의 상대 경로는 현재 작업 디렉터리 기준이다. `--repo`의 기본값은 실행 스크립트가 속한 저장소다.
+인증이 없는 로컬 CLI다. 명령행 경로는 현재 작업 디렉터리, TOML 안의 상대 경로는 설정 파일 위치 기준이다. 파일은 UTF-8, 월은 YYYY-MM, 시각은 UTC offset을 포함하고 수익·비중은 소수 단위다.
 
-## 실험 실행
+| 명령 | 입력 | 결과와 주요 실패 |
+|---|---|---|
+| data acquire --config FILE | 제공자·기간·자료 루트·고정 ID | 새 원자료 manifest 또는 기존 스냅샷 검증. 다운로드·필수 자료·고정 ID 불일치 시 실패 |
+| data validate --config FILE | 고정 자료 ID | 열·자산·달력·공개본·해시 검사. 누락·중복·손상 시 실패 |
+| run --config FILE --output DIR | 단일 자료 방식·기간·가정 | 예측·비중·수익·지표·창별 상태·manifest. 자료 부족·수치 오류·출력 충돌 시 실패 |
+| suite --config FILE --output DIR | 두 자료 방식·대조·민감도 설정 | 실행 계획·자식 결과·비교 통계. 예정 자식 실패를 숨기지 않음 |
+| report --run PATH [--output DIR] | 단일 실행·묶음·연구 증거 bundle | 별도 한국어 보고서·CSV·JSON·PNG·SVG·report_manifest. 기존 출력과 손상된 입력은 실패 |
+| verify --run PATH [--report DIR] | 실행·묶음·선택적 보고서 | status/checks/errors/scope JSON. supplied 결과의 해시·참조·독립 회계·지표 검증 |
 
-`python -X utf8 audit_tests/run_audit.py --output reports/paper_audit/evidence`
+run/suite의 --smoke는 떨어진 세 달의 연결 확인이다. --no-cache는 이전 실행 캐시를 읽지 않는 기본 정책이다. run은 continuous 기본 실행과 smoke를 결과에 구분한다. suite는 실행 전에 planned_runs/execution_plan을 기록한다.
 
-- 입력: 선택적 `--repo`, `--output`. 기본 출력은 reports/paper_audit/evidence다. 기준 원본 파일과 지정 PDF, 고정 패키지가 필요하다.
-- 출력: 데이터·레짐·예측·성과/연결 영역의 results.json과 보조 증거, 전체 run_summary.json. stdout에는 영역별 및 전체 상태 건수를 출력한다.
-- 종료: 정상 진단 완료는 0이며 FAIL을 포함할 수 있다. 실행기/영역 실행 오류, 유효하지 않은 결과 형식, 원본 해시 불일치는 2다. 원 스크립트에서 기대한 오류를 재현한 경우는 해당 성질의 FAIL로 기록한다.
+종료코드는 성공 0, 설정 오류 2, 자료·실행 오류 3, 검증 실패 4다. 구조화한 오류는 error_code/reason/details를 담는다. verify의 실패는 errors 목록으로 반환한다. 지원 코드에는 invalid_config, missing_data, duplicate_key, nonfinite_value, calendar_gap, hash_mismatch, partition_mismatch, degenerate_partition, insufficient_history, numerical_failure, run_conflict, verification_failed가 있다.
 
-## 산출물 점검
+실행 상태는 running/succeeded/failed다. run_manifest에는 코드·환경·설정·입력 ID·실제 기간·전략·파일 해시가 있다. CSV 키는 창/모형/자산 또는 월/전략이며 유일해야 한다. weights에는 CASH가 있고 returns에는 순수익·비용·자산·낙폭이 있다. metrics의 정의 불가 값은 비표준 NaN JSON 대신 사유 있는 null로 표시한다. 창별 NPZ는 pickle 없이 저장한다.
 
-`python -X utf8 audit_tests/check_artifacts.py --report-dir reports/paper_audit`
+verify는 supplied 산출물과 산술을 검사한다. 모델 재적합·변동성 추정기 재검증·미실행 실험 인증은 하지 않는다. REGIME_DATA_ROOT가 있으면 고정 원가격까지 확인하며, 없으면 저장 자산수익을 입력으로 사용했다는 범위를 결과에 명시한다. 보고서 생성도 모델을 재학습하지 않는다.
 
-- 입력: 선택적 `--repo`, `--report-dir`. 보고서 폴더에는 methodology.md, traceability.md, audit_report.md, findings.json, environment.json, evidence_index.md와 evidence가 있어야 한다. Git 기준 이력도 필요하다.
-- 출력: stdout의 JSON 객체에 status, exit_code, errors, facts를 담는다. facts는 실제 검사 건수·발견 수·근거 수·원본 개수 등을 포함한다.
-- 종료: 스키마·수식/방법 목록·증거 참조·보고서 일치·현재 소스와 원본 해시가 맞으면 0, 누락·모순·검사 실행 실패면 1이다. 연구 구현의 정확성을 인증하는 종료코드가 아니다.
-
-## 공통 형식
-
-실험 상태는 PASS(명시된 성질 성립), FAIL(그 성질 불성립), ERROR(검사를 끝내지 못함), SKIP(필요 자료 등 부재로 미실행)이다. 각 실험은 id, title, status, expected, observed, source_refs, inputs, oracle, tolerance, notes를 가진다. 비유한 수는 NaN/Infinity 등의 JSON 문자열로 보존한다.
-
-findings.json은 발견 목록이다. 필수 필드는 id, title, category, severity, confidence, paper_refs, code_refs, expected, observed, impact, evidence_ids, recommendation, limitations다. limitations는 문자열 목록이고 없으면 []다. category는 implementation_error/paper_deviation/missing_method/paper_ambiguity/statistical_validity/reproducibility, severity는 critical/high/medium/low/info, confidence는 confirmed/supported/unresolved 중 하나다. 미구현은 code_refs=[]와 전체 조사 범위로 부재를 설명한다.
-
-방법 판정은 일치·부분일치·불일치·미구현·논문모호·검증불가를 사용한다. 실험 상태와 방법 판정은 다른 분류다. 같은 ID가 가리키는 결과는 보고서와 JSON에서 같아야 한다. run_summary.json은 최신 통합 실행이며 과거 영역별 execution/verification 파일을 최신 실행으로 취급하지 않는다.
+과거 audit_tests 두 명령은 281ca05 전용 인터페이스다. 역사 진단의 정상 완료에는 연구 결함 FAIL이 포함될 수 있으므로 현재 verify의 성공과 같은 의미로 읽지 않는다.
