@@ -105,6 +105,7 @@ def _curves(run, output, label):
     import matplotlib
     matplotlib.use('Agg')
     from matplotlib import pyplot as plt
+    smoke = _read(run/'effective_config.json').get('smoke', False)
     paths = []
     fig, axes = plt.subplots(2, 1, figsize=(12, 8), constrained_layout=True)
     for ax, folder, title in zip(axes, (run, run/'scaled'), ('Unscaled', 'Past-volatility scaled')):
@@ -118,14 +119,22 @@ def _curves(run, output, label):
             series = sorted((r for r in rows if r['strategy_id'] == strategy), key=lambda r:r['holding_month'])
             months = [r['holding_month'] for r in series]
             featured = strategy in {'spy', 'ew', 'ridge_lo_2', 'naive_lo_2', 'bl_lo_2', 'mvo_lo_2'}
-            ax.plot(range(len(series)), [float(r['wealth']) for r in series],
-                label=strategy if featured else None, linewidth=1.7 if featured else .65,
-                alpha=1 if featured else .20, color=None if featured else '#64748b')
-        ax.set_yscale('log')
+            if smoke:
+                ax.scatter(range(len(series)), [float(r['net_return']) for r in series],
+                    label=strategy if featured else None, s=22 if featured else 9,
+                    alpha=1 if featured else .20, color=None if featured else '#64748b')
+            else:
+                ax.plot(range(len(series)), [float(r['wealth']) for r in series],
+                    label=strategy if featured else None, linewidth=1.7 if featured else .65,
+                    alpha=1 if featured else .20, color=None if featured else '#64748b')
+        if not smoke:
+            ax.set_yscale('log')
         if rows:
             ticks = sorted({0, len(months)//2, len(months)-1})
             ax.set_xticks(ticks, [months[i] for i in ticks])
-        ax.set(title=f'{label}: {title} ({len(strategies)} strategies)', ylabel='NAV (log scale)')
+        ax.set(title=f'{label}: {title} ({len(strategies)} strategies)'
+            + (' — diagnostic independent months' if smoke else ''),
+            ylabel='Independent monthly net return' if smoke else 'NAV (log scale)')
         ax.grid(alpha=.2)
         if strategies:
             ax.legend(fontsize=8, ncol=3)
@@ -175,6 +184,8 @@ def generate_report(run, output=None):
             path = path.resolve()
             if not path.is_file():
                 raise ResearchError(ErrorCode.MISSING_DATA, f'report reference missing: {path}')
+            if entry.get('sha256') and sha256_file(path) != entry['sha256']:
+                raise ResearchError(ErrorCode.HASH_MISMATCH, f'report reference hash mismatch: {path}')
             destination = output/'evidence'/f'{i:02d}_{path.name}'
             destination.parent.mkdir(exist_ok=True)
             shutil.copyfile(path, destination)
@@ -186,6 +197,10 @@ def generate_report(run, output=None):
             path = path if path.is_absolute() else source_file.parent/path
             path = path.resolve()
             rm = _read(path/'run_manifest.json')
+            if rm.get('status') != 'succeeded':
+                raise ResearchError(ErrorCode.VERIFICATION_FAILED, f'report input did not succeed: {path}')
+            from .verification import _inventory
+            _inventory(path, rm, 'run_manifest.json')
             sources.append(_ref(path/'run_manifest.json'))
             runs.append((path, entry, rm))
         write_json(output/'evidence_index.json', {'references': copied, 'sources': sources})
